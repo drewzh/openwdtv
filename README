@@ -1,14 +1,15 @@
-  ____              _      _____  _______   __
- / __ \___  ___ ___| | /| / / _ \/_  __/ | / /
-/ /_/ / _ \/ -_) _ \ |/ |/ / // / / /  | |/ / 
-\____/ .__/\__/_//_/__/|__/____/ /_/   |___/  
-    /_/ Version 1.0.0 ALPHA
+_______                    ___       ___________________    __
+__  __ \_____________________ |     / /__  __ \__  __/_ |  / /
+_  / / /__  __ \  _ \_  __ \_ | /| / /__  / / /_  /  __ | / / 
+/ /_/ /__  /_/ /  __/  / / /_ |/ |/ / _  /_/ /_  /   __ |/ /  
+\____/ _  .___/\___//_/ /_/____/|__/  /_____/ /_/    _____/   
+       /_/ Version 1.0.0 ALPHA
 
 Features
 --------
  - Fully customisable via Web GUI (configure services, add new features, update plugins etc)
  - Custom OSD
- - Latest BusyBox build with various servies configurable (telnet, cron, ftp etc)
+ - Latest BusyBox build with various services configurable (telnet, cron, ftp etc)
  - Dropbear SSH Server
  - PHP 5.3.2
  - WDTVExt with many plugins preinstalled
