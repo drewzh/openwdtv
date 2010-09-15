@@ -1,8 +1,9 @@
 #!/bin/bash
-
-##########################################
-## OpenWDTV Firmware Repackaging Script ##
-##########################################
+#  _____             _ _ _ ____  _____ _____ 
+# |     |___ ___ ___| | | |    \|_   _|  |  |
+# |  |  | . | -_|   | | | |  |  | | | |  |  |
+# |_____|  _|___|_|_|_____|____/  |_|  \___/ 
+#       |_| http://openwdtv.org
 
 unpack(){
 	echo "Unpacking firmware..."
@@ -17,7 +18,7 @@ unpack(){
 	echo Unpacking...
 	./cramfsck -x unpacked origimg.tmp
 
-	echo Removing un-needed init.d files...
+	echo Removing original init.d files...
 	rm -rf unpacked/etc/init.d/*
 	
 	clean
