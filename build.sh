@@ -16,7 +16,7 @@ unpack(){
 	dd if=origfw/wdtvlive.bin of=origimg.tmp bs=32 skip=1c
 
 	echo Unpacking...
-	./cramfsck -x unpacked origimg.tmp
+	./tools/cramfsck -x unpacked origimg.tmp
 
 	echo Removing original init.d files...
 	rm -rf unpacked/etc/init.d/*
@@ -52,7 +52,7 @@ repack(){
 	fi
 
 	echo Making cramfs...
-	./mkcramfs unpacked newimg.tmp
+	./tools/mkcramfs unpacked newimg.tmp
 
 	echo Generating signature and adding to new firmware...
 
