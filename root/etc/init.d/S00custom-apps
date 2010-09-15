@@ -7,11 +7,11 @@
 
 if [ "`config read ENABLE_APPS`" == "1" ]; then
 
-    logger -t $msg "Scanning external media for app.bin files..."
+    logger -t "Scanning external media for app.bin files..."
     EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin"`
     
     for i in /apps/*.app.bin, $EXTAPPS; do
-        logger -t $msg "Mounting $i on root..."
+        logger -t "Mounting $i on root..."
         mount -o bind $i /
     done
     
