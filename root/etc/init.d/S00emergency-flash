@@ -1,0 +1,13 @@
+#!/bin/sh
+#  _____             _ _ _ ____  _____ _____ 
+# |     |___ ___ ___| | | |    \|_   _|  |  |
+# |  |  | . | -_|   | | | |  |  | | | |  |  |
+# |_____|  _|___|_|_|_____|____/  |_|  \___/ 
+#       |_| http://openwdtv.org
+
+read -n 1 -t 1 -p "Press any key to emergency flash..." var_flashreq
+
+if [ $var_flashreq -ne "" ]; then
+  echo Entering emergency flash...
+  run_all upgrade /dev/sda1 wdtvlive.bin &
+fi

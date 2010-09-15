@@ -1,0 +1,18 @@
+#!/bin/sh
+#  _____             _ _ _ ____  _____ _____ 
+# |     |___ ___ ___| | | |    \|_   _|  |  |
+# |  |  | . | -_|   | | | |  |  | | | |  |  |
+# |_____|  _|___|_|_|_____|____/  |_|  \___/ 
+#       |_| http://openwdtv.org
+
+if [ "`config read ENABLE_APPS`" == "1" ]; then
+
+    logger -t $msg "Scanning external media for app.bin files..."
+    EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin"`
+    
+    for i in /apps/*.app.bin, $EXTAPPS; do
+        logger -t $msg "Mounting $i on root..."
+        mount -o bind $i /
+    done
+    
+fi

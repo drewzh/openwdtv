@@ -1,0 +1,21 @@
+#!/bin/sh
+#  _____             _ _ _ ____  _____ _____ 
+# |     |___ ___ ___| | | |    \|_   _|  |  |
+# |  |  | . | -_|   | | | |  |  | | | |  |  |
+# |_____|  _|___|_|_|_____|____/  |_|  \___/ 
+#       |_| http://openwdtv.org
+
+if [ "$1" != "" ] && [ "$2" != "" ]
+then
+  case $1
+  in
+    read)
+      grep -ie "$2" config_test | cut -d "=" -f2
+    ;;
+    write)
+      config_tool -c "$2=$3"
+    ;;
+  esac
+else
+  echo "Usage: config [read|write] [value] (new value)"
+fi
