@@ -18,8 +18,10 @@ unpack(){
 	echo Unpacking...
 	./tools/cramfsck -x unpacked origimg.tmp
 
-	echo Removing original init.d files...
-	rm -rf unpacked/etc/init.d/*
+	if [ "$1" != "testrun" ]; then
+		echo Removing original init.d files...
+		rm -rf unpacked/etc/init.d/*
+	fi
 	
 	clean
 }
@@ -42,7 +44,7 @@ repack(){
 	echo Removing old files...
 	clean
 
-	if [ "$1" != "nomd5" ]; then
+	if [ "$1" != "testrun" ]; then
 		echo Recreating md5sum.txt...
 		cd unpacked
 		rm -f md5sum.txt
@@ -89,8 +91,8 @@ clean(){
 
 testRun(){
 	echo "Testing firmware repackaging procedure..."
-	unpack
-	repack nomd5
+	unpack testrun
+	repack testrun
 
 	if [ `md5sum origfw/wdtvlive.bin | cut -c 1-32` = `md5sum release/wdtvlive.bin | cut -c 1-32` ]; then
 		echo -e "\033[1;34mOriginal firmware MD5 matches repackaged firmware's MD5, everything looks good!\033[0m"
