@@ -35,7 +35,7 @@ applyPatches(){
 
 applyFS(){
 	echo "Copying filesystem modifications..."
-	cp -rfv root/* unpacked/
+	cp -rf root/* unpacked/
 }
 
 repack(){
@@ -51,6 +51,8 @@ repack(){
 		md5deep -rsl -o f . > ../deepmd5sum.tmp
 		mv ../deepmd5sum.tmp md5sum.txt
 		cd ../
+		echo Updating timestamps...
+		find unpacked/* -type f -exec touch {} \;
 	fi
 
 	echo Making cramfs...
