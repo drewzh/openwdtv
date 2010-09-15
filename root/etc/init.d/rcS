@@ -1,0 +1,24 @@
+#!/bin/sh
+
+mkdir /tmp/init.d
+
+for i in /etc/init.d/S??*
+do
+	[ -f "$i" ] && ln -s $i /tmp/init.d/`basename $i`
+done
+
+for i in /tmp/init.d/*
+do
+	# Ignore dangling symlinks (if any).
+	if [ -f "$i" ]
+	then
+		if [ "$i" == "/tmp/init.d/S70dmaosd" ] && [ "$1" == "upgrade" ]
+		then
+			$i $1 $2 $3
+		elif [ "$1" != "upgrade" ]
+		then
+			$i start
+		fi
+	fi
+done
+

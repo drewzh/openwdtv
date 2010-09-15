@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+case "$1" in
+start)
+	telnetd -K -l login &
+	;;
+restart)
+        killall telnetd
+        telnetd -K -l login &
+        ;;
+stop)
+	killall telnetd
+	;;
+esac

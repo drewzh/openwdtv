@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+start|upgrade)
+	if [ "$1" == "upgrade" ]; then	
+		run_all $1 $2 $3 &
+		killall mount.watch
+		killall plug.watch
+	else
+		run_all &
+	fi
+	;;
+esac

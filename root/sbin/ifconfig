@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ "$2" == "up" ] ; then
+	busybox ifconfig $*
+	exit $?
+elif [ "$2" == "down" ] ; then
+	#busybox ifconfig $*
+	exit $?
+fi 
+
+
