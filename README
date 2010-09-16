@@ -22,7 +22,7 @@ Developers
 ----------
 Interactive build scripts automate the process of downloading new firmware releases from Western Digital, unpacking the firmware and applying dozens of feature updates and other modifications from a library of addon packages, then repacking the customized firmware into a signed binary that the user can then flash.  The whole process is seamless and doesn't require any previous programming knowledge, every step of the repackaging procedure is checked for faults and test procedures are run regularly to ensure the packaging procedure will produce a valid firmware.
 
-Addon packages include custom OSD's that change the look and feel of the on-screen interface, plugins that enable various new features and services that enable things like automated TV show downloading, an apache web server or even a http media streamer to stream to your music collection over the internet.  The collection of addons will be added to regularly.
+Addon packages include custom OSD's that change the look and feel of the on-screen interface, plugins that enable various new features and services that enable things like automated TV show downloading, an apache web server or even a http media streamer to stream your music collection over the internet.  The collection of addons will be updated regularly.
 
 Support
 -------
