@@ -1,6 +1,17 @@
+* {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
   color: #000;
-  font-family: "Courier New", Courier, monospace
+  font-family: "Courier New", Courier, monospace;
+}
+
+#fork {
+  display: inline;
+  text-align: left;
 }
 
 #centered {
