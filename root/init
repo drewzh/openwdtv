@@ -19,12 +19,6 @@ mdev -s
 mount -t tmpfs none /tmp
 /bin/hostname -F /etc/hostname
 
-mkdir -p /dev/input
-MINOR=0
-while [ $MINOR -lt 17 ]; do
-	mknod /dev/input/event$MINOR c 13 `expr $MINOR + 64`;
-	MINOR=`expr $MINOR + 1`;
-done
 
 ln -s $SYSCONF_BOOTLOADER_MTD_PARTITION /dev/mtdblock_bootloader
 ln -s $SYSCONF_KERNEL_MTD_PARTITION /dev/mtdblock_kernel
@@ -32,13 +26,13 @@ ln -s $SYSCONF_FIRMWARE_MTD_PARTITION /dev/mtdblock_romfs
 
 cp /etc/securetty.ori /tmp
 /sbin/ldconfig -C /tmp/ld.so.cache
-#if [ $1 == "upgrade" ]; then
-#	/sbin/config_tool -l 
-#	touch /tmp/STOP_DMARENDER
-#	touch /tmp/STOP_PICRENDER
-#else
+if [ $1 == "upgrade" ]; then
+	/sbin/config_tool -l 
+	touch /tmp/STOP_DMARENDER
+	touch /tmp/STOP_PICRENDER
+else
 	/sbin/config_tool -l -m 10 &
-#fi
+fi
 
 if [ x$1 != "xf1f1" ]; then
 	if [ x$SYSCONF_LAST_PARTITION_NODE_NAME != "x" ]; then
@@ -65,8 +59,6 @@ mknod /dev/sda1 b 8 1
 fw_reload_t3.sh
 ln -s /dev/ir /dev/irda
 
-modprobe r8169
-
 MAJOR=254
 while [ -f /lib/modules/irkernel.ko ]; do
 	insmod /lib/modules/irkernel.ko major_num=$MAJOR;
@@ -75,9 +67,6 @@ while [ -f /lib/modules/irkernel.ko ]; do
 		break;
 	fi
 	MAJOR=`expr $MAJOR - 1`
-	if [ $MAJOR == 1 ]; then
-		break;
-	fi
 done
 
 MAJOR=254
@@ -88,9 +77,6 @@ while [ -f /lib/modules/wd_led_rst.ko ]; do
 		break;
 	fi
 	MAJOR=`expr $MAJOR - 1`
-	if [ $MAJOR == 1 ]; then
-		break;
-	fi
 done
 
 if [ -f /lib/modules/proc_pipe.ko ]; then
@@ -101,13 +87,10 @@ MAJOR=254
 while [ -f /lib/modules/lmp555_gpio.ko ]; do
 	insmod /lib/modules/lmp555_gpio.ko major_num=$MAJOR;
 	if [ $? == 0 ]; then
-		mknod /dev/led_rst c $MAJOR 0;
+		mknod /dev/led_rst c $MAJOR 0
 		break;
 	fi
 	MAJOR=`expr $MAJOR - 1`
-	if [ $MAJOR == 1 ]; then
-		break;
-	fi
 done
 
 if [ -f /lib/modules/ufsd.ko ]; then
@@ -134,26 +117,6 @@ if [ -f /lib/modules/thermal_g751.ko ]; then
 	insmod /lib/modules/thermal_g751.ko
 fi
 
-MAJOR=254
-while [ -f /lib/modules/wdtv_rv_microp.ko ]; do
-	insmod /lib/modules/wdtv_rv_microp.ko major_num=$MAJOR;
-	if [ $? == 0 ]; then
-		mknod /dev/led_rst c $MAJOR 0
-		sleep 1;
-		echo 10 > /proc/wdtvrv/hi_speed;
-		echo 0 > /proc/wdtvrv/lo_speed;
-		echo 65 > /proc/wdtvrv/hi_temp;
-		echo 50 > /proc/wdtvrv/lo_temp;
-		#set RTC time to linux.
-		rtc -R
-		break;
-	fi
-	MAJOR=`expr $MAJOR - 1`
-	if [ $MAJOR == 1 ]; then
-		break;
-	fi
-done
-
 modprobe cifs CIFSMaxBufSize=64512
 
 mkdir -p /tmp/media
@@ -161,19 +124,12 @@ mkdir -p /tmp/media/usb
 
 ifconfig lo 127.0.0.1
 
-if [ -f /lib/modules/llad.ko ]; then
-insmod -f /lib/modules/llad.ko
-fi
-
-cp /etc/passwd.conf /tmp -f
-cp /etc/shadow.conf /tmp -f
-
-if [ x$1 == "xf1f1" ]; then
+if [ $1 == "f1f1" ]; then
 	echo "enter f1 test ..."
 	/bin/sh
 fi
 
-if [ x$1 == "xsisi" ]; then
+if [ $1 == "sisi" ]; then
 	echo "enter si test ..."
 	mount /dev/sda /tmp/media/usb
 	if [ $? != 0 ]; then
@@ -188,12 +144,18 @@ if [ x$1 == "xsisi" ]; then
 	/bin/sh
 fi
 
-/bin/memory_cache_server &
+/etc/init.d/rcS $1 $2 $3&
 
-#/etc/init.d/rcS $1 $2 $3&
-/etc/init.d/rcS $2 $3&
+cp /etc/passwd.conf /tmp -f
+cp /etc/shadow.conf /tmp -f
+
+cp /conf_src/devcerttemplate.dat /tmp -f
 
 #/bin/run_twonky_server &
+/bin/memory_cache_server &
+#/bin/run_cas&
+
+#while [ 1 ] ; do ps ; sleep 60; done &
 
 while [ 1 ]; do 
 		/bin/sh ;
