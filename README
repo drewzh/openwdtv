@@ -4,21 +4,33 @@
 |_____|  _|___|_|_|_____|____/  |_|  \___/ 
       |_| http://openwdtv.org
 
+!!!IMPORTANT!!!
+---------------
+Initial firmware version (v1.0) is due for release late October 2010 and will be made available via http://openwdtv.org.  Developer package will stable enough for public consumption late September 2010.  Code submittions are welcome at any time, but please don't try and build any firmware yet.
+
+Summary
+-------
 OpenWDTV is a feature rich custom firmware for the Western Digital TV Live.  It's primary focus is to provide a fully customized firmware that rivals other custom firmwares available but also to provide a development package for others to develop their own firmware.  I hope that other developers will fork this project onto their own github account and provide enhancements or even new packages to add to the project.
 
-*IMPORTANT: Initial firmware version (v1.0) is due for release late October 2010 and will be made available via http://openwdtv.org.  Developer package will stable enough for public consumption late September 2010.  Code submittions are welcome at any time, but please don't try and build any firmware yet.
+Disclaimer
+----------
+I am in no way responsible for turning your WDTVLive into a toaster or burning down your house, flashing your device is your choice and should always be done with caution!  Developer package is provided with limited support; before using you should have a solid understanding of the Linux operating system.
 
 Developers
 ----------
-Interactive build scripts automate the process of downloading new firmware releases from Western Digital, unpacking the firmware and applying dozens of feature updates and other modifications from a library of addon packages, then repacking the customized firmware into a signed binary that the user can then flash.
+Interactive build scripts automate the process of downloading new firmware releases from Western Digital, unpacking the firmware and applying dozens of feature updates and other modifications from a library of addon packages, then repacking the customized firmware into a signed binary that the user can then flash.  The whole process is seamless and doesn't require any previous programming knowledge, every step of the repackaging procedure is checked for faults and test procedures are run regularly to ensure the packaging procedure will produce a valid firmware.
 
-Addon packages include custom OSD's that change the look and feel of the on-screen interface, plugins that enable various new features and services that enable things like automated TV show downloading, an apache web server or even a http media streamer to stream to your music collection over the internet.
+Addon packages include custom OSD's that change the look and feel of the on-screen interface, plugins that enable various new features and services that enable things like automated TV show downloading, an apache web server or even a http media streamer to stream to your music collection over the internet.  The collection of addons will be added to regularly.
 
-Features
---------
- - All software updated on every major release
+Support
+-------
+Support will be offered on a limited basis through the official distribution channels, I have very limited time and can only help in certain circumstances, if there's something you'd like to discuss outside of these channels, please direct your question/comment to support@openwdtv.org.
+
+Default Firmware Features
+-------------------------
+ - Latest firmware from Western Digital
  - Fully customisable via Web GUI (configure services, add new features, update plugins etc)
- - Custom OSD
+ - Picto III OSD by Lilibabe
  - Latest BusyBox build with various services configurable (telnet, cron, ftp etc)
  - OpenSSH
  - Apache with various modules (PHP etc)
