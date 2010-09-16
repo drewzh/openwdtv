@@ -1,0 +1,10 @@
+body {
+  color: #000;
+  font-family: "Courier New", Courier, monospace
+}
+
+#centered {
+  left: 40%;
+  position: absolute;
+  top: 40%;
+}
