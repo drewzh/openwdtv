@@ -5,9 +5,9 @@
 # |_____|  _|___|_|_|_____|____/  |_|  \___/ 
 #       |_| http://openwdtv.org
 
-read -n 1 -t 1 -p "Press any key to emergency flash..." var_flashreq
+read -n 1 -t 10 -p "Press any key to emergency flash..." var_flashreq
 
-if [ $var_flashreq -ne "" ]; then
+if [ "$var_flashreq" != "" ]; then
   logger -t "Entering emergency flash..."
   run_all upgrade /dev/sda1 wdtvlive.bin &
 fi
