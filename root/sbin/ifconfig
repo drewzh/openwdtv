@@ -1,11 +1,21 @@
 #!/bin/sh
+#  _____             _ _ _ ____  _____ _____ 
+# |     |___ ___ ___| | | |    \|_   _|  |  |
+# |  |  | . | -_|   | | | |  |  | | | |  |  |
+# |_____|  _|___|_|_|_____|____/  |_|  \___/ 
+#       |_| http://openwdtv.org
 
 if [ "$2" == "up" ] ; then
-	busybox ifconfig $*
-	exit $?
+    busybox ifconfig $*
+    exit $?
 elif [ "$2" == "down" ] ; then
-	#busybox ifconfig $*
-	exit $?
+    if [ "`config read ETHERNET_ALWAYSON`" == "1" ]; then
+        logger -t "Ignoring ethernet power down"
+    else
+        busybox ifconfig $*
+    fi
+    exit $?
+else
+    busybox ifconfig $*
+    exit $?
 fi 
-
-
