@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Preferences" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<image image="@@ss-prev" x="64" y="67" w="16" h="16"/>
+<image image="@@ss-more" x="1200" y="67" w="16" h="16"/>
+<listbox valkey="preferencelist" autoenter="1" autoswitch="0" move="page" cols="1" rows="6" lbmask="lr" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+<image image="image/browser_list_line.png" x="100" y="174" w="1080" h="40" bg="1"/>
+<text text="$$SSID" x="110" y="174" w="300" h="40" fontsize="26" textcolor="0xcccccc" align="left"/>
+<text text="$$Security Type" x="500" y="174" w="300" h="40" fontsize="26" textcolor="0xcccccc" align="hcenter" speed="1" delay="2"/>
+<text text="$$Signal" x="870" y="174" w="300" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<wrapper x="100" w="1080" h="40">
+	<image image="@@browse_0_line" y="214" ymargin="0" bg="1"/>
+	<image image="@@browse_1_line" y="254" ymargin="0" bg="1"/>
+	<image image="@@browse_2_line" y="294" ymargin="0" bg="1"/>
+	<image image="@@browse_3_line" y="334" ymargin="0" bg="1"/>
+	<image image="@@browse_4_line" y="374" ymargin="0" bg="1"/>
+	<image image="@@browse_5_line" y="414" ymargin="0" bg="1"/>
+</wrapper>
+<wrapper x="100" w="1080" h="40" lbimage="image/browser_list_btn.png">
+	<image lightbar="@@lightbar-preferencelist-0" y="214" active="@@act-preferencelist-0"/>
+	<image lightbar="@@lightbar-preferencelist-1" y="254" active="@@act-preferencelist-1"/>
+	<image lightbar="@@lightbar-preferencelist-2" y="294" active="@@act-preferencelist-2"/>
+	<image lightbar="@@lightbar-preferencelist-3" y="334" active="@@act-preferencelist-3"/>
+	<image lightbar="@@lightbar-preferencelist-4" y="374" active="@@act-preferencelist-4"/>
+	<image lightbar="@@lightbar-preferencelist-5" y="414" active="@@act-preferencelist-5"/>
+</wrapper>
+<wrapper x="110" w="300" h="40" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" align="left" fontsize="26" selected_fontsize="26">
+	<text text="@@ss-essid-0" y="214" active="@@act-preferencelist-0"/>
+	<text text="@@ss-essid-1" y="254" active="@@act-preferencelist-1"/>
+	<text text="@@ss-essid-2" y="294" active="@@act-preferencelist-2"/>
+	<text text="@@ss-essid-3" y="334" active="@@act-preferencelist-3"/>
+	<text text="@@ss-essid-4" y="374" active="@@act-preferencelist-4"/>
+	<text text="@@ss-essid-5" y="414" active="@@act-preferencelist-5"/>
+</wrapper>
+<wrapper x="638" w="24" h="40">
+	<image image="@@ss-wep-0" y="214"/>
+	<image image="@@ss-wep-1" y="254"/>
+	<image image="@@ss-wep-2" y="294"/>
+	<image image="@@ss-wep-3" y="334"/>
+	<image image="@@ss-wep-4" y="374"/>
+	<image image="@@ss-wep-5" y="414"/>
+</wrapper>
+<wrapper x="1132" w="38" h="40">
+	<image image="@@ss-signal-percent-icon-0" y="214"/>
+	<image image="@@ss-signal-percent-icon-1" y="254"/>
+	<image image="@@ss-signal-percent-icon-2" y="294"/>
+	<image image="@@ss-signal-percent-icon-3" y="334"/>
+	<image image="@@ss-signal-percent-icon-4" y="374"/>
+	<image image="@@ss-signal-percent-icon-5" y="414"/>
+</wrapper>
+<include filename="inc_logo.xml"/>
+</page>

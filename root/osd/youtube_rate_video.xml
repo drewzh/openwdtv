@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp>
+	<button valkey="LEVEL"/>
+	<linebreak/>
+	<button valkey="YES"
+	focused_bg="image/Villa_button_blue_f_01.png"
+	normal_bg="image/Villa_button_blue_n_01.png"/>
+	<button valkey="NO"
+	focused_bg="image/Villa_button_blue_f_01.png"
+	normal_bg="image/Villa_button_blue_n_01.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<image image="image/youtube_logo.png" x="69" y="20" w="63" h="60"/>-->
+<text text="@@title" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="@@video_thumb_outline" x="199" y="170" w="882" h="157"/>
+<image image="@@video_thumb_icon" x="210" y="181" w="240" h="135" align="hcenter" scale="100"/>
+<text text="@@video_title" x="470" y="200" w="590" h="30" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@video_desc" x="470" y="230" w="590" h="75" fontsize="22" textcolor="0xcccccc" numlines="3"/>
+<image image="@@level_bg_img" x="508" y="350" w="264" h="84"/>
+<image image="@@level_mask_img" x="508" y="350" w="264" h="84"/>
+<text text="@@grade" x="400" y="440" w="480" h="30" fontsize="26" textcolor="0xcccccc" align="hcenter"/>
+<image image="@@bg-YES" x="450" y="510" w="170" h="50"/>
+<image image="@@bg-NO" x="660" y="510" w="170" h="50"/>
+<text text="$$OK" x="450" y="510" w="170" h="50" fontsize="26" align="hcenter" textcolor="0xcccccc"/>
+<text text="$$Cancel" x="660" y="510" w="170" h="50" fontsize="26" align="hcenter" textcolor="0xcccccc"/>
+</page>

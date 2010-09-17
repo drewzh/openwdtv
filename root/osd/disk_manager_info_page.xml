@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp>
+	<button valkey="FORMAT"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="EXIT"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<text x="100" y="60" w="550" h="30" text="@@title" fontsize="26" align="left" textcolor="0xcccccc"/>
+<image image="@@device_icon" x="300" y="120" w="100" h="100"/>
+<text text="@@device_name" x="450" y="120" w="530" h="30" fontsize="26" textcolor="0xcccccc" align="left"/>
+<progress_bar name="device_progress_bar" x="450" y="160" w="530" h="10" pb_back_img="image/diskmanager_progress_bar_bg.png" pb_front_img="image/diskmanager_progress_bar.png" pb_delay="500"/>
+<text text="@@freesize" x="450" y="180" w="280" h="30" fontsize="22" textcolor="0xcccccc" align="left"/>
+<text text="@@totalsize" x="760" y="180" w="220" h="30" fontsize="22" textcolor="0xcccccc" align="right"/>
+<image image="image/diskmanager_info_line.png" x="99" y="230" w="1082" h="42"/>
+<image image="image/diskmanager_info_line.png" x="99" y="275" w="1082" h="42"/>
+<image image="image/diskmanager_info_line.png" x="99" y="320" w="1082" h="42"/>
+<image image="image/diskmanager_info_line.png" x="99" y="365" w="1082" h="42"/>
+<wrapper x="130" w="380" h="42" fontsize="26" textcolor="0xcccccc" align="left">
+	<text text="Storage Type:" y="230"/>
+	<text text="Free Space:" y="275"/>
+	<text text="Total Size:" y="320"/>
+	<text text="File System:" y="365"/>
+</wrapper>
+<wrapper x="550" w="600" h="42" fontsize="26" textcolor="0xcccccc" align="right">
+	<text text="@@storage_type" y="230"/>
+	<text text="@@free_space" y="275"/>
+	<text text="@@total_size" y="320"/>
+	<text text="@@file_system" y="365"/>
+</wrapper>
+<image image="image/diskmanager_info_frame.png" x="99" y="410" w="1082" h="127"/>
+<text text="Media Files" x="130" y="410" w="700" h="42" fontsize="26" textcolor="0xcccccc" align="hcenter"/>
+<wrapper y="455" w="40" h="50">
+	<image image="image/diskmanager_music_icon.png" x="350"/>
+	<image image="image/diskmanager_video_icon.png" x="620"/>
+	<image image="image/diskmanager_photo_icon.png" x="890"/>
+</wrapper>
+<wrapper y="505" w="300" h="30" fontsize="22" textcolor="0xcccccc" align="hcenter">
+	<text text="@@music_count" x="220"/>
+	<text text="@@video_count" x="490"/>
+	<text text="@@photo_count" x="760"/>
+</wrapper>
+<image image="@@bg-FORMAT" x="310" y="560" w="310" h="50"/>
+<text text="$$Format" x="330" y="560" w="270" h="50" fontsize="26" textcolor="0xcccccc" align="hcenter"/>
+<image image="@@bg-EXIT" x="660" y="560" w="310" h="50"/>
+<text text="$$Exit" x="680" y="560" w="270" h="50" fontsize="26" textcolor="0xcccccc" align="hcenter"/>
+</page>

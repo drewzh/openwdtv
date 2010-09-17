@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<include filename="inc_setup_headline.xml"/>
+<text text="@@message" x="300" y="250" w="680" h="150" fontsize="26" align="hcenter" numlines="5" textcolor="0xcccccc"/>
+<image image="@@status_icon" x="590" y="360" w="100" h="100"/>
+</page>

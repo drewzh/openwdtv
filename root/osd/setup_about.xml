@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp lbmask="lrud">
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"
+	click_bg="image/Villa_button_blue_f_02.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" align="left" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$About" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<imgbtn image="@@bg-OK" text="$$OK" x="485" y="570" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" active="@@act-OK" actnoseltextcolor="0xcccccc"/>
+<image image="image/WD_myplay_About_logo.png" x="581" y="174" w="118" h="94"/>
+<text text="$$WD TV HD Media Player" x="160" y="270" w="960" h="30" textcolor="0xcccccc" align="hcenter" fontsize="26"/>
+<text text="@@version_info" x="160" y="330" w="960" h="30" textcolor="0xcccccc" align="hcenter" fontsize="26"/>
+<text text="$$Part Number:" x="160" y="360" w="475" h="30" textcolor="0xcccccc" align="right" fontsize="26"/>
+<text text="@@part_number_value" x="645" y="360" w="475" h="30" textcolor="0xcccccc" align="left" fontsize="26"/>
+<text text="$$Serial Number:" x="160" y="390" w="475" h="30" textcolor="0xcccccc" align="right" fontsize="26"/>
+<text text="@@serial_number_value" x="645" y="390" w="475" h="30" textcolor="0xcccccc" align="left" fontsize="26"/>
+<text text="$$For additional information regarding your HD Media Player, please refer to the user manual or visit" x="160" y="440" w="960" h="60" textcolor="0xcccccc" numlines="2" align="hcenter" fontsize="26"/>
+<text text="http://support.wdc.com/" x="160" y="500" w="960" h="30" textcolor="0xcccccc" align="hcenter" fontsize="26"/>
+<!--<text text="Font powered by Arphic®" x="160" y="650" w="960" h="30" textcolor="0xcccccc" align="hcenter" fontsize="22"/>-->
+</page>

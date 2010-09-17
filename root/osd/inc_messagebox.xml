@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<wrapper>
+<text text="@@message" x="300" y="250" w="680" h="150" fontsize="26" align="hcenter" numlines="5" textcolor="0xcccccc"/>
+</wrapper>

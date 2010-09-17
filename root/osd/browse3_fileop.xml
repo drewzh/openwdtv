@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp>
+<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="6" lbmask="lr" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+<linebreak/>
+<ctrlgrp valkey="OPTION" lbmask="LR">
+	<button valkey="COPY" lightbar_bg="image/villa_fileManagement_select_button_righr.png"
+	focused_bg="image/villa_fileManagement_copy_sm_icon.png"
+	normal_bg="image/villa_fileManagement_copy_sm_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Copy"/>
+	<button valkey="DEL" lightbar_bg="image/villa_fileManagement_select_button_righr.png"
+	focused_bg="image/villa_fileManagement_delect_sm_icon.png"
+	normal_bg="image/villa_fileManagement_delect_sm_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Delete"/>
+	<button valkey="MOVE" lightbar_bg="image/villa_fileManagement_select_button_righr.png"
+	focused_bg="image/villa_fileManagement_move_sm_icon.png"
+	normal_bg="image/villa_fileManagement_move_sm_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Move"/>
+	<button valkey="SELECTALL" lightbar_bg="image/villa_fileManagement_select_button_righr.png"
+	focused_bg="image/villa_fileManagement_select_all_sm_icon.png"
+	normal_bg="image/villa_fileManagement_select_all_sm_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Select all"/>
+</ctrlgrp>
+<ctrlgrp valkey="CONFIRM" lbmask="LR">
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_01.png"
+	normal_bg="image/Villa_button_blue_n_01.png"/>
+	<button valkey="CANCEL"
+	focused_bg="image/Villa_button_blue_f_01.png"
+	normal_bg="image/Villa_button_blue_f_01.png"/>
+</ctrlgrp>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$File Management" x="100" y="60" w="800" h="30" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@type" x="146" y="100" w="400" h="40" fontsize="22" align="left" textcolor="0x4d4d4d"/>
+<include filename="inc_list_leftside_browse.xml"/>
+<include filename="inc_headline_property.xml"/>
+<include filename="decoration.xml"/>
+<table x="980" y="100" h="40" w="200" cols="4" rows="1" colspacing="0" fontsize="26" align="hcenter" disable="@@disable-OPTION">
+	<image image="@@bg-COPY" text="@@text-COPY" active="@@act-COPY" actnoseltextcolor="0x4d4d4d" lightbar="@@lightbar-COPY" lbimage="@@lightbar-COPY" align="hcenter"/>
+	<image image="@@bg-DEL" text="@@text-DEL" active="@@act-DEL" actnoseltextcolor="0x4d4d4d" lightbar="@@lightbar-DEL" lbimage="@@lightbar-DEL" align="hcenter"/>
+	<image image="@@bg-MOVE" text="@@text-MOVE" active="@@act-MOVE" actnoseltextcolor="0x4d4d4d" lightbar="@@lightbar-MOVE" lbimage="@@lightbar-MOVE" align="hcenter"/>
+	<image image="@@bg-SELECTALL" text="@@text-SELECTALL" active="@@act-SELECTALL" actnoseltextcolor="0x4d4d4d" lightbar="@@lightbar-SELECTALL" lbimage="@@lightbar-SELECTALL" align="hcenter"/>
+</table>
+<wrapper x="100" w="1080" colspacing="0" fontsize="22" align="hcenter" disable="@@disable-PROMPT_SOURCE" textcolor="0xcccccc">
+	<text text="$$Press [RIGHT] to select source." y="443" h="30" numlines="1"/>
+	<text text="$$Press [OPTION] to copy, move or delete." y="473" h="30" numlines="1"/>
+</wrapper>
+<wrapper x="100" w="1080" colspacing="0" fontsize="22" align="hcenter" disable="@@disable-PROMPT_DEST" textcolor="0xcccccc">
+	<text text="$$Press [RIGHT] to select destination." y="443" h="30" numlines="1"/>
+	<text text="$$Press [OPTION] to confirm." y="473" h="30" numlines="1"/>
+</wrapper>
+<!--
+<wrapper x="769" w="413" h="54" disable="@@disable-OPTION">
+<image image="image/villa_fileManagement_line_left.png" y="292"/>
+</wrapper>
+<table x="769" y="292" w="413" h="54" rows="1" cols="1" disable="@@disable-OPTION">
+	<text text="@@text-OPTION" fontsize="22" textcolor="0xcccccc" align="hcenter"/>
+</table>
+-->
+<include filename="inc_loading.xml"/>
+<include filename="inc_browse3_fileop_msg.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

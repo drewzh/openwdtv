@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<wrapper>
+<widget_keyboard ctrlname="keyboard" x="320" y="229" w="640" h="226" cols="14" rows="5"	align="hcenter" textcolor="0xcccccc" activetextcolor="0x000000" changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+</wrapper>

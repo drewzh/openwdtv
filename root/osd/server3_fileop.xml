@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" wait_seconds="1">
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<text text="$$File Management" x="100" y="60" w="350" h="30" fontsize="26" align="left" textcolor="0xcccccc"/>
+<text text="@@type" x="630" y="630" w="550" h="30" fontsize="26" align="right" textcolor="0xcccccc"/>
+<text text="@@pagecounter" x="500" y="60" w="150" h="30" fontsize="26" align="right" textcolor="0xcccccc"/>
+<image image="@@listprev" x="59" y="64" w="22" h="22"/>
+<image image="@@listmore" x="1199" y="634" w="22" h="22"/>
+<listbox valkey="serverlist" move="row" cols="1" rows="6" lbmask="l"/>
+<wrapper x="99" w="1082" h="42">
+	<image image="@@browse_0_line" ymargin="0" bg="1" y="136"/>
+	<image image="@@browse_1_line" ymargin="0" bg="1" y="181"/>
+	<image image="@@browse_2_line" ymargin="0" bg="1" y="226"/>
+	<image image="@@browse_3_line" ymargin="0" bg="1" y="271"/>
+	<image image="@@browse_4_line" ymargin="0" bg="1" y="316"/>
+	<image image="@@browse_5_line" ymargin="0" bg="1" y="361"/>
+</wrapper>
+<table x="99" y="136" w="1082" h="267" fontsize="26" selected_fontsize="26" cols="1" rows="6" colspacing="0" rowspacing="3" lbimage="image/villa_fileManagement_select_button_left.png" textcolor="0xcccccc" actnoseltextcolor="0xcccccc">
+<text text="@@serverlist-0" xmargin="20" lmargin="70" lightbar="@@lightbar-serverlist-0" active="@@act-serverlist-0"/>
+<text text="@@serverlist-1" xmargin="20" lmargin="70" lightbar="@@lightbar-serverlist-1" active="@@act-serverlist-1"/>
+<text text="@@serverlist-2" xmargin="20" lmargin="70" lightbar="@@lightbar-serverlist-2" active="@@act-serverlist-2"/>
+<text text="@@serverlist-3" xmargin="20" lmargin="70" lightbar="@@lightbar-serverlist-3" active="@@act-serverlist-3"/>
+<text text="@@serverlist-4" xmargin="20" lmargin="70" lightbar="@@lightbar-serverlist-4" active="@@act-serverlist-4"/>
+<text text="@@serverlist-5" xmargin="20" lmargin="70" lightbar="@@lightbar-serverlist-5" active="@@act-serverlist-5"/>
+</table>
+<wrapper x="120" w="30" h="42" align="left">
+	<image image="@@browser_icon-0" y="136"/>
+	<image image="@@browser_icon-1" y="181"/>
+	<image image="@@browser_icon-2" y="226"/>
+	<image image="@@browser_icon-3" y="271"/>
+	<image image="@@browser_icon-4" y="316"/>
+	<image image="@@browser_icon-5" y="361"/>
+</wrapper>
+<include filename="decoration.xml"/>
+</page>

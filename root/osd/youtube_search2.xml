@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp valkey="main" lbmask="LR" >
+	<eventbox_keyboard valkey="keyboard" autoenter="1" lbmask="LRlr"/>
+	<listbox valkey="search_list" move="row" cols="1" rows="6" autoenter="1" lbmask="lr" disable_light_bar_click="1"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<include filename="inc_youtube_logo.xml"/>-->
+<text text="@@master_headline" x="100" y="60" w="550" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<image image="@@listprev" x="59" y="64" w="22" h="22"/>
+<image image="@@listnext" x="1199" y="634" w="22" h="22"/>
+<widget_keyboard ctrlname="keyboard" x="79" y="229" w="640" h="226" cols="14" rows="5" align="hcenter" textcolor="0xcccccc" activetextcolor="0x000000" changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+<image image="image/keyboard_search_box.png" x="84" y="231" w="537" h="42" bg="1"/>
+<texttail text="@@input_01_text" x="99" y="231" w="470" h="42" textcolor="0xcccccc" fontsize="26"/>
+<wrapper x="769" w="432">
+	<image y="200" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+	<image y="245" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+	<image y="290" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+	<image y="335" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+	<image y="380" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+	<image y="425" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+	<image y="470" h="42" image="image/youtube/youtube_Auto_history_line.png"/>
+</wrapper>
+<text text="$$Search History" x="789" y="200" w="350" h="42" align="left" fontsize="26" textcolor="0xcccccc"/>
+<table x="769" y="245" w="432" h="267" fontsize="26" selected_fontsize="26" cols="1" rows="6" colspacing="0" rowspacing="3" lbimage="image/youtube/youtube_Auto_history_select_bar.png" clickimage="image/youtube/youtube_Auto_history_select_bar.png" textcolor="0xffffff" actnoseltextcolor="0xcccccc" actoverlistcolor="0xcccccc" activetextcolor="0xcccccc" selectedtextcolor="0xcccccc" auto_translate="1" align="left">
+	<text text="@@search_list_0_text" ymargin="0" xmargin="20" lightbar="@@lightbar-search_list-0" active="@@act-search_list" selected="@@search_list_0_select" speed="@@search_list_0_speed" delay="2" disable="@@disable-search_list"/>
+	<text text="@@search_list_1_text" ymargin="0" xmargin="20" lightbar="@@lightbar-search_list-1" active="@@act-search_list" selected="@@search_list_1_select" speed="@@search_list_1_speed" delay="2" disable="@@disable-search_list"/>
+	<text text="@@search_list_2_text" ymargin="0" xmargin="20" lightbar="@@lightbar-search_list-2" active="@@act-search_list" selected="@@search_list_2_select" speed="@@search_list_2_speed" delay="2" disable="@@disable-search_list"/>
+	<text text="@@search_list_3_text" ymargin="0" xmargin="20" lightbar="@@lightbar-search_list-3" active="@@act-search_list" selected="@@search_list_3_select" speed="@@search_list_3_speed" delay="2" disable="@@disable-search_list"/>
+	<text text="@@search_list_4_text" ymargin="0" xmargin="20" lightbar="@@lightbar-search_list-4" active="@@act-search_list" selected="@@search_list_4_select" speed="@@search_list_4_speed" delay="2" disable="@@disable-search_list"/>
+	<text text="@@search_list_5_text" ymargin="0" xmargin="20" lightbar="@@lightbar-search_list-5" active="@@act-search_list" selected="@@search_list_5_select" speed="@@search_list_5_speed" delay="2" disable="@@disable-search_list"/>
+</table>
+<text text="$$Press [Search] key to use search history" x="84" y="490" w="630" h="30" align="left" fontsize="22" textcolor="0xcccccc" numlines="1"/>
+<text text="$$Press [Option] key for multi-lingual input" x="84" y="520" w="630" h="60" align="left" fontsize="22" textcolor="0xcccccc" numlines="2" disable="@@disable-OPTION"/>
+<include filename="inc_loading.xml"/>
+<include filename="decoration.xml"/>
+</page>

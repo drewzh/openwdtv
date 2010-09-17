@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp>
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" actnoseltextcolor="0xcccccc" x="485" y="450" w="310" h="50" align="hcenter" fontsize="22"/>
+<include filename="inc_setup_headline.xml"/>
+<text text="@@message" x="300" y="250" w="680" h="150" fontsize="26" align="hcenter" numlines="5" textcolor="0xcccccc"/>
+<include filename="inc_loading.xml"/>
+</page>

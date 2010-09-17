@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<image image="image/pandora_logo.png" x="69" y="20" w="63" h="60"/>-->
+<text x="100" y="60" w="550" h="30" text="Why was this song selected?" fontsize="26" textcolor="0xcccccc"/>
+<image image="@@prev" x="59" y="64" w="22" h="22"/>
+<image image="@@next" x="1199" y="634" w="22" h="22"/>
+<image x="550" y="140" w="180" h="180" image="image/pandora_playing_frame_bg_n.png" bg="1"/>
+<image x="550" y="140" w="180" h="180" image="@@album_icon" default_image="image/music_player_frame_albumart_icon.png" xmargin="0" ymargin="0" umargin="0" dmargin="0" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+<image x="539" y="129" w="202" h="202" image="image/music_player_frame_blister.png" bg="1"/>
+<text x="200" y="370" w="880" h="210" text="@@play_info" fontsize="26" align="top,hcenter" textcolor="0xcccccc" numlines="7"/>
+<include filename="inc_loading.xml"/>
+</page>

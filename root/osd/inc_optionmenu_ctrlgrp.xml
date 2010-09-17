@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wrapper>
+<ctrlgrp valkey="optionmenu_ctrlgrp" >
+	<menuctrl valkey="optionmenu" autoenter="1" disable="@@disable-optionmenu"/>
+</ctrlgrp>
+</wrapper>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<include filename="inc_setup_headline.xml"/>
+<ctrlgrp valkey="options" lbmask="LR">
+	<listbox valkey="account_list" autoenter="1" autoswitch="0"  move="page" cols="1" rows="10" lbmask="lr" loop_scroll="1"/>
+	<linebreak/>
+	<button valkey="QML0"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa/villa_options_menu_delect_account_icon.png"
+	normal_bg="image/villa/villa_options_menu_delect_account_icon.png"
+	group_valkey="options"
+	group_focused_text="$$Delete Account"/>
+	<button valkey="QML1"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa/villa_options_menu_all_delect_account_icon.png"
+	normal_bg="image/villa/villa_options_menu_all_delect_account_icon.png"
+	group_valkey="options"
+	group_focused_text="$$Delete All"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<include filename="inc_live365_icon.xml"/>-->
+<text text="@@title" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="@@ss-prev" x="59" y="64" w="22" h="22"/>
+<image image="@@ss-next" x="1199" y="634" w="22" h="22"/>
+<wrapper x="99" w="1082" h="42">
+	<image image="@@browse_0_line" ymargin="0" bg="1" y="136"/>
+	<image image="@@browse_1_line" ymargin="0" bg="1" y="181"/>
+	<image image="@@browse_2_line" ymargin="0" bg="1" y="226"/>
+	<image image="@@browse_3_line" ymargin="0" bg="1" y="271"/>
+	<image image="@@browse_4_line" ymargin="0" bg="1" y="316"/>
+	<image image="@@browse_5_line" ymargin="0" bg="1" y="361"/>
+	<image image="@@browse_6_line" ymargin="0" bg="1" y="406"/>
+	<image image="@@browse_7_line" ymargin="0" bg="1" y="451"/>
+	<image image="@@browse_8_line" ymargin="0" bg="1" y="496"/>
+	<image image="@@browse_9_line" ymargin="0" bg="1" y="541"/>
+</wrapper>
+<table x="99" y="136" w="1082" h="447" rows="10" rowspacing="3" lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png">
+	<image lightbar="@@lightbar-account_list-0" active="@@act-account_list-0"/>
+	<image lightbar="@@lightbar-account_list-1" active="@@act-account_list-1"/>
+	<image lightbar="@@lightbar-account_list-2" active="@@act-account_list-2"/>
+	<image lightbar="@@lightbar-account_list-3" active="@@act-account_list-3"/>
+	<image lightbar="@@lightbar-account_list-4" active="@@act-account_list-4"/>
+	<image lightbar="@@lightbar-account_list-5" active="@@act-account_list-5"/>
+	<image lightbar="@@lightbar-account_list-6" active="@@act-account_list-6"/>
+	<image lightbar="@@lightbar-account_list-7" active="@@act-account_list-7"/>
+	<image lightbar="@@lightbar-account_list-8" active="@@act-account_list-8"/>
+	<image lightbar="@@lightbar-account_list-9" active="@@act-account_list-9"/>
+</table>
+<table x="130" y="136" w="1020" h="447" cols="1" rows="10" colspacing="0" rowspacing="3" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" speed="1" delay="2" align="hcenter">
+	<text text="@@account_0_text" active="@@act-account_list-0"/>
+	<text text="@@account_1_text" active="@@act-account_list-1"/>
+	<text text="@@account_2_text" active="@@act-account_list-2"/>
+	<text text="@@account_3_text" active="@@act-account_list-3"/>
+	<text text="@@account_4_text" active="@@act-account_list-4"/>
+	<text text="@@account_5_text" active="@@act-account_list-5"/>
+	<text text="@@account_6_text" active="@@act-account_list-6"/>
+	<text text="@@account_7_text" active="@@act-account_list-7"/>
+	<text text="@@account_8_text" active="@@act-account_list-8"/>
+	<text text="@@account_9_text" active="@@act-account_list-9"/>
+</table>
+<image image="@@wrongkeyicon" x="1192" y="40" w="48" h="48" align="hcenter"/>
+<wrapper>
+	<image image="image/villa_options_menu_bg_03.png" x="673" y="50" w="607" h="40" overlay="1" disable="@@disable-options_bg"/>
+	<!--
+	<table x="1020" y="20" h="60" w="120" cols="2" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@lightbar-QML0"/>
+		<image image="@@lightbar-QML1"/>
+	</table>
+	<table x="1020" y="20" h="60" w="120" cols="2" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0"/>
+		<image image="@@bg-QML1"/>
+	</table>
+	-->
+</wrapper>
+<text x="730" y="50" w="430" h="40" text="@@text-options" fontsize="26" textcolor="0xcccccc" align="right" disable="@@disable-text-options"/>
+<include filename="inc_loading.xml"/>
+</page>

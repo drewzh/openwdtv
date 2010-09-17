@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp lbmask="l" more_select="right">
+	<button valkey="IP"
+	focused_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="NETMASK"
+	focused_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="GATEWAY"
+	focused_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="DNS"
+	focused_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Network Setup" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<wrapper x="100" w="1080" h="40">
+	<image image="image/browser_list_line.png" y="174"/>
+	<image image="image/browser_list_line.png" y="214"/>
+	<image image="image/browser_list_line.png" y="254"/>
+	<image image="image/browser_list_line.png" y="294"/>
+</wrapper>
+<table x="100" y="174" w="1080" h="160" cols="1" rows="4" colspacing="0" rowspacing="0">
+	<image image="@@bg-IP"/>
+	<image image="@@bg-NETMASK"/>
+	<image image="@@bg-GATEWAY"/>
+	<image image="@@bg-DNS"/>
+</table>
+<table x="110" y="174" w="600" h="160" cols="1" rows="4" colspacing="0" rowspacing="0"  align="left" xmargin="0" fontsize="26" textcolor="0xcccccc" actnoseltextcolor="0xcccccc">
+	<text text="$$IP Address"/>
+	<text text="$$Subnet Mask"/>
+	<text text="$$Gateway"/>
+	<text text="$$DNS"/>
+</table>
+<imgbtn image="@@bg-OK" text="$$Finish" textcolor="0xcccccc" x="485" y="450" w="310" h="50" fontsize="22" align="hcenter"/>
+<text text="@@ip_value" x="770" y="174" w="400" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@netmask_value" x="770" y="214" w="400" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@gateway_value" x="770" y="254" w="400" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@dns_value" x="770" y="294" w="400" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<include filename="inc_logo.xml"/>
+</page>

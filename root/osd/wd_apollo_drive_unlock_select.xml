@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp>
+	<button valkey="hdd0"/>
+	<button valkey="hdd1"/>
+</ctrlgrp>
+<text text="$$Please select the device you would like to unlock." x="300" y="200" w="680" h="60" fontsize="26" textcolor="0xcccccc" numlines="2" align="hcenter"/>
+<image image="image/home_main_function_frame_bg.png" x="0" y="344" w="1280" h="122" bg="1"/>
+<table x="460" y="335" w="360" h="140" cols="2">
+	<image image="@@LIGHTBAR0" bg="1"/>
+	<image image="@@LIGHTBAR1" bg="1"/>
+</table>
+<table x="460" y="335" w="360" h="140" cols="2">
+	<image image="@@BG0"/>
+	<image image="@@BG1"/>
+</table>
+<text text="@@HDD_INFO" x="300" y="280" w="680" h="30" fontsize="26" textcolor="0xcccccc" align="hcenter"/>
+<include filename="inc_loading.xml"/>
+</page>

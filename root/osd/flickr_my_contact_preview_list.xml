@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp>
+	<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="10" lbmask="lr" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+	<linebreak/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<image image="image/villa_flickr_logo.png" x="72" y="20" w="60" h="60" bg="1"/>-->
+<text x="100" y="60" w="550" h="30" text="@@browse_title_icon" fontsize="26" textcolor="0xcccccc"/>
+<!--<include filename="info.xml"/>-->
+<include filename="flickr_inc_my_contact_list_browse.xml"/>
+<include filename="inc_loading.xml"/>
+<include filename="decoration.xml"/>
+<!--<image image="image/villa_flickr_frame.png" x="152" y="182" w="486" h="346"/>
+<text text="TBD" x="186" y="521" w="430" h="28" textcolor="0xcccccc"/>-->
+</page>

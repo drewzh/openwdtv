@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp lbmask="lrud">
+	<button valkey="CHECK"
+	focused_bg="image/Villa_button_blue_f_04.png"
+	normal_bg="image/Villa_button_blue_n_04.png"
+	click_bg="image/Villa_button_blue_f_04.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="800" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Update Device" x="144" y="100" w="550" h="40" fontsize="22" align="left" textcolor="0x4d4d4d"/>
+<text text="$$Check for latest firmware and upgrade device." x="300" y="250" w="680" h="90" align="hcenter" fontsize="26" numlines="3" textcolor="0xcccccc"/>
+<text text="$$Current version:" x="290" y="360" w="340" h="30" fontsize="26" align="right" textcolor="0xcccccc"/>
+<text text="@@firmware_version" x="650" y="360" w="340" h="30" fontsize="26" align="left" textcolor="0xcccccc"/>
+<imgbtn x="385" y="450" w="510" h="50" image="@@bg-CHECK" text="$$Check for new update" align="hcenter" fontsize="22" textcolor="0xcccccc" active="@@act-CHECK" actnoseltextcolor="0xcccccc"/>
+<include filename="inc_setup_headline_property.xml"/>
+<include filename="decoration.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

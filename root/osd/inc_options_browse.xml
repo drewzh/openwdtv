@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<wrapper>
+<image image="@@lightbar-QML0" x="1130" y="100" h="40" w="50" disable="@@disable-options_bg"/>
+<image image="@@bg-QML0" x="1130" y="100" h="40" w="50" align="hcenter"/>
+</wrapper>

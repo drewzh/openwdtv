@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<include filename="inc_keyboard.xml"/>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="@@master_headline" x="100" y="60" w="550" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@slave_headline" x="146" y="100" w="550" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<image image="@@logo" x="1069" y="591" w="158" h="65"/>
+<include filename="inc_logo.xml"/>
+</page>

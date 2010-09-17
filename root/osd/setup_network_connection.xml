@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<text text="$$Please Wait..." x="300" y="250" w="680" h="30" fontsize="26" align="hcenter" textcolor="0xcccccc"/>
+<image image="@@connection_img" x="590" y="360" w="100" h="100"/>
+</page>

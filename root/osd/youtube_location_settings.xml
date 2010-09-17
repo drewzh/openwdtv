@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<listbox valkey="youtube_location_settings" autoenter="1" autoswitch="0" move="page" cols="1" rows="9" loop_scroll="1"/>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<text text="@@title" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<wrapper x="99" w="1082" h="42">
+	<image y="136" h="42" image="@@location_settings_0_line"/>
+	<image y="181" h="42" image="@@location_settings_1_line"/>
+	<image y="226" h="42" image="@@location_settings_2_line"/>
+	<image y="271" h="42" image="@@location_settings_3_line"/>
+	<image y="316" h="42" image="@@location_settings_4_line"/>
+	<image y="361" h="42" image="@@location_settings_5_line"/>
+	<image y="406" h="42" image="@@location_settings_6_line"/>
+	<image y="451" h="42" image="@@location_settings_7_line"/>
+	<image y="496" h="42" image="@@location_settings_8_line"/>
+</wrapper>
+<table x="120" y="136" w="20" h="402" cols="1" rows="9" colspacing="0" rowspacing="3">
+	<image image="@@location_settings_0_checked" ymargin="0"/>
+	<image image="@@location_settings_1_checked" ymargin="0"/>
+	<image image="@@location_settings_2_checked" ymargin="0"/>
+	<image image="@@location_settings_3_checked" ymargin="0"/>
+	<image image="@@location_settings_4_checked" ymargin="0"/>
+	<image image="@@location_settings_5_checked" ymargin="0"/>
+	<image image="@@location_settings_6_checked" ymargin="0"/>
+	<image image="@@location_settings_7_checked" ymargin="0"/>
+	<image image="@@location_settings_8_checked" ymargin="0"/>
+</table>
+<table x="99" y="136" w="1082" h="402" fontsize="26" selected_fontsize="26" cols="1" rows="9" colspacing="0" rowspacing="3" lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png" align="hcenter" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" actoverlistcolor="0xcccccc" activetextcolor="0xcccccc" selectedtextcolor="0xcccccc">
+	<text text="@@location_settings_0_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-0" active="@@act-youtube_location_settings-0" selected="@@youtube_location_settings_0_select"/>
+	<text text="@@location_settings_1_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-1" active="@@act-youtube_location_settings-1" selected="@@youtube_location_settings_1_select"/>
+	<text text="@@location_settings_2_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-2" active="@@act-youtube_location_settings-2" selected="@@youtube_location_settings_2_select"/>
+	<text text="@@location_settings_3_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-3" active="@@act-youtube_location_settings-3" selected="@@youtube_location_settings_3_select"/>
+	<text text="@@location_settings_4_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-4" active="@@act-youtube_location_settings-4" selected="@@youtube_location_settings_4_select"/>
+	<text text="@@location_settings_5_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-5" active="@@act-youtube_location_settings-5" selected="@@youtube_location_settings_5_select"/>
+	<text text="@@location_settings_6_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-6" active="@@act-youtube_location_settings-6" selected="@@youtube_location_settings_6_select"/>
+	<text text="@@location_settings_7_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-7" active="@@act-youtube_location_settings-7" selected="@@youtube_location_settings_7_select"/>
+	<text text="@@location_settings_8_text" xmargin="60" ymargin="0" lightbar="@@lightbar-youtube_location_settings-8" active="@@act-youtube_location_settings-8" selected="@@youtube_location_settings_8_select"/>
+</table>
+<!--<include filename="inc_youtube_logo.xml"/>-->
+<include filename="decoration.xml"/>
+</page>

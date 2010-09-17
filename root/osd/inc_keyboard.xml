@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<wrapper>
+<ctrlgrp>
+	<eventbox_keyboard valkey="keyboard" autoenter="1"/>
+</ctrlgrp>
+<wrapper>
+<widget_keyboard ctrlname="keyboard" x="320" y="229" w="640" h="226" cols="14" rows="5" align="hcenter" textcolor="0xcccccc" activetextcolor="0x000000" changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+</wrapper>
+<image image="image/keyboard_search_box.png" x="325" y="231" w="537" h="42" bg="1"/>
+<texttail text="@@input_01_text" x="340" y="231" w="470" h="42" textcolor="0xcccccc" fontsize="26"/>
+<text text="$$Press [Option] key for multi-lingual input" x="325" y="490" w="630" h="60" align="left" fontsize="22" textcolor="0xcccccc" numlines="2" disable="@@disable-OPTION"/>
+</wrapper>

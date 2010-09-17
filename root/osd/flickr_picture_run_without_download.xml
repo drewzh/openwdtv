@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<page>
+<ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+	<button valkey="QML0"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_user_info_icon.png"
+	normal_bg="image/villa_options_menu_user_info_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Owner profile"/>
+	<button valkey="QML1"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_pan_icon.png"
+	normal_bg="image/villa_options_menu_pan_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Pan"/>
+	<button valkey="QML2"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_90clockwise_icon.png"
+	normal_bg="image/villa_options_menu_90clockwise_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Rotate right"/>
+	<button valkey="QML3"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_90counter_cw_icon.png"
+	normal_bg="image/villa_options_menu_90counter_cw_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Rotate left"/>
+	<button valkey="QML4"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_zoom_in_icon.png"
+	normal_bg="image/villa_options_menu_zoom_in_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom in"/>
+	<button valkey="QML5"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_zoom_out_icon.png"
+	normal_bg="image/villa_options_menu_zoom_out_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom out"/>
+	<button valkey="QML6"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_repeat_icon.png"
+	normal_bg="image/villa_options_menu_repeat_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Play mode"/>
+	<button valkey="QML7"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_info_icon.png"
+	normal_bg="image/villa_options_menu_info_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Info bar"/>
+</ctrlgrp>
+<image image="image/slideshow_player_frame_bg.png" x="0" y="620" w="1280" h="100" disable="@@photo_info_disable" bg="1"/>
+<progress_bar name="slideshow_timebar" x="818" y="640" w="404" h="10" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="1000" disable="@@photo_info_disable"/>
+<image image="@@slideshow_state" x="59" y="632" w="34" h="26" disable="@@photo_info_disable"/>
+<text text="@@info_filename" x="110" y="630" w="390" h="30" fontsize="26" textcolor="0xcccccc" speed="1" delay="2" disable="@@photo_info_disable" align="left"/>
+<!--<text text="@@artist" x="110" y="660" w="500" h="30" fontsize="22" textcolor="0xcccccc" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>-->
+<text text="@@info_cur_pos" x="540" y="635" w="200" h="30" fontsize="22" textcolor="0xcccccc" disable="@@photo_info_disable" align="hcenter"/>
+<!--<image image="@@info_trackicon" x="910" y="605" w="40" h="30" disable="@@photo_info_disable"/>-->
+<text text="@@info_trackname" x="630" y="660" w="550" h="30" fontsize="22" textcolor="0xcccccc" speed="1" delay="2" disable="@@photo_info_disable" align="right" auto_translate="1"/>
+	<!--	<text text="@@info_photo_detail" x="675" y="618" w="268" h="20" fontsize="18" textcolor="0x999999" speed="1" delay="2" disable="@@photo_info_disable" align="left"/> -->
+	<!--<image image="image/video_control_compart_line.png" x="836" y="592" w="2" h="51" disable="@@photo_info_disable"/>-->
+<image image="@@repeat-ico" x="780" y="635" w="30" h="20" disable="@@photo_info_disable"/>
+<image image="@@shuffle-ico" x="780" y="655" w="30" h="20" disable="@@photo_info_disable"/>
+<include filename="decoration.xml"/>
+<include filename="inc_flickr_options_picture_run.xml"/>
+<text text="@@mod_txt" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc" align="left" auto_translate="1"/>
+<text x="730" y="50" w="430" h="40" text="@@text-OPTION" fontsize="26" textcolor="0xcccccc" align="right" disable="@@disable-text-options"/>
+<image image="@@mod_img" x="730" y="50" w="20" h="40"/>
+<image image="image/villa_flickr_logo.png" x="20" y="20" w="60" h="60" disable="@@photo_info_disable"/>
+</page>

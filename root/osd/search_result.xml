@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="10" lbmask="l" loop_scroll="1"/>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text id="headline" text="$$Search" fontsize="26" textcolor="0xcccccc"/>
+<include filename="inc_list_browse.xml"/>
+<include filename="inc_nav.xml"/>
+<include filename="inc_headline_property.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

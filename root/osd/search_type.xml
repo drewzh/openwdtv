@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp>
+	<button valkey="SEARCH_TYPE_CONTAINS"
+	focused_bg="image/browser_list_btn.png"
+	click_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="SEARCH_TYPE_STARTS_WITH"
+	focused_bg="image/browser_list_btn.png"
+	click_bg="image/browser_list_btn.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text id="headline" text="$$Search" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/browser_list_line.png" ymargin="0" x="100" w="1080" h="40" y="174"/>
+<image image="image/browser_list_line.png" ymargin="0" x="100" w="1080" h="40" y="214"/>
+<image x="100" y="174" w="1080" h="40" image="@@bg-SEARCH_TYPE_CONTAINS" align="hcenter" active="@@act-SEARCH_TYPE_CONTAINS" actnoseltextcolor="0xcccccc"/>
+<image x="100" y="214" w="1080" h="40" image="@@bg-SEARCH_TYPE_STARTS_WITH" align="hcenter" active="@@act-SEARCH_TYPE_STARTS_WITH" actnoseltextcolor="0xcccccc" disable="disable-SEARCH_TYPE_STARTS_WITH"/>
+<text x="110" y="174" w="1060" h="40" text="$$Contains" align="hcenter" fontsize="26" active="@@act-SEARCH_TYPE_CONTAINS" actnoseltextcolor="0xcccccc" textcolor="0xcccccc" selected_fontsize="26"/>
+<text x="110" y="214" w="1060" h="40" text="@@LATER" align="hcenter" fontsize="26" active="@@act-SEARCH_TYPE_STARTS_WITH" actnoseltextcolor="0xcccccc" textcolor="0xcccccc" disable="disable-SEARCH_TYPE_STARTS_WITH" selected_fontsize="26"/>
+<include filename="inc_setup_headline_property.xml"/>
+<include filename="decoration.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

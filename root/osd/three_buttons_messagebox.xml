@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp>
+	<button valkey="CANCEL"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="OTHER"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<image image="@@bg-CANCEL" active="@@act-CANCEL" x="135" y="450" w="310" h="50"/>
+<image image="@@bg-OTHER" active="@@act-OTHER" x="485" y="450" w="310" h="50"/>
+<image image="@@bg-OK" active="@@act-OK" x="835" y="450" w="310" h="50"/>
+<text text="@@text-CANCEL" x="135" y="450" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<text text="@@text-OTHER" x="485" y="450" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<text text="@@text-OK" x="835" y="450" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<include filename="inc_messagebox.xml"/>
+</page>

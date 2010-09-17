@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<wrapper>
+<table x="1130" y="100" h="40" w="50" cols="1" align="hcenter" disable="@@disable-options_bg">
+	<image image="@@lightbar-QML0" bg="1"/>
+</table>
+<table x="1130" y="100" h="40" w="50" cols="1" align="hcenter">
+	<image image="@@bg-QML0"/>
+</table>
+</wrapper>

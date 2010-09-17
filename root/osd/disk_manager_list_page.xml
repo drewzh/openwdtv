@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp>
+	<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="4" lbmask="lr" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+	<linebreak/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<include filename="info.xml"/>-->
+<text x="100" y="60" w="550" h="30" text="@@browse_title_icon" fontsize="26" align="left" textcolor="0xcccccc"/>
+<!--image x="350" y="110" w="380" h="340" image="@@browse_background_icon" bg="1" align="hcenter"/-->
+<include filename="inc_disk_manager_list_browse.xml"/>
+<include filename="inc_loading.xml"/>
+<include filename="decoration.xml"/>
+</page>

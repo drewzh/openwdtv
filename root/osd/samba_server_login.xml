@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc" align="left"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Sign in" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<ctrlgrp>
+	<button valkey="USERNAME"
+	focused_bg="image/login_input_box_f.png"
+	normal_bg="image/login_input_box_n.png"/>
+	<linebreak/>
+	<button valkey="PASSWORD"
+	focused_bg="image/login_input_box_f.png"
+	normal_bg="image/login_input_box_n.png"/>
+	<linebreak/>
+	<button valkey="CANCEL"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<imgbtn image="@@bg-USERNAME" text="" active="@@act-USERNAME" textcolor="0xcccccc" x="100" y="254" w="1080" h="40" align="left" fontsize="26"/>
+<text text="$$Account" x="110" y="254" w="500" h="40" align="left" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@USERNAME" x="670" y="254" w="500" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<imgbtn image="@@bg-PASSWORD" text="" active="@@act-PASSWORD" textcolor="0xcccccc" x="100" y="294" w="1080" h="40" align="left" fontsize="26"/>
+<text text="$$Password" x="110" y="294" w="500" h="40" align="left" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@PASSWORD" x="670" y="294" w="500" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+<imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" textcolor="0xcccccc" x="310" y="450" w="310" h="50" align="hcenter" fontsize="22"/>
+<imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" textcolor="0xcccccc" x="660" y="450" w="310" h="50" align="hcenter" fontsize="22"/>
+</page>

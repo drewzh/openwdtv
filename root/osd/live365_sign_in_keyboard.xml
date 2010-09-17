@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<include filename="inc_live365_icon.xml"/>-->
+<text text="@@master_headline" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@slave_headline" x="630" y="630" w="550" h="30" fontsize="26" align="right" textcolor="0xcccccc"/>
+<include filename="inc_keyboard.xml"/>
+</page>

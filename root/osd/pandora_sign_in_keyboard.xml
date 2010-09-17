@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<image image="image/pandora_logo.png" x="69" y="20" w="63" h="60"/>-->
+<text text="@@master_headline" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@slave_headline" x="630" y="630" w="550" h="30" align="right" fontsize="26" textcolor="0xcccccc"/>
+<include filename="inc_keyboard.xml"/>
+<!--  <include filename="./inc_setup_headline_property.xml" /> -->
+</page>

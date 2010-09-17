@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" numitems="10">
+<ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+	<listbox valkey="browselist" autoenter="1" autoswitch="0" move="row" cols="5" rows="2" lbmask="HT" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+	<linebreak/>
+	<button valkey="QML0"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_thumbnail_icon_n.png"
+	disabled_bg="image/villa_options_menu_thumbnail_icon_d.png"
+	normal_bg="image/villa_options_menu_thumbnail_icon_n.png"
+	group_valkey="options"
+	group_focused_text="$$Thumbnail mode"/>
+	<button valkey="QML1"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_list_icon_n.png"
+	disabled_bg="image/villa_options_menu_list_icon_d.png"
+	normal_bg="image/villa_options_menu_list_icon_n.png"
+	group_valkey="options"
+	group_focused_text="$$List mode"/>
+	<button valkey="QML2"
+	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_preview_more_icon_n.png"
+	disabled_bg="image/villa_options_menu_preview_more_icon_d.png"
+	normal_bg="image/villa_options_menu_preview_more_icon_n.png"
+	group_valkey="options"
+	group_focused_text="$$Preview mode"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="@@browse_title_icon" x="100" y="60" w="800" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/villa_options_menu_thumbnail_icon_n.png" x="88" y="100" w="50" h="40" bg="1"/>
+<text text="$$Thumbnail mode" x="146" y="100" w="400" h="40" fontsize="22" textcolor="0x4d4d4d"/>
+<!--<include filename="info.xml"/>-->
+<include filename="inc_thumb_browse.xml"/>
+<include filename="inc_loading.xml"/>
+<include filename="inc_options_list.xml"/>
+<text x="610" y="100" w="400" h="40" text="@@text-options" fontsize="22" textcolor="0x4d4d4d" align="right" disable="@@disable-text-options"/>
+<include filename="decoration.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

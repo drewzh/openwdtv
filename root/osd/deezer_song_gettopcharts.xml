@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/villa_bg.jpg" type="basic">
+	<ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+		<button valkey="charts_FR"/>
+		<button valkey="charts_BE"/>
+		<button valkey="charts_UK"/>
+		<button valkey="charts_US"/>
+		<linebreak/>
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="row" cols="2" rows="5" lbmask="u" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+	</ctrlgrp>
+
+	<image image="./image/deezer/deezer_Country_frame_bg.png" x="783" y="160" w="328" h="32"/>
+
+	<table x="786" y="163" w="324" h="27" cols="4" textcolor="0xffffffff" align="hcenter" fontsize="14">
+		<imgbtn text="$$FR" image="@@icon-charts_FR" w="81"/>
+		<imgbtn text="$$BE" image="@@icon-charts_BE" w="81"/>
+		<imgbtn text="$$UK" image="@@icon-charts_UK" w="81"/>
+		<imgbtn text="$$US" image="@@icon-charts_US" w="81"/>
+	</table>
+
+	<include filename="./info.xml"/>
+	<include filename="./inc_deezer_two_short_list_browse.xml"/> 
+	<include filename="./inc_loading.xml"/>
+	<!-- fixed --> 
+	<include filename="./decoration.xml"/>
+	<image image="./image/deezer/deezer_logo.png" x="1049" y="610" w="135" h="46"/>
+</page>

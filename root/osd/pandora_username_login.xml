@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp lbmask="l" more_select="right">
+	<button valkey="USERNAME"
+	focused_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="PASSWORD"
+	focused_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<image image="image/pandora_logo.png" x="69" y="20" w="63" h="60"/>-->
+<text text="$$Pandora Sign in" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image x="99" y="200" w="1082" h="42" image="image/browser_list_line.png"/>
+<imgbtn image="@@bg-USERNAME" text="$$Username" textcolor="0xcccccc" x="99" y="200" w="1082" h="42" fontsize="26" selected_fontsize="26" align="hcenter" active="@@act-USERNAME"/>
+<image x="99" y="245" w="1082" h="42" image="image/browser_list_line.png"/>
+<imgbtn image="@@bg-PASSWORD" text="$$Password" textcolor="0xcccccc" x="99" y="245" w="1082" h="42" fontsize="26" selected_fontsize="26" align="hcenter" active="@@act-PASSWORD"/>
+<image image="@@bg-OK" x="485" y="350" w="310" h="50"/>
+<text text="$$Sign In" x="485" y="350" w="310" h="50" textcolor="0xcccccc" fontsize="26" align="hcenter"/>
+<include filename="inc_loading.xml"/>
+</page>

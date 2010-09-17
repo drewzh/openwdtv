@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" large_image_cache_num="3" medium_image_cache_num="16" small_image_cache_num="13">
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="@@title" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<image image="image/network_search_box.png" x="424" y="230" w="432" h="53"/>
+<text text="@@ip_num0" x="430" y="230" w="90" h="50" align="hcenter" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@ip_num1" x="540" y="230" w="90" h="50" align="hcenter" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@ip_num2" x="650" y="230" w="90" h="50" align="hcenter" fontsize="26" textcolor="0xcccccc"/>
+<text text="@@ip_num3" x="760" y="230" w="90" h="50" align="hcenter" fontsize="26" textcolor="0xcccccc"/>
+<ctrlgrp>
+	<button valkey="NUM1"
+	focused_bg="image/keyboard_number_1_btn_f.png"
+	normal_bg="image/keyboard_number_1_btn_n.png"/>
+	<button valkey="NUM2"
+	focused_bg="image/keyboard_number_2_btn_f.png"
+	normal_bg="image/keyboard_number_2_btn_n.png"/>
+	<button valkey="NUM3"
+	focused_bg="image/keyboard_number_3_btn_f.png"
+	normal_bg="image/keyboard_number_3_btn_n.png"/>
+	<button valkey="NUM4"
+	focused_bg="image/keyboard_number_4_btn_f.png"
+	normal_bg="image/keyboard_number_4_btn_n.png"/>
+	<button valkey="NUM5"
+	focused_bg="image/keyboard_number_5_btn_f.png"
+	normal_bg="image/keyboard_number_5_btn_n.png"/>
+	<button valkey="NUM6"
+	focused_bg="image/keyboard_number_6_btn_f.png"
+	normal_bg="image/keyboard_number_6_btn_n.png"/>
+	<button valkey="NUM7"
+	focused_bg="image/keyboard_number_7_btn_f.png"
+	normal_bg="image/keyboard_number_7_btn_n.png"/>
+	<button valkey="NUM8"
+	focused_bg="image/keyboard_number_8_btn_f.png"
+	normal_bg="image/keyboard_number_8_btn_n.png"/>
+	<button valkey="NUM9"
+	focused_bg="image/keyboard_number_9_btn_f.png"
+	normal_bg="image/keyboard_number_9_btn_n.png"/>
+	<button valkey="NUM0"
+	focused_bg="image/keyboard_number_0_btn_f.png"
+	normal_bg="image/keyboard_number_0_btn_n.png"/>
+	<linebreak/>
+	<button valkey="DELETE"
+	focused_bg="image/keyboard_delet_btn_f.png"
+	normal_bg="image/keyboard_delet_btn_n.png"/>
+	<button valkey="LEFT"
+	focused_bg="image/keyboard_left_btn_f.png"
+	normal_bg="image/keyboard_left_btn_n.png"/>
+	<button valkey="RIGHT"
+	focused_bg="image/keyboard_right_btn_f.png"
+	normal_bg="image/keyboard_right_btn_n.png"/>
+	<button valkey="CLEAR"
+	focused_bg="image/keyboard_clear_btn_f.png"
+	normal_bg="image/keyboard_clear_btn_n.png"/>
+	<linebreak/>
+	<button valkey="BACK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="NEXT"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+<table x="377" y="300" w="527" h="50" cols="10">
+	<imgbtn image="@@bg-NUM1" text="" active="@@act-NUM1"/>
+	<imgbtn image="@@bg-NUM2" text="" active="@@act-NUM2"/>
+	<imgbtn image="@@bg-NUM3" text="" active="@@act-NUM3"/>
+	<imgbtn image="@@bg-NUM4" text="" active="@@act-NUM4"/>
+	<imgbtn image="@@bg-NUM5" text="" active="@@act-NUM5"/>
+	<imgbtn image="@@bg-NUM6" text="" active="@@act-NUM6"/>
+	<imgbtn image="@@bg-NUM7" text="" active="@@act-NUM7"/>
+	<imgbtn image="@@bg-NUM8" text="" active="@@act-NUM8"/>
+	<imgbtn image="@@bg-NUM9" text="" active="@@act-NUM9"/>
+	<imgbtn image="@@bg-NUM0" text="" active="@@act-NUM0"/>
+</table>
+<table x="377" y="353" w="527" h="54" cols="4">
+	<imgbtn image="@@bg-DELETE" text="" active="@@act-DELETE"/>
+	<imgbtn image="@@bg-LEFT" text="" active="@@act-LEFT"/>
+	<imgbtn image="@@bg-RIGHT" text="" active="@@act-RIGHT"/>
+	<imgbtn image="@@bg-CLEAR" text="" active="@@act-CLEAR"/>
+</table>
+<imgbtn image="@@bg-BACK" text="BACK" active="@@act-BACK" actnoseltextcolor="0xcccccc" x="310" y="440" w="310" h="50" align="hcenter" fontsize="26"/>
+ <imgbtn image="@@bg-NEXT" text="@@next" active="@@act-NEXT" actnoseltextcolor="0xcccccc" x="660" y="440" w="310" h="50" align="hcenter" fontsize="26"/>
+</page>

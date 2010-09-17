@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+	<button valkey="CMD0"
+	lightbar_bg="image/pandora_ontrols_select_button.png"
+	focused_bg="image/pandora_ontrols_thumb_up_icon.png"
+	disabled_bg="image/pandora_ontrols_thumb_up_icon.png"
+	normal_bg="image/pandora_ontrols_thumb_up_icon.png"/>
+	<button valkey="CMD1"
+	lightbar_bg="image/pandora_ontrols_select_button.png"
+	focused_bg="image/pandora_ontrols_thumb_down_icon.png"
+	disabled_bg="image/pandora_ontrols_thumb_down_icon.png"
+	normal_bg="image/pandora_ontrols_thumb_down_icon.png"/>
+	<button valkey="CMD2"
+	lightbar_bg="image/pandora_ontrols_select_button.png"
+	focused_bg="image/live365_ontrols_thumb_add_icon.png"
+	disabled_bg="image/live365_ontrols_thumb_add_icon.png"
+	normal_bg="image/live365_ontrols_thumb_add_icon.png"/>
+	<button valkey="CMD3"
+	lightbar_bg="image/pandora_ontrols_select_button.png"
+	focused_bg="image/live365_ontrols_thumb_mail_icon.png"
+	disabled_bg="image/live365_ontrols_thumb_mail_icon.png"
+	normal_bg="image/live365_ontrols_thumb_mail_icon.png"/>
+	<!--
+	<button valkey="CMD4"
+	lightbar_bg="image/pandora_ontrols_select_button.png"
+	focused_bg="image/pandora_ontrols_info_icon.png"
+	disabled_bg="image/pandora_ontrols_info_icon.png"
+	normal_bg="image/pandora_ontrols_info_icon.png"/>
+	-->
+	<linebreak/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<!--<include filename="inc_live365_icon.xml"/>-->
+<text x="100" y="60" w="550" h="30" text="Live365.com" fontsize="26" textcolor="0xcccccc" align="left"/>
+<!--<text x="730" y="50" w="430" h="40" text="@@text-options" fontsize="26" textcolor="0xcccccc" align="right" disable="@@disable-text-options"/>-->
+<image x="110" y="270" w="180" h="180" image="image/pandora_playing_frame_bg_n.png" bg="1"/>
+<image x="110" y="270" w="180" h="180" image="@@album_icon" default_image="image/music_player_frame_albumart_icon.png" xmargin="0" ymargin="0" umargin="0" dmargin="0" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+<image x="99" y="259" w="202" h="202" image="image/music_player_frame_blister.png" bg="1"/>
+<image x="349" y="259" w="832" h="42" image="image/photo_thumb_line_01.png" bg="1"/>
+<image x="370" y="259" w="30" h="42" image="image/music_player_artist_icon_n.png" bg="1"/>
+<text text="@@artist" x="420" y="259" w="740" h="42" fontsize="26" textcolor="0xcccccc" align="right" speed="1" delay="2" auto_translate="1"/>
+<image x="349" y="304" w="832" h="42" image="image/photo_thumb_line_01.png" bg="1"/>
+<image x="370" y="304" w="30" h="42" image="image/music_player_album_icon_n.png" bg="1"/>
+<text text="@@album" x="420" y="304" w="740" h="42" fontsize="26" textcolor="0xcccccc" align="right" speed="1" delay="2" auto_translate="1"/>
+<image x="349" y="349" w="832" h="42" image="image/photo_thumb_line_01.png" bg="1"/>
+<image x="370" y="349" w="30" h="42" image="image/pandora_station_icon_n.png" bg="1"/>
+<text text="@@station" x="420" y="349" w="740" h="42" fontsize="26" textcolor="0xcccccc" align="right" speed="1" delay="2" auto_translate="1"/>
+<image x="349" y="419" w="832" h="42" image="image/photo_thumb_line_01.png" bg="1"/>
+<image x="370" y="419" w="30" h="42" image="image/live365_bitrate_icon_n.png" bg="1"/>
+<text text="@@station_biterate" x="420" y="419" w="740" h="42" fontsize="26" textcolor="0xcccccc" align="right"/>
+<image x="0" y="620" w="1280" h="100" image="image/music_player_function_frame_bg.png" bg="1"/>
+<progress_bar name="point_bar" x="818" y="640" w="404" h="10" pb_back_img="image/music_player_line_bg.png" pb_front_img="image/music_player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500"/>
+<image x="59" y="632" w="34" h="26" image="@@play_state"/>
+<text text="@@songname" x="110" y="630" w="390" h="30" fontsize="26" numlines="1" textcolor="0xcccccc" speed="1" delay="2" align="left" auto_translate="1"/>
+<text x="580" y="635" w="120" h="30" fontsize="22" text="@@audio_currenttime" align="hcenter" textcolor="0xcccccc"/>
+<image image="image/villa_options_menu_bg_03.png" x="673" y="50" w="607" h="40" overlay="1" disable="@@disable-options_bg"/>
+<image x="960" y="50" w="50" h="40" image="@@lightbar-CMD0"/>
+<image x="1010" y="50" w="50" h="40" image="@@lightbar-CMD1"/>
+<image x="1060" y="50" w="50" h="40" image="@@lightbar-CMD2"/>
+<image x="1110" y="50" w="50" h="40" image="@@lightbar-CMD3"/>
+<!--<image x="910" y="50" w="50" h="40" image="@@lightbar-CMD4"/>-->
+<image x="960" y="50" w="50" h="40" image="@@bg-CMD0"/>
+<image x="1010" y="50" w="50" h="40" image="@@bg-CMD1"/>
+<image x="1060" y="50" w="50" h="40" image="@@bg-CMD2"/>
+<image x="1110" y="50" w="50" h="40" image="@@bg-CMD3"/>
+<!--<image x="910" y="50" w="50" h="40" image="@@bg-CMD4"/>-->
+<include filename="decoration.xml"/>
+<include filename="inc_loading.xml"/>
+</page>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<wrapper>
+<image image="@@wrongkeyicon" x="1192" y="40" w="48" h="48" align="hcenter"/>
+<motion_icon x="590" y="360" w="100" h="100" count="12" base_filename="image/video_player_buffering_info_n" suffix_name="png" delay="300" disable="@@disable_motion_icon"/>
+</wrapper>

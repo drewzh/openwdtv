@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<page>
+<ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+	<button valkey="QML0"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/villa_options_menu_rate_video_icon.png"
+	normal_bg="image/villa_options_menu_rate_video_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Rate video"/>
+	<button valkey="QML1"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/villa_options_menu_download_video_icon.png"
+	normal_bg="image/villa_options_menu_download_video_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Download Video"/>
+	<button valkey="QML2"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+	normal_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom in"/>
+	<button valkey="QML3"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_zoomout_icon_n.png"
+	normal_bg="image/slideshow_options_menu_zoomout_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom out"/>
+	<button valkey="QML4"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_pan_icon_n.png"
+	normal_bg="image/slideshow_options_menu_pan_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Pan"/>
+	<button valkey="QML5"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/options_menu_info_icon_n.png"
+	normal_bg="image/options_menu_info_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Info bar"/>
+</ctrlgrp>
+<image image="image/video_control_frame_bg.png" x="0" y="620" w="1280" h="100" bg="1" disable="@@progress_disable"/>
+<progress_bar name="video_time_bar" x="818" y="640" w="404" h="10" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@progress_disable" pb_enable_buffer="1"/>
+<text text="@@info_title" x="110" y="630" w="390" h="30" fontsize="26" textcolor="0xcccccc" speed="1" delay="2" align="left" auto_translate="1"/>
+<text text="@@info_cur_time" x="530" y="635" w="100" h="30" fontsize="22" textcolor="0xcccccc" align="right"/>
+<text text="@@info_duration" x="640" y="635" w="100" h="30" fontsize="22" textcolor="0xcccccc" align="left"/>
+<image x="61" y="660" w="30" h="20" image="@@speed_state"/>
+<image image="@@play_state" x="59" y="632" w="34" h="26"/>
+<include filename="decoration.xml"/>
+<include filename="inc_options_youtube_run.xml"/>
+<text text="@@mod_txt" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc" align="left" auto_translate="1"/>
+<text x="730" y="50" w="430" h="40" text="@@text-OPTION" fontsize="26" textcolor="0xcccccc" align="right" disable="@@disable-text-options"/>
+<image image="@@mod_img" x="730" y="50" w="20" h="40"/>
+<image image="@@youtube_logo" x="20" y="20" w="63" h="60"/>
+<include filename="inc_loading.xml"/>
+</page>

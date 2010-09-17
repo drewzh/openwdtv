@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<listbox valkey="preferences" autoenter="1" autoswitch="0" move="page" cols="1" rows="4" loop_scroll="1"/>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<text text="@@title" x="100" y="60" w="550" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<wrapper x="99" w="1082" h="42" ymargin="0" bg="1">
+	<image y="271" image="@@preferences_0_line"/>
+	<image y="316" image="@@preferences_1_line"/>
+	<image y="361" image="@@preferences_2_line"/>
+	<image y="406" image="@@preferences_3_line"/>
+</wrapper>
+<table x="99" y="271" w="1082" h="177" fontsize="26" selected_fontsize="26" cols="1" rows="4" colspacing="0" rowspacing="3" lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png" align="hcenter" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" actoverlistcolor="0xcccccc" activetextcolor="0xcccccc" selectedtextcolor="0xcccccc">
+	<text text="@@preferences_0_text" lightbar="@@lightbar-preferences-0" active="@@act-preferences-0" selected="@@preferences_0_select"/>
+	<text text="@@preferences_1_text" lightbar="@@lightbar-preferences-1" active="@@act-preferences-1" selected="@@preferences_1_select"/>
+	<text text="@@preferences_2_text" lightbar="@@lightbar-preferences-2" active="@@act-preferences-2" selected="@@preferences_2_select"/>
+	<text text="@@preferences_3_text" lightbar="@@lightbar-preferences-3" active="@@act-preferences-3" selected="@@preferences_3_select"/>
+</table>
+<!--<include filename="inc_youtube_logo.xml"/>-->
+<include filename="decoration.xml"/>
+</page>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" wait_seconds="3">
+<image image="image/welcome_logo.png" x="521" y="266" w="238" h="188"/>
+<include filename="decoration.xml"/>
+</page>

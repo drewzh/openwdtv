@@ -1,0 +1,19 @@
+
+<?xml version="1.0"?>
+<wrapper>
+<wrapper disable="@@disable-optionmenu">
+	<menuview ctrlname="optionmenu" changed="@@optionmenu_changed" slice_count="10"
+		  x="0" y="0" w="1280" h="720" main_list_x="497" main_list_y="0" icon_spacing="0"
+		  display_item_count="3" focus_index="1" 
+		  style="3" enable_outline="1" 
+		  outline_focus_icon="image/villa_options_menu_select_bar.png"/>
+
+	<image image="@@prev-icon" x="456" y="85" w="17" h="12"/>
+	<image image="@@next-icon" x="823" y="85" w="17" h="12"/>
+	<text text="@@optionmenu_name" x="476" y="173" w="327" h="34" fontsize="26" 
+		align="hcenter" textcolor="0x07b5ff" speed="1" delay="2"/>
+	<text text="@@optionmenu_status" x="476" y="207" w="327" h="34" fontsize="26"
+	       	align="hcenter" textcolor="0x07b5ff" speed="1" delay="2"/>
+	<image image="image/villa_options_menu_bg_03.png" x="476" y="0" w="327" h="173" bg="1"/>
+</wrapper>
+</wrapper>

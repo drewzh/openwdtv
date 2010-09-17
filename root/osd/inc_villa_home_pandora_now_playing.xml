@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<wrapper>
+<wrapper disable="@@pandora_now_playing_disable">
+<image image="image/villa/slideshow_player_musicsm_icon.png" x="100" y="100" w="25" h="40"/>
+<text text="@@info_bar_track_name" x="145" y="100" w="780" h="40" fontsize="22" speed="1" delay="2" align="left" textcolor="0x4d4d4d"/>
+<!--<text text="@@info_bar_artist_name" x="125" y="390" w="400" h="30" fontsize="26" speed="1" delay="2" align="left" textcolor="0xcccccc"/>
+<text text="@@info_bar_album_name" x="125" y="420" w="400" h="30" fontsize="26" speed="1" delay="2" align="left" textcolor="0xcccccc"/>-->
+</wrapper>
+</wrapper>

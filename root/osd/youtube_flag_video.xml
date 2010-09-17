@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<listbox valkey="flagging" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="lr" loop_scroll="1"/>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<image image="image/youtube_logo.png" x="69" y="20" w="63" h="60"/>-->
+<text text="@@flagging_title" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<wrapper x="99" w="1082">
+	<image y="200" h="42" image="@@flagging_0_line"/>
+	<image y="245" h="42" image="@@flagging_1_line"/>
+	<image y="290" h="42" image="@@flagging_2_line"/>
+	<image y="335" h="42" image="@@flagging_3_line"/>
+	<image y="380" h="42" image="@@flagging_4_line"/>
+	<image y="425" h="42" image="@@flagging_5_line"/>
+	<image y="470" h="42" image="@@flagging_6_line"/>
+</wrapper>
+<table x="99" y="200" w="1082" h="312" fontsize="26" selected_fontsize="26" cols="1" rows="7" colspacing="0" rowspacing="3" lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" actoverlistcolor="0xcccccc" activetextcolor="0xcccccc" selectedtextcolor="0xcccccc" align="hcenter">
+	<text text="@@flagging_0_text" xmargin="30" lightbar="@@lightbar-flagging-0" active="@@act-flagging-0" selected="@@flagging_0_select"/>
+	<text text="@@flagging_1_text" xmargin="30" lightbar="@@lightbar-flagging-1" active="@@act-flagging-1" selected="@@flagging_1_select"/>
+	<text text="@@flagging_2_text" xmargin="30" lightbar="@@lightbar-flagging-2" active="@@act-flagging-2" selected="@@flagging_2_select"/>
+	<text text="@@flagging_3_text" xmargin="30" lightbar="@@lightbar-flagging-3" active="@@act-flagging-3" selected="@@flagging_3_select"/>
+	<text text="@@flagging_4_text" xmargin="30" lightbar="@@lightbar-flagging-4" active="@@act-flagging-4" selected="@@flagging_4_select"/>
+	<text text="@@flagging_5_text" xmargin="30" lightbar="@@lightbar-flagging-5" active="@@act-flagging-5" selected="@@flagging_5_select"/>
+	<text text="@@flagging_6_text" xmargin="30" lightbar="@@lightbar-flagging-6" active="@@act-flagging-6" selected="@@flagging_6_select"/>
+</table>
+<text x="730" y="50" w="430" h="40" text="@@text-options" fontsize="26" textcolor="0xcccccc" align="right" disable="@@disable-text-options"/>
+<include filename="inc_loading.xml"/>
+<include filename="inc_headline_property.xml"/>
+<include filename="decoration.xml"/>
+</page>

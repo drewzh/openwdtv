@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<page background="image/villa_bg.jpg">
+<image image="image/live365_logo.png" x="608" y="180" w="63" h="60"/>
+<text text="$$About Live365 VIP" x="300" y="260" w="680" h="30" align="hcenter" fontsize="26" textcolor="0xcccccc"/>
+<include filename="inc_loading.xml"/>
+</page>

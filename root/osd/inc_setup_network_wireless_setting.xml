@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<wrapper>
+<wrapper x="100" w="1080" h="40" image="image/browser_list_line.png">
+	<image ymargin="0" bg="1" y="294"/>
+	<image ymargin="0" bg="1" y="334"/>
+	<image ymargin="0" bg="1" y="374"/>
+	<image ymargin="0" bg="1" y="414"/>
+	<image ymargin="0" bg="1" y="454"/>
+	<image ymargin="0" bg="1" y="494"/>
+	<image ymargin="0" bg="1" y="534"/>
+</wrapper>
+<text text="$$Current network setting:" x="100" y="294" w="1080" h="40" align="left" fontsize="26" textcolor="0xcccccc"/>
+<table x="100" y="334" w="500" h="240" rows="6" rowspacing="0" textcolor="0xcccccc" fontsize="26" align="left">
+	<text text="$$SSID"/>
+	<text text="$$Signal"/>
+	<text text="$$IP Address"/>
+	<text text="$$Subnet Mask"/>
+	<text text="$$Gateway"/>
+	<text text="$$DNS"/>
+</table>
+<table x="680" y="334" w="500" h="240" rows="6" rowspacing="0" textcolor="0xcccccc" fontsize="26" align="right">
+	<text text="@@value-ssid"/>
+	<image image="@@ss-signal-percent-icon"/>
+	<text text="@@value-ip_address"/>
+	<text text="@@value-subnet_mask"/>
+	<text text="@@value-gateway"/>
+	<text text="@@value-dns"/>
+</table>
+</wrapper>

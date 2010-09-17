@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<wrapper>
+	<widget_property>
+	<item id="headline" x="100" y="60" w="800" h="30" align="left"/>
+	<item id="subheadline" x="146" y="100" w="550" h="40" fontsize="22" align="left"/>
+	<item id="pagecounter" x="980" y="60" w="200" h="30" align="right" fontsize="26" textcolor="0xcccccc"/>
+	</widget_property>
+</wrapper>

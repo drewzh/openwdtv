@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<text text="$$Connecting..." x="300" y="250" w="680" h="30" fontsize="26" textcolor="0xcccccc" selectedtextcolor="0xcccccc" align="hcenter" speed="1" delay="2" auto_translate="1"/>
+</page>

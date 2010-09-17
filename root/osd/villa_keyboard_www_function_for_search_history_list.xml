@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page type="basic" overlay="1">
+<ctrlgrp>
+	<button valkey="COM" focused_bg="image/keyboard_funchion_expanded_btn.png" normal_bg="image/keyboard_funchion_com_btn.png"/>
+	<linebreak/>
+	<button valkey="WWW" focused_bg="image/keyboard_funchion_expanded_btn.png" normal_bg="image/keyboard_funchion_com_btn.png"/>
+	<linebreak/>
+	<button valkey="NET" focused_bg="image/keyboard_funchion_expanded_btn.png" normal_bg="image/keyboard_funchion_com_btn.png"/>
+	<linebreak/>
+	<button valkey="ORG" focused_bg="image/keyboard_funchion_expanded_btn.png" normal_bg="image/keyboard_funchion_com_btn.png"/>
+	<linebreak/>
+	<button valkey="BIZ" focused_bg="image/keyboard_funchion_expanded_btn.png" normal_bg="image/keyboard_funchion_com_btn.png"/>
+	<linebreak/>
+	<button valkey="TV" focused_bg="image/keyboard_funchion_expanded_btn.png" normal_bg="image/keyboard_funchion_com_btn.png"/>
+</ctrlgrp>
+<image image="image/keyboard_funchion_com_btn.png" x="85" y="186" w="87" h="42"/>
+<image image="image/keyboard_funchion_com_btn.png" x="175" y="186" w="87" h="42"/>
+<image image="image/keyboard_funchion_com_btn.png" x="265" y="186" w="87" h="42"/>
+<image image="image/keyboard_funchion_com_btn.png" x="355" y="186" w="87" h="42"/>
+<image image="image/keyboard_funchion_com_btn.png" x="445" y="186" w="87" h="42"/>
+<image image="image/keyboard_funchion_com_btn.png" x="535" y="186" w="87" h="42"/>
+<wrapper y="186" w="87" h="42" textcolor="0xcccccc" selectedtextcolor="0x000000" fontsize="26" align="hcenter">
+	<text text=".com" x="85" selected="@@sel-COM"/>
+	<text text="www." x="175" selected="@@sel-WWW"/>
+	<text text=".net" x="265" selected="@@sel-NET"/>
+	<text text=".org" x="355" selected="@@sel-ORG"/>
+	<text text=".biz" x="445" selected="@@sel-BIZ"/>
+	<text text=".tv" x="535" selected="@@sel-TV"/>
+</wrapper>
+</page>

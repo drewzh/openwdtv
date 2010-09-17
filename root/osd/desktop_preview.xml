@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp valkey="options" autoenter="1" lbmask="lr">
+	<button valkey="DT_ORG"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"
+	disabled_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="DT_FIT"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"
+	disabled_bg="image/Villa_button_blue_n_02.png"/>
+	<linebreak/>
+	<button valkey="DT_OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"
+	disabled_bg="image/Villa_button_blue_n_02.png"/>
+	<button valkey="DT_CANCEL"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"
+	disabled_bg="image/Villa_button_blue_n_02.png"/>
+</ctrlgrp>
+
+<image image="@@bg-DT_ORG" x="310" y="60" w="310" h="50" disable="@@disable-DT_ORG"/>
+<image image="@@bg-DT_FIT" x="660" y="60" w="310" h="50" disable="@@disable-DT_FIT"/>
+<image image="@@bg-DT_OK" x="310" y="450" w="310" h="50" disable="@@disable-DT_OK"/>
+<image image="@@bg-DT_CANCEL" x="660" y="450" w="310" h="50" disable="@@disable-DT_CANCEL"/>
+
+<text text="@@text-DT_ORG" x="310" y="60" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<text text="@@text-DT_FIT" x="660" y="60" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<text text="@@text-DT_OK" x="310" y="450" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<text text="@@text-DT_CANCEL" x="660" y="450" w="310" h="50" fontsize="22" align="hcenter" textcolor="0xcccccc" speed="1" delay="2"/>
+<text text="@@message" x="300" y="250" w="680" h="150" fontsize="26" align="hcenter" numlines="5" textcolor="0xcccccc"/>
+</page>

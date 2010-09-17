@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<include filename="inc_messagebox.xml"/>
+</page>

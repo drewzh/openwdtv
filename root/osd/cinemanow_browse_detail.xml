@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<page background="image/cinemanow/CN_common_bg.jpg">
+	<ctrlgrp lbmask="LR"> 
+		<button valkey="Back" normal_bg="image/cinemanow/cn_browse_back_n.png" focused_bg="image/cinemanow/cn_browse_back_f.png"/>
+		<button valkey="ToHome" normal_bg="image/cinemanow/cn_browse_home_n.png" focused_bg="image/cinemanow/cn_browse_home_f.png"/>
+		<linebreak/>
+		<button valkey="PageUp" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+		<button valkey="PageDown" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+		<!--
+		<button valkey="PageUp" normal_bg="image/cinemanow/cn_browse_left.png" focused_bg="image/cinemanow/cn_browse_left.png"/>
+		<button valkey="PageDown" normal_bg="image/cinemanow/cn_browse_right.png" focused_bg="image/cinemanow/cn_browse_right.png"/>
+		-->
+		<linebreak/>
+		<button valkey="Button1" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+		<button valkey="Button2" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+		<button valkey="Button3" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+		<button valkey="Button4" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+		<button valkey="Button5" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cn_bt_f.png"/>
+	</ctrlgrp>
+	<image image="image/cinemanow/cn_title_details_header.png" x="106" y="140" w="1067" h="49"/>
+	<image image="@@videoclip-image" x="106" y="212" w="202" h="278" disabled="@@disable-videoclip-image"/>
+	<text text="@@videoclip-name" x="344" y="209" w="700" h="28" fontsize="22" textcolor="0xfff2f2f2"/>
+
+	<!-- Page 1-->
+	<wrapper x="344" w="700" h="20" fontsize="17" textcolor="0xfff2f2f2" numlines="1" align="left" speed="0">
+		<text text="@@short-caption-label0" y="234" disable="@@disable-short-caption-label0"/>
+		<text text="@@short-caption-label1" y="264" disable="@@disable-short-caption-label1"/>
+		<text text="@@short-caption-label2" y="294" disable="@@disable-short-caption-label3"/>
+		<text text="@@short-caption-label3" y="324" disable="@@disable-short-caption-label3"/>
+		<text text="@@short-caption-label4" y="354" disable="@@disable-short-caption-label4"/>
+		<text text="@@short-caption-label5" y="384" disable="@@disable-short-caption-label5"/>
+		<text text="@@short-caption-label6" y="414" disable="@@disable-short-caption-label6"/>
+		<text text="@@short-caption-label7" y="444" disable="@@disable-short-caption-label7"/>
+		<text text="@@short-caption-label8" y="474" disable="@@disable-short-caption-label8"/>
+		<text text="@@short-caption-label9" y="504" disable="@@disable-short-caption-label9"/>
+	</wrapper>
+
+	<wrapper x="544" w="500" h="20" fontsize="17" textcolor="0xfff2f2f2" numlines="1" align="left" speed="0">
+		<text text="@@short-caption-text0" y="234" disable="@@disable-short-caption-text0"/>
+		<text text="@@short-caption-text1" y="264" disable="@@disable-short-caption-text1"/>
+		<text text="@@short-caption-text2" y="294" disable="@@disable-short-caption-text3"/>
+		<text text="@@short-caption-text3" y="324" disable="@@disable-short-caption-text3"/>
+		<text text="@@short-caption-text4" y="354" disable="@@disable-short-caption-text4"/>
+		<text text="@@short-caption-text5" y="384" disable="@@disable-short-caption-text5"/>
+		<text text="@@short-caption-text6" y="414" disable="@@disable-short-caption-text6"/>
+		<text text="@@short-caption-text7" y="444" disable="@@disable-short-caption-text7"/>
+		<text text="@@short-caption-text8" y="474" disable="@@disable-short-caption-text8"/>
+		<text text="@@short-caption-text9" y="504" disable="@@disable-short-caption-text9"/>
+	</wrapper>
+
+	<!-- Page N-->
+	<wrapper x="144" w="900" h="20" fontsize="17" textcolor="0xfff2f2f2" numlines="1">
+		<text text="@@long-caption-label0" y="234" disable="@@disable-long-caption-label0"/>
+		<text text="@@long-caption-label1" y="264" disable="@@disable-long-caption-label1"/>
+		<text text="@@long-caption-label2" y="294" disable="@@disable-long-caption-label3"/>
+		<text text="@@long-caption-label3" y="324" disable="@@disable-long-caption-label3"/>
+		<text text="@@long-caption-label4" y="354" disable="@@disable-long-caption-label4"/>
+		<text text="@@long-caption-label5" y="384" disable="@@disable-long-caption-label5"/>
+		<text text="@@long-caption-label6" y="414" disable="@@disable-long-caption-label6"/>
+		<text text="@@long-caption-label7" y="444" disable="@@disable-long-caption-label7"/>
+		<text text="@@long-caption-label8" y="474" disable="@@disable-long-caption-label8"/>
+		<text text="@@long-caption-label9" y="504" disable="@@disable-long-caption-label9"/>
+	</wrapper>
+
+	<wrapper x="344" w="700" h="20" fontsize="17" textcolor="0xfff2f2f2" numlines="1">
+		<text text="@@long-caption-text0" y="234" disable="@@disable-long-caption-text0"/>
+		<text text="@@long-caption-text1" y="264" disable="@@disable-long-caption-text1"/>
+		<text text="@@long-caption-text2" y="294" disable="@@disable-long-caption-text3"/>
+		<text text="@@long-caption-text3" y="324" disable="@@disable-long-caption-text3"/>
+		<text text="@@long-caption-text4" y="354" disable="@@disable-long-caption-text4"/>
+		<text text="@@long-caption-text5" y="384" disable="@@disable-long-caption-text5"/>
+		<text text="@@long-caption-text6" y="414" disable="@@disable-long-caption-text6"/>
+		<text text="@@long-caption-text7" y="444" disable="@@disable-long-caption-text7"/>
+		<text text="@@long-caption-text8" y="474" disable="@@disable-long-caption-text8"/>
+		<text text="@@long-caption-text9" y="504" disable="@@disable-long-caption-text9"/>
+	</wrapper>
+
+	<table x="106" y="582" w="1070" h="49" fontsize="17" rows="1" cols="5" colspacing="4" align="hcenter" textcolor="0xff727272" selectedtextcolor="0xfff2f2f2">
+		<imgbtn image="@@bg-Button1" active="@@act-Button1" text="@@text-Button1" disable="@@disable-Button1"/>
+		<imgbtn image="@@bg-Button2" active="@@act-Button2" text="@@text-Button2" disable="@@disable-Button2"/>
+		<imgbtn image="@@bg-Button3" active="@@act-Button3" text="@@text-Button3" disable="@@disable-Button3"/>
+		<imgbtn image="@@bg-Button4" active="@@act-Button4" text="@@text-Button4" disable="@@disable-Button4"/>
+		<imgbtn image="@@bg-Button5" active="@@act-Button5" text="@@text-Button5" disable="@@disable-Button5"/>
+	</table>
+
+	<imgbtn image="@@bg-PageUp" text="@@text-PageUp" active="@@act-PageUp" disabled="@@disable-PageUp" x="250" y="50" w="210" h="49" fontsize="17" align="hcenter"/>
+	<imgbtn image="@@bg-PageDown" text="@@text-PageDown" active="@@act-PageDown" disabled="@@disable-PageDown" x="470" y="50" w="210" h="49" fontsize="17" align="hcenter"/>
+<!--
+	<image image="@@bg-PageUp" active="@@act-PageUp" disabled="@@disable-PageUp" x="20" y="100"  w="14" h="22"/>
+	<image image="@@bg-PageDown" active="@@act-PageDown" disabled="@@disable-PageDown" x="20" y="150" w="14" h="22"/>
+-->	
+	<include filename="./cinemanow_common.xml"/>
+</page>

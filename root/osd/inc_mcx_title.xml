@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wrapper>
+<widget_property>
+	<item id="maintitle" x="160" y="30" w="700" h="40" fontsize="26" align="left"/>
+	<item id="pagetitle" x="160" y="65" w="700" h="25" fontsize="22" align="left"/>
+</widget_property>
+</wrapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<include filename="inc_setup_headline.xml"/>
+<listbox valkey="account_list" autoenter="1" autoswitch="0" move="page" cols="1" rows="10" lbmask="lr" loop_scroll="1"/>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<include filename="inc_youtube_logo.xml"/>-->
+<text text="@@title" x="100" y="60" w="550" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<image image="@@moreprev" x="59" y="64" w="22" h="22"/>
+<image image="@@morenext" x="1199" y="634" w="22" h="22"/>
+<wrapper x="99" w="1082" h="42">
+	<image image="@@browse_0_line" ymargin="0" bg="1" y="136"/>
+	<image image="@@browse_1_line" ymargin="0" bg="1" y="181"/>
+	<image image="@@browse_2_line" ymargin="0" bg="1" y="226"/>
+	<image image="@@browse_3_line" ymargin="0" bg="1" y="271"/>
+	<image image="@@browse_4_line" ymargin="0" bg="1" y="316"/>
+	<image image="@@browse_5_line" ymargin="0" bg="1" y="361"/>
+	<image image="@@browse_6_line" ymargin="0" bg="1" y="406"/>
+	<image image="@@browse_7_line" ymargin="0" bg="1" y="451"/>
+	<image image="@@browse_8_line" ymargin="0" bg="1" y="496"/>
+	<image image="@@browse_9_line" ymargin="0" bg="1" y="541"/>
+</wrapper>
+<table x="99" y="136" w="1082" h="447" rows="10" rowspacing="3" lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png">
+	<image lightbar="@@lightbar-account_list-0" active="@@act-account_list-0"/>
+	<image lightbar="@@lightbar-account_list-1" active="@@act-account_list-1"/>
+	<image lightbar="@@lightbar-account_list-2" active="@@act-account_list-2"/>
+	<image lightbar="@@lightbar-account_list-3" active="@@act-account_list-3"/>
+	<image lightbar="@@lightbar-account_list-4" active="@@act-account_list-4"/>
+	<image lightbar="@@lightbar-account_list-5" active="@@act-account_list-5"/>
+	<image lightbar="@@lightbar-account_list-6" active="@@act-account_list-6"/>
+	<image lightbar="@@lightbar-account_list-7" active="@@act-account_list-7"/>
+	<image lightbar="@@lightbar-account_list-8" active="@@act-account_list-8"/>
+	<image lightbar="@@lightbar-account_list-9" active="@@act-account_list-9"/>
+</table>
+<table x="99" y="136" w="1082" h="447" cols="1" rows="10" colspacing="0" rowspacing="3" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" speed="1" delay="2" align="hcenter">
+	<text text="@@account_0_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-0"/>
+	<text text="@@account_1_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-1"/>
+	<text text="@@account_2_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-2"/>
+	<text text="@@account_3_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-3"/>
+	<text text="@@account_4_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-4"/>
+	<text text="@@account_5_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-5"/>
+	<text text="@@account_6_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-6"/>
+	<text text="@@account_7_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-7"/>
+	<text text="@@account_8_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-8"/>
+	<text text="@@account_9_text" xmargin="60" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" fontsize="26" selected_fontsize="26" active="@@act-account_list-9"/>
+</table>
+<wrapper x="120" w="20" h="42">
+	<image image="@@ss-favorite-0" y="136" active="@@act-profile_list-0"/>
+	<image image="@@ss-favorite-1" y="181" active="@@act-profile_list-1"/>
+	<image image="@@ss-favorite-2" y="226" active="@@act-profile_list-2"/>
+	<image image="@@ss-favorite-3" y="271" active="@@act-profile_list-3"/>
+	<image image="@@ss-favorite-4" y="316" active="@@act-profile_list-4"/>
+	<image image="@@ss-favorite-5" y="361" active="@@act-profile_list-5"/>
+	<image image="@@ss-favorite-6" y="406" active="@@act-profile_list-6"/>
+	<image image="@@ss-favorite-7" y="451" active="@@act-profile_list-7"/>
+	<image image="@@ss-favorite-8" y="496" active="@@act-profile_list-8"/>
+	<image image="@@ss-favorite-9" y="541" active="@@act-profile_list-9"/>
+</wrapper>
+<image image="@@wrongkeyicon" x="1192" y="40" w="48" h="48" align="hcenter"/>
+<include filename="inc_loading.xml"/>
+</page>

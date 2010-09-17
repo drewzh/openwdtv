@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<ctrlgrp lbmask="l">
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_01.png"
+	normal_bg="image/Villa_button_blue_n_01.png"/>
+	<button valkey="CANCEL"
+	focused_bg="image/Villa_button_blue_f_01.png"
+	normal_bg="image/Villa_button_blue_n_01.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc" align="left"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Register Product" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<!--<image image="image/villa_Fail_message_bg.png" x="299" y="199" w="682" h="292"/>-->
+<text text="@@msg" x="340" y="250" w="600" h="120" fontsize="26" align="hcenter" numlines="4" textcolor="0xcccccc"/>
+<image image="@@bg-OK" x="450" y="450" w="170" h="50"/>
+<text text="$$Yes" x="450" y="450" w="170" h="50" fontsize="22" textcolor="0xcccccc" align="hcenter"/>
+<image image="@@bg-CANCEL" x="660" y="450" w="170" h="50"/>
+<text text="$$No" x="660" y="450" w="170" h="50" fontsize="22" textcolor="0xcccccc" align="hcenter"/>
+</page>

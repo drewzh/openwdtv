@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page background="image/bg_player.jpg" numitems="6">
+<text id="headline" text="$$Audio"/>
+<include filename="inc_list_browse.xml"/>
+<include filename="inc_pip.xml"/>
+<include filename="inc_nav.xml"/>
+<include filename="info.xml"/>
+<include filename="inc_headline_property.xml"/>
+<include filename="decoration.xml"/>
+</page>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<page>
+<image image="fillrect" x="0" y="0" w="1280" h="720" keycolor="1" ignore_keycolor="1" bg="1" textcolor="0x01000000"/>
+<ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+	<button valkey="QML0"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/options_menu_audio_channel_icon_n.png"
+	normal_bg="image/options_menu_audio_channel_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Audio channel"/>
+	<button valkey="QML1"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/video_options_menu_subtitle_icon_n.png"
+	normal_bg="image/video_options_menu_subtitle_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Subtitle"/>
+	<button valkey="QML2"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+	normal_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom in"/>
+	<button valkey="QML3"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_zoomout_icon_n.png"
+	normal_bg="image/slideshow_options_menu_zoomout_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom out"/>
+	<button valkey="QML4"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_pan_icon_n.png"
+	normal_bg="image/slideshow_options_menu_pan_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Pan"/>
+	<button valkey="QML5"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_repeat_icon_n.png"
+	normal_bg="image/slideshow_options_menu_repeat_icon_n.png"
+	disabled_bg="image/slideshow_options_menu_repeat_icon_d.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Play mode"/>
+	<button valkey="QML6"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/options_menu_info_icon_n.png"
+	normal_bg="image/options_menu_info_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Info bar"/>
+	<button valkey="QML7"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/options_menu_gridview_icon.png"
+	normal_bg="image/options_menu_gridview_icon.png"
+	disabled_bg="image/options_menu_gridview_icon_d.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Chapter"/>
+</ctrlgrp>
+<include filename="subtitle.xml"/>
+<image image="image/video_control_frame_bg.png" x="0" y="0" w="1280" h="145" bg="1" disable="@@progress_disable"/>
+<progress_bar name="video_time_bar" x="290" y="71" w="700" h="8" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_delay="500" disable="@@progress_disable"/>
+<text text="@@info_filename" x="146" y="100" w="680" h="40" fontsize="22" textcolor="0x4d4d4d" speed="1" delay="2" align="left" auto_translate="1"/>
+<text text="@@info_video" x="880" y="100" w="300" h="40" fontsize="22" textcolor="0x4d4d4d" speed="1" delay="2" align="right" auto_translate="1"/>
+<text text="@@info_cur_time" x="100" y="60" w="140" h="30" fontsize="26" textcolor="0xcccccc" align="left"/>
+<text text="@@info_duration" x="1040" y="60" w="140" h="30" fontsize="26" textcolor="0xcccccc" align="right"/>
+<image x="68" y="100" w="30" h="40" image="@@speed_state"/>
+<image image="@@play_state" x="98" y="100" w="30" h="40"/>
+<image image="@@repeat-ico" x="250" y="60" w="30" h="30"/>
+<image image="@@shufle-ico" x="1000" y="60" w="30" h="30"/>
+<include filename="decoration.xml"/>
+<include filename="inc_options_video_run.xml"/>
+<text text="@@mod_txt" x="300" y="540" w="680" h="30" fontsize="26" textcolor="0xcccccc" align="hcenter" auto_translate="1"/>
+<text x="450" y="580" w="380" h="30" text="@@text-OPTION" fontsize="22" textcolor="0xcccccc" align="hcenter" disable="@@disable-text-options"/>
+<image image="@@mod_img" x="440" y="590" w="10" h="10"/>
+</page>

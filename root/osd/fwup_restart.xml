@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<!--<include filename="inc_upgrade_title.xml"/>-->
+<text text="$$Upgrade complete!" x="300" y="250" w="680" h="30" fontsize="26" align="hcenter"/>
+<text text="$$Your media player will now restart ..." x="300" y="320" w="680" h="90" fontsize="26" numlines="3" align="hcenter"/>
+<include filename="inc_setup_headline_property.xml"/>
+</page>

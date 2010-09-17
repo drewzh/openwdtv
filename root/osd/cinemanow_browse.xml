@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LR">
+		<button valkey="Back" normal_bg="image/cinemanow/cn_browse_back_n.png" focused_bg="image/cinemanow/cn_browse_back_f.png"/>
+		<button valkey="ToHome" normal_bg="image/cinemanow/cn_browse_home_n.png" focused_bg="image/cinemanow/cn_browse_home_f.png"/>
+		<linebreak/>
+		<listbox valkey="browselist" hormove="1" autoenter="1" move="row" autoswitch="0" cols="5" rows="1" lbmask="ud"  loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+     		<linebreak/>
+		<menuctrl valkey="menuctrl1" autoenter="1" myinc="2"/>
+		<linebreak/>
+		<button valkey="BUTTON0" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cb_bt_f.png"/>
+		<button valkey="BUTTON1" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cb_bt_f.png"/>
+		<button valkey="BUTTON2" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cb_bt_f.png"/>
+		<button valkey="BUTTON3" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cb_bt_f.png"/>
+		<button valkey="BUTTON4" normal_bg="image/cinemanow/cn_bt_n.png" focused_bg="image/cinemanow/cb_bt_f.png"/>
+	</ctrlgrp>
+
+	<menuview ctrlname="menuctrl1" changed="@@menuctrl1_changed" 
+		x="0" y="0" w="1280" h="720" main_list_x="122" main_list_y="229" icon_spacing="40" scale="100" fixratio="100"
+		slice_count="5" display_item_count="5" focus_index="3" stack_display_item_count="1" stack_focus_index="1"
+		stack_display_deep="1" stack_use_focus_icon="1" style="2" main_focus_icon="image/cinemanow/cn_browse_movies_cursor.png"
+		enable_outline="1" outline_normal_icon="image/cinemanow/cn_browse_movies_nocursor.png" outline_focus_icon="image/cinemanow/cn_browse_movies_cursor.png"/>
+
+	<table x="106" y="140" w="1070" h="49" fontsize="22" selected_fontsize="26" textcolor="0xff727272" selectedtextcolor="0xfff2f2f2" actoverlistcolor="0xfff54029" cols="5" rows="1" align="hcenter" colspacing="5">
+		<imgbtn text="@@category_0_text" image="@@category_0_lbimage" active="@@act-browselist-0" selected="@@sel-browselist-0"/>
+		<imgbtn text="@@category_1_text" image="@@category_1_lbimage" active="@@act-browselist-1" selected="@@sel-browselist-1"/>
+		<imgbtn text="@@category_2_text" image="@@category_2_lbimage" active="@@act-browselist-2" selected="@@sel-browselist-2"/>
+		<imgbtn text="@@category_3_text" image="@@category_3_lbimage" active="@@act-browselist-3" selected="@@sel-browselist-3"/>
+		<imgbtn text="@@category_4_text" image="@@category_4_lbimage" active="@@act-browselist-4" selected="@@sel-browselist-4"/>
+	</table>
+
+	<text text="@@focus_marquee_name" x="600" y="532" w="210" h="28" fontsize="18" textcolor="0xfff2f2f2"/>
+
+	<image image="@@moreprev" x="83" y="153" w="14" h="22"/>
+	<image image="@@morenext" x="1184" y="153" w="14" h="22"/>
+
+	<image image="@@marquee_prev" x="83" y="350" w="14" h="22"/>
+	<image image="@@marquee_next" x="1184" y="350" w="14" h="22"/>
+
+	<imgbtn x="106" y="582" w="210" h="49" text="@@action_0_text" image="@@bg-BUTTON0" x_offset="@@action_0_xoffset" disable="@@disable-BUTTON0" active="@@act-BUTTON0"/>
+	<imgbtn x="320" y="582" w="210" h="49" text="@@action_1_text" image="@@bg-BUTTON1" x_offset="@@action_1_xoffset" disable="@@disable-BUTTON1" active="@@act-BUTTON1"/>
+	<imgbtn x="534" y="582" w="210" h="49" text="@@action_2_text" image="@@bg-BUTTON2" x_offset="@@action_2_xoffset" disable="@@disable-BUTTON2" active="@@act-BUTTON2"/>
+	<imgbtn x="748" y="582" w="210" h="49" text="@@action_3_text" image="@@bg-BUTTON3" x_offset="@@action_3_xoffset" disable="@@disable-BUTTON3" active="@@act-BUTTON3"/>
+	<imgbtn x="961" y="582" w="210" h="49" text="@@action_4_text" image="@@bg-BUTTON4" x_offset="@@action_4_xoffset" disable="@@disable-BUTTON4" active="@@act-BUTTON4"/>
+
+	<include filename="./inc_loading.xml"/>
+	<include filename="./cinemanow_common.xml"/>
+</page>

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<wrapper>
+	<text text="@@headline" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d" speed="1" delay="2"/>
+</wrapper>

@@ -1,0 +1,253 @@
+Index: en.po
+===================================================================
+--- en.po	(revision 72481)
++++ en.po	(working copy)
+@@ -1901,7 +1901,7 @@
+ msgstr "The file you are playing doesn't support trick-mode."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Flag sent to YouTube"
++msgstr "Flag sent to YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Create your playlist"
+Index: pt_br.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: fr.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: pt_br.po
+===================================================================
+--- pt_br.po	(revision 72481)
++++ pt_br.po	(working copy)
+@@ -1902,10 +1902,10 @@
+ msgstr "Rússia"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "O arquivo que você está executando não suporta modo - truque"
++msgstr "O arquivo que você está executando não suporta modo - truque."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Bandeira enviada ao YouTube"
++msgstr "Bandeira enviada ao YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Crie sua lista de reprodução"
+Index: jp.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: fr.po
+===================================================================
+--- fr.po	(revision 72481)
++++ fr.po	(working copy)
+@@ -1901,7 +1901,7 @@
+ msgstr "Le fichier en cours de lecture ne prend pas en charge le mode trick"
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Balisage envoyé sur YouTube"
++msgstr "Balisage envoyé sur YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Créer votre liste de lecture"
+Index: pt_eu.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: kr.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: it.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: jp.po
+===================================================================
+--- jp.po	(revision 72481)
++++ jp.po	(working copy)
+@@ -1898,10 +1898,10 @@
+ msgstr "ロシア"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "再生しているファイルはトリックモードをサポートしていません"
++msgstr "再生しているファイルはトリックモードをサポートしていません。"
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "YouTubeに送信されたフラグ"
++msgstr "YouTubeに送信されたフラグ。"
+ 
+ msgid "Create a new playlist"
+ msgstr "プレイリストを作成する"
+Index: chs.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: cht.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: pt_eu.po
+===================================================================
+--- pt_eu.po	(revision 72481)
++++ pt_eu.po	(working copy)
+@@ -1902,10 +1902,10 @@
+ msgstr "Rússia"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "O ficheiro que está a reproduzir não suporta o Trick Mode"
++msgstr "O ficheiro que está a reproduzir não suporta o Trick Mode."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Sinalização enviada para o YouTube"
++msgstr "Sinalização enviada para o YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Crie a sua lista pessoal"
+Index: kr.po
+===================================================================
+--- kr.po	(revision 72481)
++++ kr.po	(working copy)
+@@ -1901,7 +1901,7 @@
+ msgstr "재생 중인 파일이 트릭 모드를 지원하지 않습니다."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "유튜브로 보낸 플래그"
++msgstr "유튜브로 보낸 플래그."
+ 
+ msgid "Create a new playlist"
+ msgstr "재생목록 만들기"
+Index: it.po
+===================================================================
+--- it.po	(revision 72481)
++++ it.po	(working copy)
+@@ -1897,10 +1897,10 @@
+ msgstr "Russia"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "Il file che si sta riproducendo non supporta la moda modalità trick"
++msgstr "Il file che si sta riproducendo non supporta la moda modalità trick."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Segnalazione inviata a YouTube"
++msgstr "Segnalazione inviata a YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Creare il proprio elenco di riproduzione"
+Index: chs.po
+===================================================================
+--- chs.po	(revision 72481)
++++ chs.po	(working copy)
+@@ -1895,10 +1895,10 @@
+ msgstr "俄罗斯"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "您正在播放的文件不支持技巧模式"
++msgstr "您正在播放的文件不支持技巧模式。"
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "发送到 YouTube 的标记"
++msgstr "发送到 YouTube 的标记。"
+ 
+ msgid "Create a new playlist"
+ msgstr "创建您的播放列表"
+Index: cht.po
+===================================================================
+--- cht.po	(revision 72481)
++++ cht.po	(working copy)
+@@ -1901,7 +1901,7 @@
+ msgstr "您正在播放的檔案不支援竅門模式。"
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "傳送至 YouTube 的標幟"
++msgstr "傳送至 YouTube 的標幟。"
+ 
+ msgid "Create a new playlist"
+ msgstr "建立播放清單"
+Index: sp.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: sp.po
+===================================================================
+--- sp.po	(revision 72481)
++++ sp.po	(working copy)
+@@ -1898,10 +1898,10 @@
+ msgstr "Rusia"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "El archivo que está reproduciendo no admite el modo trampa"
++msgstr "El archivo que está reproduciendo no admite el modo trampa."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Indicador enviado a YouTube"
++msgstr "Indicador enviado a YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Cree su lista de reproducción"
+Index: tr.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: ru.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: tr.po
+===================================================================
+--- tr.po	(revision 72481)
++++ tr.po	(working copy)
+@@ -1907,10 +1907,10 @@
+ msgstr "Rusya"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "Oynadığınız dosya oyun modunu desteklemiyor"
++msgstr "Oynadığınız dosya oyun modunu desteklemiyor."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Bayrak YouTube'a gönderildi"
++msgstr "Bayrak YouTube'a gönderildi."
+ 
+ msgid "Create a new playlist"
+ msgstr "Oynatma Listenizi oluşturun"
+Index: ru.po
+===================================================================
+--- ru.po	(revision 72481)
++++ ru.po	(working copy)
+@@ -1850,10 +1850,10 @@
+ msgstr "Россия"
+ 
+ msgid "The file you are playing doesn't support trick-mode."
+-msgstr "Для воспроизводимого файла не поддерживается спецрежим"
++msgstr "Для воспроизводимого файла не поддерживается спецрежим."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Жалоба отправлена на YouTube"
++msgstr "Жалоба отправлена на YouTube."
+ 
+ msgid "Create a new playlist"
+ msgstr "Создать свой список воспроизведения"
+Index: ge.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: ge.po
+===================================================================
+--- ge.po	(revision 72481)
++++ ge.po	(working copy)
+@@ -1901,7 +1901,7 @@
+ msgstr "Die von Ihnen wiedergegebene Datei unterstützt den Trickmodus nicht."
+ 
+ msgid "Flag sent to YouTube."
+-msgstr "Markierung an YouTube gesendet"
++msgstr "Markierung an YouTube gesendet."
+ 
+ msgid "Create a new playlist"
+ msgstr "Ihre Wiedergabeliste erstellen"
+Index: en.mo
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream

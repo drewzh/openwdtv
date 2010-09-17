@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image x="0" y="0" w="1280" h="145" image="image/update_frame_bg.png" bg="1"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="350" h="30" fontsize="26" align="left" textcolor="0xcccccc"/>
+<text text="$$Downloading new firmware for your WD TV. Please DO NOT disconnect power or internet connection." x="300" y="250" w="680" h="120" fontsize="26" numlines="4" align="hcenter"/>
+<progress_bar name="download_and_update_progress" x="480" y="71" w="700" h="8" pb_back_img="image/music_player_line_bg.png" pb_front_img="image/music_player_time_played_line_n_01.png" pb_delay="500" disable="@@progress_disable"/>
+<text text="$$Downloading new firmware" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<text text="@@progress" x="980" y="100" w="200" h="40" textcolor="0x4d4d4d" fontsize="22" align="right"/>
+<include filename="inc_logo.xml"/>
+</page>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<text text="$$Rebooting" x="300" y="250" w="680" h="30" fontsize="26" textcolor="0xcccccc" align="hcenter"/>
+<include filename="inc_loading.xml"/>
+</page>

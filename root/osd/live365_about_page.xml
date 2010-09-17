@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp lbmask="lrud">
+	<button valkey="OK"
+	focused_bg="image/Villa_button_blue_f_02.png"
+	normal_bg="image/Villa_button_blue_n_02.png"
+	click_bg="image/Villa_button_blue_f_02.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="100" bg="1"/>
+<image image="image/footer.png" x="0" y="620" w="1280" h="100" bg="1"/>
+<!--<include filename="inc_live365_icon.xml"/>-->
+<text text="$$About Live365 VIP" x="100" y="60" w="550" h="30" align="left" fontsize="26" textcolor="0xcccccc"/>
+<imgbtn image="@@bg-OK" text="$$Back" x="485" y="480" w="310" h="50" fontsize="26" align="hcenter" textcolor="0xcccccc" active="@@act-OK" actnoseltextcolor="0xcccccc"/>
+<text text="$$Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts from Radio Disney, Santana, David Byrne, Pat Metheny, and Paul Oakenfold, as well as stations created by music lovers just like you! Easily browse through popular genres such as rock, hip-hop, jazz, and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip hop, 30s, glam, tribal, Celtic, and 100s more." x="200" y="200" w="880" h="240" textcolor="0xcccccc" numlines="8" align="hcenter" fontsize="26"/>
+</page>

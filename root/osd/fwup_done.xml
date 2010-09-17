@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<text text="@@msg_title" x="300" y="250" w="680" h="60" fontsize="26" align="hcenter" textcolor="0xcccccc" numlines="2"/>
+<include filename="inc_loading.xml"/>
+</page>

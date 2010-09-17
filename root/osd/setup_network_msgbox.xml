@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<!--<image image="image/villa_Fail_message_bg.png"x="299" y="199" w="682" h="292"/>-->
+<text text="@@msg" x="300" y="250" w="680" h="120" fontsize="26" align="hcenter" numlines="4"/>
+<image image="image/Villa_button_blue_f_01.png" x="555" y="450" w="170" h="50"/>
+<text text="$$OK" x="555" y="450" w="170" h="50" fontsize="22" textcolor="0xcccccc" align="hcenter"/>
+</page>
+

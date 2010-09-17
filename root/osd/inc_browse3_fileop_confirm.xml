@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<wrapper disable="@@disable-CONFIRM">
+<wrapper x="769" w="413" h="54">
+<image image="image/villa_fileManagement_line_left.png" y="312"/>
+</wrapper>
+<table x="769" y="312" w="413" h="54" rows="1" cols="1" disable="@@disable-CONFIRM">
+	<text text="@@text-CONFIRM" fontsize="22" textcolor="0xcccccc" align="hcenter"/>
+</table>
+<table x="769" y="416" w="413" h="50" rows="1" cols="2" disable="@@disable-CONFIRM">
+	<imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" actnoseltextcolor="0xcccccc" align="hcenter" fontsize="22"/>
+	<imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" actnoseltextcolor="0xcccccc" align="hcenter" fontsize="22"/>
+</table>
+</wrapper>

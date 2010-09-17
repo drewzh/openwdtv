@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<wrapper>
+<image image="image/villa/home_top_info_red_cross_icon.png" disable="@@info_bar_inhibited_icon_disable" x="100" y="100" w="24" h="40"/>
+<image image="@@status_icon" x="100" y="100" w="24" h="40"/>
+<text text="@@info_bar_cas_msg" x="144" y="100" w="1000" h="40" fontsize="22" speed="1" delay="2" align="left" textcolor="0x4d4d4d"/>
+<include filename="inc_villa_home_generic_now_playing.xml"/>
+<include filename="inc_villa_home_live365_now_playing.xml"/>
+<include filename="inc_villa_home_pandora_now_playing.xml"/>
+</wrapper>

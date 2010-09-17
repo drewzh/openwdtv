@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<wrapper>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="@@headline" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d" speed="1" delay="2"/>      
+</wrapper>
+<include filename="inc_keyboard.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

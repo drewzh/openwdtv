@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Home" x="100" y="60" w="400" h="30" fontsize="26" textcolor="0xcccccc"/>
+<menuctrl valkey="menuctrl1"/>
+<menuview ctrlname="menuctrl1" changed="@@menuctrl1_changed" slice_count="10" x="0" y="0" w="1280" h="720" main_list_x="600" main_list_y="200" icon_spacing="0" display_item_count="4" focus_index="2" stack_display_item_count="1" stack_focus_index="1" stack_display_deep="4" stack_use_focus_icon="0" style="0" main_focus_icon="image/home_horizontal_select_bar.png"/>
+<!--<image image="image/villa/home_main_function_frame_bg.png" x="0" y="344" w="1280" h="122" bg="1"/>
+<image image="image/villa/home_select_bar.png" x="730" y="335" w="180" h="140" bg="1"/>
+<image image="@@prev-icon" x="59" y="64" w="22" h="22"/>
+<image image="@@next-icon" x="1199" y="634" w="22" h="22"/>-->
+<text text="@@current_node_name" x="580" y="60" w="600" h="30" fontsize="26" align="right" textcolor="0xcccccc" speed="1" delay="2"/>
+<!--<text text="@@root_node_name" x="840" y="425" w="340" h="30" fontsize="26" align="left" textcolor="0xcccccc"/>
+<text text="@@parent_node_name" x="840" y="485" w="340" h="30" fontsize="26" align="left" textcolor="0xcccccc"/>-->
+<include filename="villa_home_info.xml"/>
+<include filename="ipcam_pip_win.xml"/>
+<include filename="inc_logo.xml"/>
+</page>
+

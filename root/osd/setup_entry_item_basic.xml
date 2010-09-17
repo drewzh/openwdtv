@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg" type="basic">
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<include filename="inc_setup_headline.xml"/>
+<text id="headline" text="$$Settings" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<listbox valkey="setup_entry_item_basic" autoenter="1" move="row" cols="1" rows="10" lbmask="lr" loop_scroll="1"/>
+<wrapper x="100" w="1080" h="40">
+	<image image="@@browse_0_line" ymargin="0" bg="1" y="174"/>
+	<image image="@@browse_1_line" ymargin="0" bg="1" y="214"/>
+	<image image="@@browse_2_line" ymargin="0" bg="1" y="254"/>
+	<image image="@@browse_3_line" ymargin="0" bg="1" y="294"/>
+	<image image="@@browse_4_line" ymargin="0" bg="1" y="334"/>
+	<image image="@@browse_5_line" ymargin="0" bg="1" y="374"/>
+	<image image="@@browse_6_line" ymargin="0" bg="1" y="414"/>
+	<image image="@@browse_7_line" ymargin="0" bg="1" y="454"/>
+	<image image="@@browse_8_line" ymargin="0" bg="1" y="494"/>
+	<image image="@@browse_9_line" ymargin="0" bg="1" y="534"/>
+</wrapper>
+<table x="100" y="174" w="1080" h="400" rows="10" rowspacing="0" lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png">
+	<image lightbar="@@lightbar-setup_entry_item_basic-0" active="@@act-setup_entry_item_basic-0"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-1" active="@@act-setup_entry_item_basic-1"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-2" active="@@act-setup_entry_item_basic-2"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-3" active="@@act-setup_entry_item_basic-3"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-4" active="@@act-setup_entry_item_basic-4"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-5" active="@@act-setup_entry_item_basic-5"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-6" active="@@act-setup_entry_item_basic-6"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-7" active="@@act-setup_entry_item_basic-7"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-8" active="@@act-setup_entry_item_basic-8"/>
+	<image lightbar="@@lightbar-setup_entry_item_basic-9" active="@@act-setup_entry_item_basic-9"/>
+</table>
+<table x="110" y="174" w="1060" h="400" cols="1" rows="10" colspacing="0" rowspacing="0" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" align="hcenter" fontsize="26" selected_fontsize="26" speed="1" delay="2">
+	<text text="@@setup_entry_item_basic_id-0" active="@@act-setup_entry_item_basic-0"/>
+	<text text="@@setup_entry_item_basic_id-1" active="@@act-setup_entry_item_basic-1"/>
+	<text text="@@setup_entry_item_basic_id-2" active="@@act-setup_entry_item_basic-2"/>
+	<text text="@@setup_entry_item_basic_id-3" active="@@act-setup_entry_item_basic-3"/>
+	<text text="@@setup_entry_item_basic_id-4" active="@@act-setup_entry_item_basic-4"/>
+	<text text="@@setup_entry_item_basic_id-5" active="@@act-setup_entry_item_basic-5"/>
+	<text text="@@setup_entry_item_basic_id-6" active="@@act-setup_entry_item_basic-6"/>
+	<text text="@@setup_entry_item_basic_id-7" active="@@act-setup_entry_item_basic-7"/>
+	<text text="@@setup_entry_item_basic_id-8" active="@@act-setup_entry_item_basic-8"/>
+	<text text="@@setup_entry_item_basic_id-9" active="@@act-setup_entry_item_basic-9"/>
+</table>
+<table x="110" y="174" w="30" h="400" cols="1" rows="10" rowspacing="0">
+	<image image="@@setup_entry_item_basic_icon-0"/>
+	<image image="@@setup_entry_item_basic_icon-1"/>
+	<image image="@@setup_entry_item_basic_icon-2"/>
+	<image image="@@setup_entry_item_basic_icon-3"/>
+	<image image="@@setup_entry_item_basic_icon-4"/>
+	<image image="@@setup_entry_item_basic_icon-5"/>
+	<image image="@@setup_entry_item_basic_icon-6"/>
+	<image image="@@setup_entry_item_basic_icon-7"/>
+	<image image="@@setup_entry_item_basic_icon-8"/>
+	<image image="@@setup_entry_item_basic_icon-9"/>
+</table>
+<image image="@@ss-prev" x="64" y="67" w="16" h="16"/>
+<image image="@@ss-more" x="1200" y="67" w="16" h="16"/>
+<image image="@@wrongkeyicon" x="1192" y="40" w="48" h="48" align="hcenter"/>
+<include filename="subtitle.xml"/>
+<include filename="inc_setup_headline_property.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

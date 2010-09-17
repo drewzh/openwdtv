@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<ctrlgrp>
+	<button valkey="MEDIA_TYPE_ALL"
+	focused_bg="image/browser_list_btn.png"
+	click_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="MEDIA_TYPE_PHOTO"
+	focused_bg="image/browser_list_btn.png"
+	click_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="MEDIA_TYPE_VIDEO"
+	focused_bg="image/browser_list_btn.png"
+	click_bg="image/browser_list_btn.png"/>
+	<linebreak/>
+	<button valkey="MEDIA_TYPE_MUSIC"
+	focused_bg="image/browser_list_btn.png"
+	click_bg="image/browser_list_btn.png"/>
+</ctrlgrp>
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text id="headline" text="$$Search" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/browser_list_line.png" x="100" y="174" w="1080" h="40"/>
+<image image="image/browser_list_line.png" x="100" y="214" w="1080" h="40"/>
+<image image="image/browser_list_line.png" x="100" y="254" w="1080" h="40"/>
+<image image="image/browser_list_line.png" x="100" y="294" w="1080" h="40"/>
+<imgbtn x="100" y="174" w="1080" h="40" image="@@bg-MEDIA_TYPE_ALL" text="$$All" align="hcenter" fontsize="26" active="@@act-MEDIA_TYPE_ALL" actnoseltextcolor="0xcccccc" textcolor="0xcccccc"/>
+<imgbtn x="100" y="214" w="1080" h="40" image="@@bg-MEDIA_TYPE_PHOTO" text="$$Photo" align="hcenter" fontsize="26" active="@@act-MEDIA_TYPE_PHOTO" actnoseltextcolor="0xcccccc" textcolor="0xcccccc"/>
+<imgbtn x="100" y="254" w="1080" h="40" image="@@bg-MEDIA_TYPE_VIDEO" text="$$Video" align="hcenter" fontsize="26" active="@@act-MEDIA_TYPE_VIDEO" actnoseltextcolor="0xcccccc" textcolor="0xcccccc"/>
+<imgbtn x="100" y="254" w="1080" h="40" image="@@bg-MEDIA_TYPE_MUSIC" text="$$Music" align="hcenter" fontsize="26" active="@@act-MEDIA_TYPE_MUSIC" actnoseltextcolor="0xcccccc" textcolor="0xcccccc"/>
+<include filename="inc_headline_property.xml"/>
+<include filename="decoration.xml"/>
+<include filename="inc_logo.xml"/>
+</page>

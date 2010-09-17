@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.jpg">
+<image image="image/header.png" x="0" y="0" w="1280" h="145" bg="1"/>
+<text text="$$Settings" x="100" y="60" w="550" h="30" fontsize="26" textcolor="0xcccccc"/>
+<image image="image/settings.png" x="100" y="100" w="24" h="40" bg="1"/>
+<text text="$$Network Setup" x="144" y="100" w="800" h="40" align="left" fontsize="22" textcolor="0x4d4d4d"/>
+<image image="@@ss-prev" x="64" y="67" w="16" h="16"/>
+<image image="@@ss-more" x="1200" y="67" w="16" h="16"/>
+<text text="$$Select an Available Network" x="300" y="174" w="680" h="30" align="hcenter" fontsize="26" textcolor="0xcccccc"/>
+<listbox valkey="sitesurvey_list" autoenter="1" move="row" cols="1" rows="6" lbmask="l" loop_scroll="1"/>
+<image image="image/browser_list_line.png" x="100" y="214" w="1080" h="40" bg="1"/>
+<text text="$$SSID" x="110" y="214" w="300" h="40" fontsize="26" textcolor="0xcccccc" align="left"/>
+<text text="$$Security Type" x="500" y="214" w="300" h="40" fontsize="26" textcolor="0xcccccc" align="hcenter" speed="1" delay="2"/>
+<text text="$$Signal" x="870" y="214" w="300" h="40" align="right" fontsize="26" textcolor="0xcccccc"/>
+  <!--
+  <text text="@@pages_info" x="899" y="172" w="200" h="20" fontsize="18" textcolor="0xcccccc"/>
+  -->
+<wrapper x="100" w="1080" h="40">
+	<image image="@@browse_0_line" y="254" ymargin="0" bg="1"/>
+	<image image="@@browse_1_line" y="294" ymargin="0" bg="1"/>
+	<image image="@@browse_2_line" y="334" ymargin="0" bg="1"/>
+	<image image="@@browse_3_line" y="374" ymargin="0" bg="1"/>
+	<image image="@@browse_4_line" y="414" ymargin="0" bg="1"/>
+	<image image="@@browse_5_line" y="454" ymargin="0" bg="1"/>
+</wrapper>
+<wrapper x="100" w="1080" h="40" lbimage="image/browser_list_btn.png">
+	<image lightbar="@@lightbar-sitesurvey_list-0" y="254" active="@@act-sitesurvey_list-0"/>
+	<image lightbar="@@lightbar-sitesurvey_list-1" y="294" active="@@act-sitesurvey_list-1"/>
+	<image lightbar="@@lightbar-sitesurvey_list-2" y="334" active="@@act-sitesurvey_list-2"/>
+	<image lightbar="@@lightbar-sitesurvey_list-3" y="374" active="@@act-sitesurvey_list-3"/>
+	<image lightbar="@@lightbar-sitesurvey_list-4" y="414" active="@@act-sitesurvey_list-4"/>
+	<image lightbar="@@lightbar-sitesurvey_list-5" y="454" active="@@act-sitesurvey_list-5"/>
+</wrapper>
+  <!--
+  <wrapper x="310" w="49" h="48">
+    <image image="@@ss-station-0" y="299"/>
+    <image image="@@ss-station-1" y="348"/>
+    <image image="@@ss-station-2" y="397"/>
+    <image image="@@ss-station-3" y="446"/>
+  </wrapper>
+  -->
+<wrapper x="110" w="300" h="40" textcolor="0xcccccc" actnoseltextcolor="0xcccccc" align="left" fontsize="26" selected_fontsize="26">
+	<text text="@@ss-essid-0" y="254" active="@@act-sitesurvey_list-0"/>
+	<text text="@@ss-essid-1" y="294" active="@@act-sitesurvey_list-1"/>
+	<text text="@@ss-essid-2" y="334" active="@@act-sitesurvey_list-2"/>
+	<text text="@@ss-essid-3" y="374" active="@@act-sitesurvey_list-3"/>
+	<text text="@@ss-essid-4" y="414" active="@@act-sitesurvey_list-4"/>
+	<text text="@@ss-essid-5" y="454" active="@@act-sitesurvey_list-5"/>
+</wrapper>
+<wrapper x="638" w="24" h="40">
+	<image image="@@ss-wep-0" y="254"/>
+	<image image="@@ss-wep-1" y="294"/>
+	<image image="@@ss-wep-2" y="334"/>
+	<image image="@@ss-wep-3" y="374"/>
+	<image image="@@ss-wep-4" y="414"/>
+	<image image="@@ss-wep-5" y="454"/>
+</wrapper>
+<wrapper x="1132" w="38" h="40">
+	<image image="@@ss-signal-percent-icon-0" y="254"/>
+	<image image="@@ss-signal-percent-icon-1" y="294"/>
+	<image image="@@ss-signal-percent-icon-2" y="334"/>
+	<image image="@@ss-signal-percent-icon-3" y="374"/>
+	<image image="@@ss-signal-percent-icon-4" y="414"/>
+	<image image="@@ss-signal-percent-icon-5" y="454"/>
+</wrapper>
+<include filename="inc_logo.xml"/>
+</page>
