@@ -5,41 +5,80 @@
 # |_____|  _|___|_|_|_____|____/  |_|  \___/ 
 #       |_| http://openwdtv.org
 
-architecture=`uname -m`
+wizard(){
+    printMsg "Starting wizard..."
 
-unpack(){
-    if [ -e "origfw/wdtvlive.bin" ]; then
-        printMsg "Unpacking firmware..."
-
-        rm -rf unpacked
-        clean
-        
-        printMsg "Removing 32 byte MD5 from beginning of original firmware..."
-        dd if=origfw/wdtvlive.bin of=origimg.tmp bs=32 skip=1c &> /dev/null
-
-        printMsg "Unpacking..."
-        
-        if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
-            ./tools/cramfsck32 -x unpacked origimg.tmp &> /dev/null
-        else
-            ./tools/cramfsck64 -x unpacked origimg.tmp &> /dev/null
-        fi
-
-        if [ "$1" != "testrun" ]; then
-            printMsg "Removing original init.d files..."
-            rm -rf unpacked/etc/init.d/*
-        fi
-
-        clean
-        
-        printSuccess "Firmware unpacked"
-    else
-        printError "No firmware found to unpack, aborting."
+    printMsg "Please select a firmware to modify:"
+    selectFirmware
+    fwid=$?
+    if [ $fwid -eq 0 ]; then
+        printError "No firmware selected, aborting..."
+        return 1
     fi
+
+    downloadFirmware $fwid
+    if [ $? -ne 0 ]; then
+        printError "Error downloading firmware, aborting..."
+        return 1
+    fi
+
+    unpackFirmware $fwid
+    if [ $? -ne 0 ]; then
+        printError "Failed to unpack firmware, aborting...."
+        return 1
+    fi
+    
+    # Apply firmware modifications
+    #applyPatches
+    applyFS
+
+    repackFirmware $fwid
+    if [ $? -ne 0 ]; then
+        printError "Failed to repack firmware, aborting..."
+        return 1
+    fi
+
+    printSuccess "Successfully repackaged firmware and output into release folder, have a nice day :)"
+    return 0
+}
+
+unpackFirmware(){
+    fw_line=`grep -e "\b$1,.*\b" approved.list`
+    fw_version=`echo $fw_line | awk -F ',' '{ print $3 }'`
+    fw_file=`basename $fw_url`
+
+    printMsg "Clearing old files..."
+    rm -rf unpacked
+    clean
+
+    printMsg "Extracting firmware archive..."
+    unzip -o origfw/$fw_file -d origfw/$fw_version
+    
+    printMsg "Stripping 32 byte MD5 from beginning of original firmware and outputting..."
+    dd if=`find origfw/$fw_version -name "wdtvlive.bin"` of=origimg.tmp bs=32 skip=1c
+    #unzip -p origfw/$fw_file wdtvlive.bin | dd of=origimg.tmp bs=32 skip=1c
+
+    printMsg "Extracting cramfs..."
+
+    if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
+        ./tools/cramfsck32 -x unpacked origimg.tmp
+    else
+        ./tools/cramfsck64 -x unpacked origimg.tmp
+    fi
+
+    if [ "$2" != "selftest" ]; then
+        printMsg "Removing original init.d files..."
+        rm -rf unpacked/etc/init.d/*
+    fi
+
+    clean
+
+    printSuccess "Firmware unpacked"
+    return 0
 }
 
 applyPatches(){
-    for i in ./patches/*.diff ; do
+    for i in patches/*.diff ; do
         printMsg "Applying patch $i..."
         patch -p0 $i >/dev/null
     done
@@ -51,14 +90,17 @@ applyFS(){
     printSuccess "Filesystem modifications applied"
 }
 
-repack(){
+repackFirmware(){
+    fw_line=`grep -e "\b$1,.*\b" approved.list`
+    fw_id=`echo $fw_line | awk -F ',' '{ print $1 }'`
+    fw_version=`echo $fw_line | awk -F ',' '{ print $3 }'`
+    fw_orig=`find origfw/$fw_version -name "wdtvlive.bin"`
+    
     printMsg "Repacking firmware..."
-
-    createDirs
 
     clean
 
-    if [ "$1" != "testrun" ]; then
+    if [ "$2" != "selftest" ]; then
         printMsg "Recreating md5sum.txt..."
         cd unpacked
         rm -f md5sum.txt
@@ -72,10 +114,10 @@ repack(){
     printMsg "Making cramfs..."
 
     if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
-        ./tools/mkcramfs32 unpacked newimg.tmp &> /dev/null
+        ./tools/mkcramfs32 unpacked newimg.tmp
     else
-        ./tools/mkcramfs64 unpacked newimg.tmp &> /dev/null
-    fi	
+        ./tools/mkcramfs64 unpacked newimg.tmp
+    fi
 
     printMsg "Generating signature and adding to new firmware..."
     sign newimg.tmp signature.tmp
@@ -84,11 +126,11 @@ repack(){
     md5sum signedimg.tmp | dd bs=32 count=1 of=signedimgmd5.tmp &> /dev/null
     cat signedimgmd5.tmp signedimg.tmp > release/wdtvlive.bin
 
-    printMsg "Original MD5:\n`md5sum origfw/wdtvlive.bin | cut -c 1-32`"
-    printMsg "New MD5:\n`md5sum release/wdtvlive.bin | cut -c 1-32`"
+    printMsg "Original MD5: `md5sum $fw_orig | cut -c 1-32`"
+    printMsg "New MD5: `md5sum release/wdtvlive.bin | cut -c 1-32`"
 
     clean
-    
+
     printSuccess "Firmware repacked"
 }
 
@@ -112,27 +154,89 @@ clean(){
 }
 
 createDirs(){
-    if [ ! -d unpacked ]; then
-        printMsg "Creating directory: unpacked/"
-        mkdir unpacked
-    fi
+    for dir in unpacked release origfw patches root; do
+        if [ ! -d $dir ]; then
+        printMsg "Creating directory: $dir..."
+        mkdir $dir
+        fi
+    done
+}
 
-    if [ ! -d release ]; then
-        printMsg "Creating directory: release/"
-        mkdir release
+downloadApprovedList(){
+    printMsg "Attemping to download latest approved.list..."
+    if wget -q -O approved.list http://github.com/drewzh/openwdtv/raw/master/approved.list ; then
+        printSuccess "approved.list downloaded"
+        return 0
+    else
+        printError "Error downloading approved.list, aborting..."
+        return 1
     fi
 }
 
-testRun(){
-    printMsg "Testing firmware repackaging procedure..."
-    unpack testrun
-    repack testrun
+selectFirmware(){
+    printFirmwareMenu
+    read var_fwselect
+    return $var_fwselect
+}
 
-    if [ `md5sum origfw/wdtvlive.bin | cut -c 1-32` = `md5sum release/wdtvlive.bin | cut -c 1-32` ]; then
+downloadFirmware(){
+    fw_line=`grep -e "\b$1,.*\b" approved.list`
+    fw_url=`echo $fw_line | awk -F ',' '{ print $4 }'`
+    fw_file=`basename $fw_url`
+    fw_md5=`echo $fw_line | awk -F ',' '{ print $5 }'`
+    
+    if [ ! -e origfw/$fw_file ]; then
+        printMsg "Downloading firmware, please wait..."
+
+        if wget -O origfw/$fw_file $fw_url && [ "`md5sum origfw/$fw_file | cut -c 1-32`" = "$fw_md5" ]; then
+            printSuccess "Firmware downloaded successfully"
+            return 0
+        else
+            printError "Error downloading firmware, aborting..."
+            rm -f origfw/$fw_file
+            return 1
+        fi
+    else
+        printMsg "Firmware already downloaded, continuing..."
+        return 0
+    fi
+}
+
+selfTest(){
+    printMsg "Select a firmware to run self test procedure on..."
+    selectFirmware
+    fwid=$?
+    
+    fw_line=`grep -e "\b$fwid,.*\b" approved.list`
+    fw_id=`echo $fw_line | awk -F ',' '{ print $1 }'`
+    fw_version=`echo $fw_line | awk -F ',' '{ print $3 }'`
+    fw_orig=`find origfw/$fw_version -name "wdtvlive.bin"`
+    
+    downloadFirmware $fwid
+    unpackFirmware $fwid selftest
+    repackFirmware $fwid selftest
+
+    if [ "`md5sum $fw_orig | cut -c 1-32`" = "`md5sum release/wdtvlive.bin | cut -c 1-32`" ]; then
         printSuccess "Original firmware MD5 matches repackaged firmware's MD5, everything looks good!"
+        return 0
     else
         printError "Test run failed, please review script output for any errors and fix."
-    fi	
+        return 1
+    fi
+}
+
+printBanner(){
+    printMsg " _____             _ _ _ ____  _____ _____ "
+    printMsg "|     |___ ___ ___| | | |    \|_   _|  |  |"
+    printMsg "|  |  | . | -_|   | | | |  |  | | | |  |  |"
+    printMsg "|_____|  _|___|_|_|_____|____/  |_|  \___/ "
+    printMsg "      |_| http://openwdtv.org              "
+}
+
+printFirmwareMenu(){
+    cat approved.list | while curline=`line`; do
+        printMsg $curline | awk -F ',' '{print $1") "$3" ["$2"]"}'
+    done
 }
 
 printMsg(){
@@ -147,46 +251,91 @@ printSuccess(){
     echo -e "\033[1;34m$1\033[0m"
 }
 
-showmenu () {
-    printMsg " _____             _ _ _ ____  _____ _____ "
-    printMsg "|     |___ ___ ___| | | |    \|_   _|  |  |"
-    printMsg "|  |  | . | -_|   | | | |  |  | | | |  |  |"
-    printMsg "|_____|  _|___|_|_|_____|____/  |_|  \___/ "
-    printMsg "      |_| http://openwdtv.org              "
+basicMenu () {
     printMsg "+-----------------------------------------+"
     printMsg "| Please select an option and hit <enter> |"
     printMsg "+-----------------------------------------+"
-    printMsg "| 1) Unpack firmware.                     |"
-    printMsg "| 2) Apply patches.                       |"
-    printMsg "| 3) Apply filesystem modifications.      |"
-    printMsg "| 4) Repack firmware.                     |"
-    printMsg "| 5) Test run.                            |"
-    printMsg "| 6) Quit!                                |"
+    printMsg "| 1) Start wizard                         |"
+    printMsg "| 2) Switch to advanced mode              |"
+    printMsg "| 3) Quit                                 |"
     printMsg "+-----------------------------------------+"
 }
 
-while [ 1 ] ; do
-    showmenu
-    read CHOICE
-    case "$CHOICE" in
-    "1")
-        unpack
-        ;;
-    "2")
-        applyPatches
-        ;;
-    "3")
-        applyFS
-        ;;
-    "4")
-        repack
-        ;;
-    "5")
-        testRun
-        ;;
-    "6")
-        exit
-        ;;
+advancedMenu () {
+    printMsg "+-----------------------------------------+"
+    printMsg "| Please select an option and hit <enter> |"
+    printMsg "+-----------------------------------------+"
+    printMsg "| 1) Download firmware                    |"
+    printMsg "| 2) Unpack firmware                      |"
+    printMsg "| 3) Apply patches                        |"
+    printMsg "| 4) Apply filesystem modifications       |"
+    printMsg "| 5) Repack firmware                      |"
+    printMsg "| 6) Self test                            |"
+    printMsg "| 7) Switch to basic mode                 |"
+    printMsg "| 8) Quit                                 |"
+    printMsg "+-----------------------------------------+"
+}
+
+##########################
+### SCRIPT ENTRY POINT ###
+##########################
+# Get system architecture
+architecture=`uname -m`
+# Set default menu type
+var_menutype="basic"
+# Create any missing directories
+createDirs
+# Make sure we have the latest list of approved firmwares
+downloadApprovedList
+
+while [ 1 ]; do
+    printBanner
+    case $var_menutype in
+    "basic")
+        basicMenu
+        read CHOICE
+        case "$CHOICE" in
+        "1")
+            wizard
+            ;;
+        "2")
+            var_menutype="advanced"
+            continue
+            ;;
+        "3")
+            exit
+            ;;
+        esac
+    ;;
+    "advanced")
+        advancedMenu
+        read CHOICE
+        case "$CHOICE" in
+        "1")
+            downloadFirmware
+            ;;
+        "2")
+            unpackFirmware
+            ;;
+        "3")
+            applyPatches
+            ;;
+        "4")
+            applyFS
+            ;;
+        "5")
+            repackFirmware
+            ;;
+        "6")
+            selfTest
+            ;;
+        "7")
+            var_menutype="basic"
+            continue
+            ;;
+        "8")
+            exit
+            ;;
+        esac
     esac
 done
-
