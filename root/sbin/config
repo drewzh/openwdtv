@@ -10,7 +10,7 @@ then
   case $1
   in
     read)
-      grep -i "$2" /conf/config | cut -d "=" -f2
+      grep -ie "\b$2=.*\b" /conf/config | awk -F \' '{ print $2 }'
     ;;
     write)
       config_tool -c "$2=$3"
