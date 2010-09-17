@@ -5,137 +5,188 @@
 # |_____|  _|___|_|_|_____|____/  |_|  \___/ 
 #       |_| http://openwdtv.org
 
+architecture=`uname -m`
+
 unpack(){
-	echo "Unpacking firmware..."
+    if [ -e "origfw/wdtvlive.bin" ]; then
+        printMsg "Unpacking firmware..."
 
-	echo Removing old files...
-	rm -rf unpacked
-	clean
+        rm -rf unpacked
+        clean
+        
+        printMsg "Removing 32 byte MD5 from beginning of original firmware..."
+        dd if=origfw/wdtvlive.bin of=origimg.tmp bs=32 skip=1c &> /dev/null
 
-	echo Removing 32 byte MD5 from beginning of original firmware...
-	dd if=origfw/wdtvlive.bin of=origimg.tmp bs=32 skip=1c
+        printMsg "Unpacking..."
+        
+        if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
+            ./tools/cramfsck32 -x unpacked origimg.tmp &> /dev/null
+        else
+            ./tools/cramfsck64 -x unpacked origimg.tmp &> /dev/null
+        fi
 
-	echo Unpacking...
-	./tools/cramfsck -x unpacked origimg.tmp
+        if [ "$1" != "testrun" ]; then
+            printMsg "Removing original init.d files..."
+            rm -rf unpacked/etc/init.d/*
+        fi
 
-	if [ "$1" != "testrun" ]; then
-		echo Removing original init.d files...
-		rm -rf unpacked/etc/init.d/*
-	fi
-	
-	clean
+        clean
+        
+        printSuccess "Firmware unpacked"
+    else
+        printError "No firmware found to unpack, aborting."
+    fi
 }
 
 applyPatches(){
-	for i in ./patches/* ; do
-	  echo "Applying patch $i..."
-	  patch -p0 $i >/dev/null
-	done
+    for i in ./patches/*.diff ; do
+        printMsg "Applying patch $i..."
+        patch -p0 $i >/dev/null
+    done
 }
 
 applyFS(){
-	echo "Copying filesystem modifications..."
-	cp -rf root/* unpacked/
+    printMsg "Copying filesystem modifications..."
+    cp -r --remove-destination root/* unpacked/
+    printSuccess "Filesystem modifications applied"
 }
 
 repack(){
-	echo "Repacking firmware..."
+    printMsg "Repacking firmware..."
 
-	echo Removing old files...
-	clean
+    createDirs
 
-	if [ "$1" != "testrun" ]; then
-		echo Recreating md5sum.txt...
-		cd unpacked
-		rm -f md5sum.txt
-		md5deep -rsl -o f . > ../deepmd5sum.tmp
-		mv ../deepmd5sum.tmp md5sum.txt
-		cd ../
-		echo Updating timestamps...
-		find unpacked/* -type f -exec touch {} \;
-	fi
+    clean
 
-	echo Making cramfs...
-	./tools/mkcramfs unpacked newimg.tmp
+    if [ "$1" != "testrun" ]; then
+        printMsg "Recreating md5sum.txt..."
+        cd unpacked
+        rm -f md5sum.txt
+        find . -type f -exec md5sum {} \; > ../md5sum.tmp
+        mv ../md5sum.tmp md5sum.txt
+        cd ../
+        printMsg "Updating timestamps..."
+        find unpacked/* -type f -exec touch {} \;
+    fi
 
-	echo Generating signature and adding to new firmware...
+    printMsg "Making cramfs..."
 
-	sign newimg.tmp signature.tmp
+    if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
+        ./tools/mkcramfs32 unpacked newimg.tmp &> /dev/null
+    else
+        ./tools/mkcramfs64 unpacked newimg.tmp &> /dev/null
+    fi	
 
-	cat newimg.tmp signature.tmp > signedimg.tmp
-	md5sum signedimg.tmp | dd bs=32 count=1 > signedimgmd5.tmp
-	cat signedimgmd5.tmp signedimg.tmp > release/wdtvlive.bin
+    printMsg "Generating signature and adding to new firmware..."
+    sign newimg.tmp signature.tmp
 
-	echo -e "Original MD5:\n`md5sum origfw/wdtvlive.bin | cut -c 1-32`"
-	echo -e "New MD5:\n`md5sum release/wdtvlive.bin | cut -c 1-32`"
+    cat newimg.tmp signature.tmp > signedimg.tmp
+    md5sum signedimg.tmp | dd bs=32 count=1 of=signedimgmd5.tmp &> /dev/null
+    cat signedimgmd5.tmp signedimg.tmp > release/wdtvlive.bin
 
-	echo Clearing tmp files...
-	clean
+    printMsg "Original MD5:\n`md5sum origfw/wdtvlive.bin | cut -c 1-32`"
+    printMsg "New MD5:\n`md5sum release/wdtvlive.bin | cut -c 1-32`"
+
+    clean
+    
+    printSuccess "Firmware repacked"
 }
 
 sign(){
-	echo -ne "\xCE\xFA\xBE\xBA\x02\x00\x00\x00" > $2
-	FS=`stat -c %s $1`
-	xFS=`echo "ibase=10;obase=16; $FS" | bc | tr -d '\n'`
-	wc=`echo $xFS | tr -d '\n' | wc -m`
-	[ $wc -eq 7 ] && xFS="0$xFS"
-	FS=""
-	for i in 6 4 2 0 ; do
-	   FS="$FS\x${xFS:$i:2}"
-	done
-	FS="$FS\x00\x00\x00\x00"
-	echo -ne $FS | head -c 8 >> $2
+    echo -ne "\xCE\xFA\xBE\xBA\x02\x00\x00\x00" > $2
+    FS=`stat -c %s $1`
+    xFS=`echo "ibase=10;obase=16; $FS" | bc | tr -d '\n'`
+    wc=`echo $xFS | tr -d '\n' | wc -m`
+    [ $wc -eq 7 ] && xFS="0$xFS"
+    FS=""
+    for i in 6 4 2 0 ; do
+        FS="$FS\x${xFS:$i:2}"
+    done
+    FS="$FS\x00\x00\x00\x00"
+    echo -ne $FS | head -c 8 >> $2
 }
 
 clean(){
+    printMsg "Removing temp files..."
 	rm -rf *.tmp
 }
 
-testRun(){
-	echo "Testing firmware repackaging procedure..."
-	unpack testrun
-	repack testrun
+createDirs(){
+    if [ ! -d unpacked ]; then
+        printMsg "Creating directory: unpacked/"
+        mkdir unpacked
+    fi
 
-	if [ `md5sum origfw/wdtvlive.bin | cut -c 1-32` = `md5sum release/wdtvlive.bin | cut -c 1-32` ]; then
-		echo -e "\033[1;34mOriginal firmware MD5 matches repackaged firmware's MD5, everything looks good!\033[0m"
-	else
-		echo -e "\033[1;31mTest run failed, please review script output for any errors and fix.\033[0m"
-	fi	
+    if [ ! -d release ]; then
+        printMsg "Creating directory: release/"
+        mkdir release
+    fi
+}
+
+testRun(){
+    printMsg "Testing firmware repackaging procedure..."
+    unpack testrun
+    repack testrun
+
+    if [ `md5sum origfw/wdtvlive.bin | cut -c 1-32` = `md5sum release/wdtvlive.bin | cut -c 1-32` ]; then
+        printSuccess "Original firmware MD5 matches repackaged firmware's MD5, everything looks good!"
+    else
+        printError "Test run failed, please review script output for any errors and fix."
+    fi	
+}
+
+printMsg(){
+    echo -e "\033[1m$1\033[0m"
+}
+
+printError(){
+    echo -e "\033[1;31m$1\033[0m"
+}
+
+printSuccess(){
+    echo -e "\033[1;34m$1\033[0m"
 }
 
 showmenu () {
-	echo -e "\033[1m-----------------------------------------------\033[0m"
-	echo -e "\033[1mPlease select an option and hit <enter>...     \033[0m"
-	echo -e "\033[1m-----------------------------------------------\033[0m"
-	echo -e "\033[1m1) Unpack firmware.\033[0m"
-	echo -e "\033[1m2) Apply patches.\033[0m"
-	echo -e "\033[1m3) Apply filesystem modifications.\033[0m"
-	echo -e "\033[1m4) Repack firmware.\033[1m"
-	echo -e "\033[1m5) Test run.\033[0m"
-	echo -e "\033[1m6) Quit!\033[0m"
+    printMsg " _____             _ _ _ ____  _____ _____ "
+    printMsg "|     |___ ___ ___| | | |    \|_   _|  |  |"
+    printMsg "|  |  | . | -_|   | | | |  |  | | | |  |  |"
+    printMsg "|_____|  _|___|_|_|_____|____/  |_|  \___/ "
+    printMsg "      |_| http://openwdtv.org              "
+    printMsg "+-----------------------------------------+"
+    printMsg "| Please select an option and hit <enter> |"
+    printMsg "+-----------------------------------------+"
+    printMsg "| 1) Unpack firmware.                     |"
+    printMsg "| 2) Apply patches.                       |"
+    printMsg "| 3) Apply filesystem modifications.      |"
+    printMsg "| 4) Repack firmware.                     |"
+    printMsg "| 5) Test run.                            |"
+    printMsg "| 6) Quit!                                |"
+    printMsg "+-----------------------------------------+"
 }
 
 while [ 1 ] ; do
-	showmenu
-	read CHOICE
-	case "$CHOICE" in
-	"1")
-	unpack
-	;;
-	"2")
-	applyPatches
-	;;
-	"3")
-	applyFS
-	;;
-	"4")
-	repack
-	;;
-	"5")
-	testRun
-	;;
-	"6")
-	exit
-	;;
-	esac
+    showmenu
+    read CHOICE
+    case "$CHOICE" in
+    "1")
+        unpack
+        ;;
+    "2")
+        applyPatches
+        ;;
+    "3")
+        applyFS
+        ;;
+    "4")
+        repack
+        ;;
+    "5")
+        testRun
+        ;;
+    "6")
+        exit
+        ;;
+    esac
 done
+
