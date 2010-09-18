@@ -5,43 +5,6 @@
 # |_____|  _|___|_|_|_____|____/  |_|  \___/ 
 #       |_| http://openwdtv.org
 
-wizard(){
-    printMsg "Starting wizard..."
-
-    printMsg "Please select a firmware to modify:"
-    selectFirmware
-    fwid=$?
-    if [ $fwid -eq 0 ]; then
-        printError "No firmware selected, aborting..."
-        return 1
-    fi
-
-    downloadFirmware $fwid
-    if [ $? -ne 0 ]; then
-        printError "Error downloading firmware, aborting..."
-        return 1
-    fi
-
-    unpackFirmware $fwid
-    if [ $? -ne 0 ]; then
-        printError "Failed to unpack firmware, aborting...."
-        return 1
-    fi
-    
-    # Apply firmware modifications
-    #applyPatches
-    applyFS
-
-    repackFirmware $fwid
-    if [ $? -ne 0 ]; then
-        printError "Failed to repack firmware, aborting..."
-        return 1
-    fi
-
-    printSuccess "Successfully repackaged firmware and output into release folder, have a nice day :)"
-    return 0
-}
-
 unpackFirmware(){
     fw_line=`grep -e "\b$1,.*\b" approved.list`
     fw_version=`echo $fw_line | awk -F ',' '{ print $3 }'`
@@ -185,20 +148,27 @@ downloadFirmware(){
     fw_file=`basename $fw_url`
     fw_md5=`echo $fw_line | awk -F ',' '{ print $5 }'`
     
-    if [ ! -e origfw/$fw_file ]; then
-        printMsg "Downloading firmware, please wait..."
-
-        if wget -O origfw/$fw_file $fw_url && [ "`md5sum origfw/$fw_file | cut -c 1-32`" = "$fw_md5" ]; then
-            printSuccess "Firmware downloaded successfully"
+    if [ -e origfw/$fw_file ]; then
+        if [ "`md5sum origfw/$fw_file | cut -c 1-32`" = "$fw_md5" ]; then
+            printSuccess "Firmware already downloaded, continuing..."
             return 0
         else
-            printError "Error downloading firmware, aborting..."
-            rm -f origfw/$fw_file
-            return 1
+            printError "Downloaded firmware is corrupt, would you like to re-download?"
+            read -n 1 var_dlcheck
+            if [[ ! $var_dlcheck = [yY] ]]; then
+                return 1
+            fi
         fi
-    else
-        printMsg "Firmware already downloaded, continuing..."
+    fi
+    printMsg "Downloading firmware, please wait..."
+
+    if wget -O origfw/$fw_file $fw_url && [ "`md5sum origfw/$fw_file | cut -c 1-32`" = "$fw_md5" ]; then
+        printSuccess "Firmware downloaded successfully"
         return 0
+    else
+        printError "Error downloading firmware, aborting..."
+        rm -f origfw/$fw_file
+        return 1
     fi
 }
 
@@ -223,6 +193,43 @@ selfTest(){
         printError "Test run failed, please review script output for any errors and fix."
         return 1
     fi
+}
+
+wizard(){
+    printMsg "Starting wizard..."
+
+    printMsg "Please select a firmware to modify:"
+    selectFirmware
+    fwid=$?
+    if [ $fwid -eq 0 ]; then
+        printError "No firmware selected, aborting..."
+        return 1
+    fi
+
+    downloadFirmware $fwid
+    if [ $? -ne 0 ]; then
+        printError "Error downloading firmware, aborting..."
+        return 1
+    fi
+
+    unpackFirmware $fwid
+    if [ $? -ne 0 ]; then
+        printError "Failed to unpack firmware, aborting...."
+        return 1
+    fi
+    
+    # Apply firmware modifications
+    #applyPatches
+    applyFS
+
+    repackFirmware $fwid
+    if [ $? -ne 0 ]; then
+        printError "Failed to repack firmware, aborting..."
+        return 1
+    fi
+
+    printSuccess "Successfully repackaged firmware and output to release folder, have a nice day :)"
+    return 0
 }
 
 printBanner(){
