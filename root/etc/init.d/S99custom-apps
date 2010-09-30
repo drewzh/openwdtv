@@ -6,13 +6,14 @@
 #       |_| http://openwdtv.org
 
 if [ "`config read ENABLE_APPS`" == "1" ]; then
+    mkdir /tmp/apps
 
     logger -s -t $0 "Scanning external media for app.bin files..."
     INTAPPS=`find /apps/ -type f -name "*.app.bin"`
-    EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin"`
+    EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin" -maxdepth 4`
 
     for i in $INTAPPS $EXTAPPS; do
-        logger -s -t $0 "Mounting $i on root..."
-        mount -o bind $i /
+        logger -s -t $0 "Mounting $i on /tmp/apps/..."
+        mount -t auto -o loop $i /tmp/apps/
     done
 fi
