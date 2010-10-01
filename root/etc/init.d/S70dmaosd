@@ -1,13 +1,16 @@
 #!/bin/sh
+#  _____             _ _ _ ____  _____ _____ 
+# |     |___ ___ ___| | | |    \|_   _|  |  |
+# |  |  | . | -_|   | | | |  |  | | | |  |  |
+# |_____|  _|___|_|_|_____|____/  |_|  \___/ 
+#       |_| http://openwdtv.org
 
 case "$1" in
-start|upgrade)
-	if [ "$1" == "upgrade" ]; then	
-		run_all $1 $2 $3 &
-		killall mount.watch
-		killall plug.watch
-	else
-		run_all &
-	fi
-	;;
+    start|upgrade)
+        if [ "$1" == "upgrade" ]; then
+            run_all $1 $2 $3 &
+        else
+            run_all &
+        fi
+    ;;
 esac
