@@ -165,8 +165,9 @@ if [ -f /lib/modules/llad.ko ]; then
 insmod -f /lib/modules/llad.ko
 fi
 
-cp /etc/passwd.conf /tmp -f
-cp /etc/shadow.conf /tmp -f
+# Removed in favor of custom init.d script
+#cp /etc/passwd.conf /tmp -f
+#cp /etc/shadow.conf /tmp -f
 
 if [ x$1 == "xf1f1" ]; then
 	echo "enter f1 test ..."
