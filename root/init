@@ -42,7 +42,7 @@ ln -s $SYSCONF_FIRMWARE_MTD_PARTITION /dev/mtdblock_romfs
 ############################
 # SETUP TTY LOGIN SECURITY #
 ############################
-if [ ! -f /conf/securetty.ori ] && cp /etc/securetty.ori /conf/
+[ ! -f /conf/securetty.ori ] && cp /etc/securetty.ori /conf/
 ln -s /conf/securetty.ori /tmp/securetty.ori
 
 ##############################
@@ -136,22 +136,22 @@ done
 ######################################
 # LOAD PROCESS STDOUT STDIN PIPELINE #
 ######################################
-if [ -f /lib/modules/proc_pipe.ko ] && insmod /lib/modules/proc_pipe.ko
+[ -f /lib/modules/proc_pipe.ko ] && insmod /lib/modules/proc_pipe.ko
 
 #####################
 # POPULATE IR TABLE #
 #####################
-if [ -f /ir_table ] && cat /ir_table > /proc/tangoxfreq/ir_table
+[ -f /ir_table ] && cat /ir_table > /proc/tangoxfreq/ir_table
 
 ##############################
 # MISC KERNEL MODULE LOADING #
 ##############################
 # Paragon NTFS driver
-if [ -f /lib/modules/ufsd.ko ] && insmod /lib/modules/ufsd.ko
+[ -f /lib/modules/ufsd.ko ] && insmod /lib/modules/ufsd.ko
 # Frequency scaling driver
-if [ -f /lib/modules/fctrl.ko ] && insmod /lib/modules/fctrl.ko
+[ -f /lib/modules/fctrl.ko ] && insmod /lib/modules/fctrl.ko
 # llad kernel module for standalone configuration.... WHAT?
-if [ -f /lib/modules/llad.ko ] && insmod -f /lib/modules/llad.ko
+[ -f /lib/modules/llad.ko ] && insmod -f /lib/modules/llad.ko
 
 ####################
 # LOAD CIFS MODULE #
@@ -172,9 +172,9 @@ ifconfig lo 127.0.0.1
 #################################################
 # SYMLINK LOGIN CREDENTIALS TO CONFIG PARTITION #
 #################################################
-if [ ! -f /conf/passwd.conf ] && cp /etc/passwd.conf /conf/
+[ ! -f /conf/passwd.conf ] && cp /etc/passwd.conf /conf/
 ln -s /conf/passwd.conf /tmp/passwd.conf
-if [ ! -f /conf/shadow.conf ] && cp /etc/shadow.conf /conf/
+[ ! -f /conf/shadow.conf ] && cp /etc/shadow.conf /conf/
 ln -s /conf/shadow.conf /tmp/shadow.conf
 
 ######################
