@@ -155,9 +155,7 @@ downloadFirmware(){
         else
             printError "Downloaded firmware is corrupt, would you like to re-download?"
             read -n 1 var_dlcheck
-            if [[ ! $var_dlcheck = [yY] ]]; then
-                return 1
-            fi
+            [[ ! $var_dlcheck = [yY] ]] && return 1
         fi
     fi
     printMsg "Downloading firmware, please wait..."
