@@ -67,12 +67,10 @@ fi
 #################################
 # MOUNT STATIC CONFIG PARTITION #
 #################################
-if [ x$1 != "xf1f1" ]; then
-    if [ x$SYSCONF_LAST_PARTITION_NODE_NAME != "x" ]; then
-        dd if=$SYSCONF_LAST_PARTITION_NODE_NAME of=/tmp/lastblock bs=1024
-        mkdir $SYSCONF_STATIC_CONFIG_MOUNT_POINT
-        mount -t minix -o loop /tmp/lastblock $SYSCONF_STATIC_CONFIG_MOUNT_POINT
-    fi
+if [ x$SYSCONF_LAST_PARTITION_NODE_NAME != "x" ]; then
+    dd if=$SYSCONF_LAST_PARTITION_NODE_NAME of=/tmp/lastblock bs=1024
+    mkdir $SYSCONF_STATIC_CONFIG_MOUNT_POINT
+    mount -t minix -o loop /tmp/lastblock $SYSCONF_STATIC_CONFIG_MOUNT_POINT
 fi
 
 ##################
