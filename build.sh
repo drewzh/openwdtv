@@ -23,10 +23,14 @@ unpackFirmware(){
 
     printMsg "Extracting cramfs..."
 
-    if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
-        ./tools/cramfsck32 -x unpacked origimg.tmp
+    if [ $cygwin -eq 1 ]; then
+        ./tools/cramfsck-cygwin.exe -x unpacked origimg.tmp
     else
-        ./tools/cramfsck64 -x unpacked origimg.tmp
+        if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
+            ./tools/cramfsck32 -x unpacked origimg.tmp
+        else
+            ./tools/cramfsck64 -x unpacked origimg.tmp
+        fi
     fi
 
     if [ "$2" != "selftest" ]; then
@@ -76,10 +80,14 @@ repackFirmware(){
 
     printMsg "Making cramfs..."
 
-    if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
-        ./tools/mkcramfs32 unpacked newimg.tmp
+    if [ $cygwin -eq 1 ]; then
+        ./tools/mkcramfs-cygwin.exe unpacked newimg.tmp
     else
-        ./tools/mkcramfs64 unpacked newimg.tmp
+        if [ "$architecture" != "x86_64" ] && [ "$architecture" != "ia64" ]; then
+            ./tools/mkcramfs32 unpacked newimg.tmp
+        else
+            ./tools/mkcramfs64 unpacked newimg.tmp
+        fi
     fi
 
     printMsg "Generating signature and adding to new firmware..."
@@ -239,9 +247,9 @@ printBanner(){
 }
 
 printFirmwareMenu(){
-    cat approved.list | while curline=`line`; do
+    while read curline; do
         printMsg $curline | awk -F ',' '{print $1") "$3" ["$2"]"}'
-    done
+    done < approved.list
 }
 
 printMsg(){
@@ -284,6 +292,8 @@ advancedMenu () {
 ##########################
 ### SCRIPT ENTRY POINT ###
 ##########################
+# Is running in cygwin?
+uname -a | grep -i "CYGWIN" &> /dev/null && cygwin=1 || cygwin=0
 # Get system architecture
 architecture=`uname -m`
 # Set default menu type
