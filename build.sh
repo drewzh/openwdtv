@@ -327,10 +327,12 @@ while [ 1 ]; do
         read CHOICE
         case "$CHOICE" in
         "1")
-            downloadFirmware
+            selectFirmware
+            downloadFirmware $?
             ;;
         "2")
-            unpackFirmware
+            selectFirmware
+            unpackFirmware $?
             ;;
         "3")
             applyPatches
@@ -339,7 +341,8 @@ while [ 1 ]; do
             applyFS
             ;;
         "5")
-            repackFirmware
+            selectFirmware
+            repackFirmware $?
             ;;
         "6")
             selfTest
