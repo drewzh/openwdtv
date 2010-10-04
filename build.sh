@@ -293,7 +293,7 @@ advancedMenu () {
 ### SCRIPT ENTRY POINT ###
 ##########################
 # Is running in cygwin?
-uname -a | grep -i "CYGWIN" &> /dev/null && cygwin=1 || cygwin=0
+cygwin=`uname -a | grep -i "CYGWIN" &> /dev/null && echo 1 || echo 0`
 # Get system architecture
 architecture=`uname -m`
 # Set default menu type
