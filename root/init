@@ -162,6 +162,17 @@ modprobe cifs CIFSMaxBufSize=64512
 mkdir -p /tmp/media
 mkdir -p /tmp/media/usb
 
+###################
+# SETUP HOST FILE #
+###################
+if [ ! -f "/conf/hosts" ]; then
+    echo "127.0.0.1 localhost" >> /conf/hosts
+    echo 127.0.0.1 `hostname` >> /conf/hosts
+    # Block offical updates
+    echo "127.0.0.1 support.wdc.com" >> /conf/hosts
+fi
+ln -s /conf/hosts /tmp/hosts
+
 ##################################
 # SETUP LOCAL LOOPBACK INTERFACE #
 ##################################
@@ -170,20 +181,44 @@ ifconfig lo 127.0.0.1
 #################################################
 # SYMLINK LOGIN CREDENTIALS TO CONFIG PARTITION #
 #################################################
-[ ! -f /conf/passwd.conf ] && cp /etc/passwd.conf /conf/
+[ ! -f "/conf/passwd.conf" ] && cp /etc/passwd.conf /conf/
 ln -s /conf/passwd.conf /tmp/passwd.conf
-[ ! -f /conf/shadow.conf ] && cp /etc/shadow.conf /conf/
+[ ! -f "/conf/shadow.conf" ] && cp /etc/shadow.conf /conf/
 ln -s /conf/shadow.conf /tmp/shadow.conf
+
+##################
+# ENABLE SYSLOGD #
+##################
+syslogd -O /tmp/messages
 
 ######################
 # LOAD CACHE SERVICE #
 ######################
 /bin/memory_cache_server &
 
+####################
+# LOAD CUSTOM APPS #
+####################
+if [ "`config read ENABLE_APPS`" == "1" ]; then
+    APPMOUNT=/tmp/apps/
+    mkdir $APPMOUNT
+
+    logger -s -t $0 "Scanning external media for app.bin files..."
+    INTAPPS=`find /addons/ -type f -name "*.app.bin"`
+    EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin" -maxdepth 4`
+
+    for i in $INTAPPS $EXTAPPS; do
+        logger -s -t $0 "Mounting $i on $APPMOUNT..."
+        mount -t auto -o loop $i $APPMOUNT &> /dev/null
+    done
+fi
+
 ########################
 # SPAWN INIT.D SCRIPTS #
 ########################
 /etc/init.d/rcS $1 $2 $3&
+
+logger -s -t $0 "OpenWDTV Initialised!"
 
 #################################
 # START SUPER HAPPY FUN LOOP :) #
