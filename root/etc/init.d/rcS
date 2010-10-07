@@ -7,7 +7,7 @@
 
 mkdir /tmp/init.d
 
-for i in /tmp/apps/*/etc/init.d/S??* /etc/init.d/S??*
+for i in /apps/*/etc/init.d/S??* /etc/init.d/S??*
 do
 	[ -f "$i" ] && ln -s $i /tmp/init.d/`basename $i`
 done
