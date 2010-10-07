@@ -5,6 +5,11 @@
 # |_____|  _|___|_|_|_____|____/  |_|  \___/ 
 #       |_| http://openwdtv.org
 
+###########
+# OPTIONS #
+###########
+DEBUG=1
+
 #####################
 # SETUP ENVIRONMENT #
 #####################
@@ -20,6 +25,7 @@ mkdir /dev/pts
 mount -t devpts devpts /dev/pts
 mdev -s
 mount -t tmpfs none /tmp
+mount -t tmpfs none /apps
 /bin/hostname -F /etc/hostname
 
 ########################
@@ -53,7 +59,7 @@ ln -s /conf/securetty.ori /tmp/securetty.ori
 ######################
 # LOAD CONFIGURATION #
 ######################
-if [ $1 == "upgrade" ]; then
+if [ $DEBUG -eq 0 -a "$1" == "upgrade" ]; then
     # Only load, don't monitor
     /sbin/config_tool -l 
     # Free up some memory
@@ -87,6 +93,20 @@ mknod /dev/mtdblock3 b 254 6
 mknod /dev/mtdblock2 b 254 3
 mknod /dev/mtdblock0 b 254 0
 mknod /dev/sda1 b 8 1
+
+#mknod /dev/loop0 b 7 0
+#mknod /dev/loop1 b 7 1
+#mknod /dev/loop2 b 7 2
+#mknod /dev/loop3 b 7 3
+mknod /dev/loop8 b 7 8
+mknod /dev/loop9 b 7 9
+mknod /dev/loop10 b 7 10
+mknod /dev/loop11 b 7 11
+mknod /dev/loop12 b 7 12
+mknod /dev/loop13 b 7 13
+mknod /dev/loop14 b 7 14
+mknod /dev/loop15 b 7 15
+mknod /dev/loop16 b 7 16
 
 ###################
 # RELOAD FIRMWARE #
@@ -167,7 +187,7 @@ mkdir -p /tmp/media/usb
 ###################
 if [ ! -f "/conf/hosts" ]; then
     echo "127.0.0.1 localhost" >> /conf/hosts
-    echo 127.0.0.1 `hostname` >> /conf/hosts
+    echo "127.0.0.1 `hostname`" >> /conf/hosts
     # Block offical updates
     echo "127.0.0.1 support.wdc.com" >> /conf/hosts
 fi
@@ -196,27 +216,35 @@ syslogd -O /tmp/messages
 ######################
 /bin/memory_cache_server &
 
+#while [ 1 ]; do
+#    /bin/sh;
+#done
+
 ####################
 # LOAD CUSTOM APPS #
 ####################
-if [ "`config read ENABLE_APPS`" == "1" ]; then
-    APPMOUNT=/tmp/apps/
-    mkdir $APPMOUNT
-
-    logger -s -t $0 "Scanning external media for app.bin files..."
-    INTAPPS=`find /addons/ -type f -name "*.app.bin"`
-    EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin" -maxdepth 4`
-
-    for i in $INTAPPS $EXTAPPS; do
-        logger -s -t $0 "Mounting $i on $APPMOUNT..."
-        mount -t auto -o loop $i $APPMOUNT &> /dev/null
-    done
-fi
+#if [ "`config read ENABLE_APPS`" == "1" ]; then
+#    appmount=/apps/
+#    logger -s -t $0 "Scanning external media for app.bin files..."
+#    INTAPPS=`find /addons/ -type f -name "*.app.bin"`
+#    EXTAPPS=`find /tmp/media/usb/ -type f -name "*.app.bin" -maxdepth 4`
+#    for i in $INTAPPS $EXTAPPS; do
+#        logger -s -t $0 "Mounting $i on $appmount/$appname..."
+#        appname="`basename "$i" | awk -F '.' '{print $1}'`"
+#        mkdir "$appmount/$appname"
+#        /bin/mount -o loop "$i" "$appmount/$appname"
+#    done
+#fi
 
 ########################
 # SPAWN INIT.D SCRIPTS #
 ########################
-/etc/init.d/rcS $1 $2 $3&
+if [ $DEBUG -eq 1 ]; then
+    logger -s -t $0 "Starting in debug mode..."
+    /etc/init.d/rcS&
+else
+    /etc/init.d/rcS $1 $2 $3&
+fi
 
 logger -s -t $0 "OpenWDTV Initialised!"
 
