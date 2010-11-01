@@ -5,6 +5,19 @@
 # |_____|  _|___|_|_|_____|____/  |_|  \___/ 
 #       |_| http://openwdtv.org
 
+
+#############
+## OPTIONS ##
+#############
+# Set default menu type
+var_menutype="basic"
+# Set maximum firmware size
+var_maxfwsize=94371840
+# Delete firmware from release folder on any error
+var_autodeleteinvalidfw=1
+# Automatically download new approved.list (change to 0 if you want to use custom firmware)
+var_autoapproved=1
+
 unpackFirmware(){
     fw_line=`grep -e "\b$1,.*\b" approved.list`
     fw_version=`echo $fw_line | awk -F ',' '{ print $3 }'`
@@ -12,7 +25,7 @@ unpackFirmware(){
 
     printMsg "Clearing old files..."
     rm -rf unpacked
-    clean
+    deleteTmpFiles
 
     printMsg "Extracting firmware archive..."
     unzip -o origfw/$fw_file -d origfw/$fw_version
@@ -38,7 +51,7 @@ unpackFirmware(){
         rm -rf unpacked/etc/init.d/*
     fi
 
-    clean
+    deleteTmpFiles
 
     printSuccess "Firmware unpacked"
     return 0
@@ -65,7 +78,7 @@ repackFirmware(){
     
     printMsg "Repacking firmware..."
 
-    clean
+    deleteTmpFiles
 
     if [ "$2" != "selftest" ]; then
         printMsg "Recreating md5sum.txt..."
@@ -100,7 +113,7 @@ repackFirmware(){
     printMsg "Original MD5: `md5sum $fw_orig | cut -c 1-32`"
     printMsg "New MD5: `md5sum release/wdtvlive.bin | cut -c 1-32`"
 
-    clean
+    deleteTmpFiles
 
     printSuccess "Firmware repacked"
 }
@@ -119,9 +132,9 @@ sign(){
     echo -ne $FS | head -c 8 >> $2
 }
 
-clean(){
+deleteTmpFiles(){
     printMsg "Removing temp files..."
-	rm -rf *.tmp
+    rm -rf *.tmp
 }
 
 createDirs(){
@@ -201,6 +214,17 @@ selfTest(){
     fi
 }
 
+checkFirmwareSize(){
+    [ `stat -c %s release/wdtvlive.bin` -le $var_maxfwsize ] && return 0 || return 1
+}
+
+deleteInvalidFirmware(){
+    if [ $var_autodeleteinvalidfw -eq 1 ]; then
+        printError "Deleting invalid firmware from release folder..."
+        rm -f release/wdtvlive.bin
+    fi
+}
+
 wizard(){
     printMsg "Starting wizard..."
 
@@ -234,6 +258,13 @@ wizard(){
         return 1
     fi
 
+    checkFirmwareSize
+    if [ $? -ne 0 ]; then
+        printError "Firmware exceeds maximum file size of 
+$var_maxfwsize bytes, aborting..."
+        return 1
+    fi
+
     printSuccess "Successfully repackaged firmware and output to release folder, have a nice day :)"
     return 0
 }
@@ -261,7 +292,7 @@ printError(){
 }
 
 printSuccess(){
-    echo -e "\033[1;34m$1\033[0m"
+    echo -e "\033[1;32m$1\033[0m"
 }
 
 basicMenu () {
@@ -289,19 +320,17 @@ advancedMenu () {
     printMsg "+-----------------------------------------+"
 }
 
-##########################
-### SCRIPT ENTRY POINT ###
-##########################
+########################
+## SCRIPT ENTRY POINT ##
+########################
 # Is running in cygwin?
 cygwin=`uname -a | grep -i "CYGWIN" &> /dev/null && echo 1 || echo 0`
 # Get system architecture
 architecture=`uname -m`
-# Set default menu type
-var_menutype="basic"
 # Create any missing directories
 createDirs
 # Make sure we have the latest list of approved firmwares
-downloadApprovedList
+[ $var_autoapproved -eq 1 ] && downloadApprovedList
 
 while [ 1 ]; do
     printBanner
@@ -312,6 +341,7 @@ while [ 1 ]; do
         case "$CHOICE" in
         "1")
             wizard
+            [ $? -ne 0 ] && deleteInvalidFirmware
             ;;
         "2")
             var_menutype="advanced"
@@ -343,9 +373,11 @@ while [ 1 ]; do
         "5")
             selectFirmware
             repackFirmware $?
+            [ $? -ne 0 ] && deleteInvalidFirmware
             ;;
         "6")
             selfTest
+            [ $? -ne 0 ] && deleteInvalidFirmware
             ;;
         "7")
             var_menutype="basic"
