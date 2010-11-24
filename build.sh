@@ -22,6 +22,7 @@ unpackFirmware(){
     fw_line=`grep -e "\b$1,.*\b" approved.list`
     fw_version=`echo $fw_line | awk -F ',' '{ print $3 }'`
     fw_file=`basename $fw_url`
+    fw_orig=`find origfw/$fw_version -name "wdtvlive.bin"`
 
     printMsg "Clearing old files..."
     rm -rf unpacked
@@ -30,9 +31,8 @@ unpackFirmware(){
     printMsg "Extracting firmware archive..."
     unzip -o origfw/$fw_file -d origfw/$fw_version
     
-    printMsg "Stripping 32 byte MD5 from beginning of original firmware and outputting..."
-    dd if=`find origfw/$fw_version -name "wdtvlive.bin"` of=origimg.tmp bs=32 skip=1c
-    #unzip -p origfw/$fw_file wdtvlive.bin | dd of=origimg.tmp bs=32 skip=1c
+    printMsg "Stripping 32 byte MD5 and 16 byte signature from original firmware and outputting..."
+    dd if=$fw_orig of=origimg.tmp bs=16 skip=2 count=$(($(stat -c %s $fw_orig)/16-3))
 
     printMsg "Extracting cramfs..."
 
@@ -148,7 +148,7 @@ createDirs(){
 
 downloadApprovedList(){
     printMsg "Attemping to download latest approved.list..."
-    if wget -q -O approved.list http://github.com/drewzh/openwdtv/raw/master/approved.list ; then
+    if wget --no-check-certificate -q -O approved.list https://github.com/drewzh/openwdtv/raw/master/approved.list ; then
         printSuccess "approved.list downloaded"
         return 0
     else
