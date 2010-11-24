@@ -10,10 +10,11 @@
 ###########
 DEBUG=1
 
+. ./sysconfig 
+
 #####################
 # SETUP ENVIRONMENT #
 #####################
-. ./sysconfig
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 /bin/mount -t proc none /proc
 echo "1 1 1 7" > /proc/sys/kernel/printk
@@ -25,8 +26,14 @@ mkdir /dev/pts
 mount -t devpts devpts /dev/pts
 mdev -s
 mount -t tmpfs none /tmp
-mount -t tmpfs none /apps
 /bin/hostname -F /etc/hostname
+
+if [ -f /bin/console_sniffer ]; then
+	/bin/console_sniffer &
+fi
+
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
 
 ########################
 # CREATE INPUT DEVICES #
@@ -34,8 +41,8 @@ mount -t tmpfs none /apps
 mkdir -p /dev/input
 MINOR=0
 while [ $MINOR -lt 17 ]; do
-    mknod /dev/input/event$MINOR c 13 `expr $MINOR + 64`;
-    MINOR=`expr $MINOR + 1`;
+	mknod /dev/input/event$MINOR c 13 `expr $MINOR + 64`;
+	MINOR=`expr $MINOR + 1`;
 done
 
 ####################################
@@ -59,30 +66,35 @@ ln -s /conf/securetty.ori /tmp/securetty.ori
 ######################
 # LOAD CONFIGURATION #
 ######################
-if [ $DEBUG -eq 0 -a "$1" == "upgrade" ]; then
+if [ $DEBUG -eq 0 -a x$1 == "xupgrade" ]; then
     # Only load, don't monitor
-    /sbin/config_tool -l 
-    # Free up some memory
-    touch /tmp/STOP_DMARENDER
-    touch /tmp/STOP_PICRENDER
+	/sbin/config_tool -l 
+	# Free up some memory
+	touch /tmp/STOP_DMARENDER
+	touch /tmp/STOP_PICRENDER
 else
     # Load config and continue to monitor for changes
-    /sbin/config_tool -l -m 10 &
+	/sbin/config_tool -l -m 10 &
 fi
 
 #################################
 # MOUNT STATIC CONFIG PARTITION #
 #################################
-if [ x$SYSCONF_LAST_PARTITION_NODE_NAME != "x" ]; then
-    dd if=$SYSCONF_LAST_PARTITION_NODE_NAME of=/tmp/lastblock bs=1024
-    mkdir $SYSCONF_STATIC_CONFIG_MOUNT_POINT
-    mount -t minix -o loop /tmp/lastblock $SYSCONF_STATIC_CONFIG_MOUNT_POINT
+if [ x$1 != "xf1f1" ]; then
+	if [ x$SYSCONF_LAST_PARTITION_NODE_NAME != "x" ]; then
+		dd if=$SYSCONF_LAST_PARTITION_NODE_NAME of=/tmp/lastblock bs=1024
+		mkdir $SYSCONF_STATIC_CONFIG_MOUNT_POINT
+		mount -t minix -o loop /tmp/lastblock $SYSCONF_STATIC_CONFIG_MOUNT_POINT
+	fi
 fi
 
 ##################
 # EXPORT DISPLAY #
 ##################
 export EM8XXX_SERVER=":0"
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/orion/communicationmanager/lib
+export ORION_DYNAMIC_CONFIG=/tmp/WDTVPriv/.orion
 
 ############################
 # CREATE MISC DEVICE NODES #
@@ -98,15 +110,6 @@ mknod /dev/sda1 b 8 1
 #mknod /dev/loop1 b 7 1
 #mknod /dev/loop2 b 7 2
 #mknod /dev/loop3 b 7 3
-mknod /dev/loop8 b 7 8
-mknod /dev/loop9 b 7 9
-mknod /dev/loop10 b 7 10
-mknod /dev/loop11 b 7 11
-mknod /dev/loop12 b 7 12
-mknod /dev/loop13 b 7 13
-mknod /dev/loop14 b 7 14
-mknod /dev/loop15 b 7 15
-mknod /dev/loop16 b 7 16
 
 ###################
 # RELOAD FIRMWARE #
@@ -123,15 +126,15 @@ modprobe r8169
 ##################
 MAJOR=254
 while [ -f /lib/modules/irkernel.ko ]; do
-    insmod /lib/modules/irkernel.ko major_num=$MAJOR;
-    if [ $? == 0 ]; then
-        mknod /dev/ir c $MAJOR 0
-        break;
-    fi
-    MAJOR=`expr $MAJOR - 1`
-    if [ $MAJOR == 1 ]; then
-        break;
-    fi
+	insmod /lib/modules/irkernel.ko major_num=$MAJOR;
+	if [ $? == 0 ]; then
+		mknod /dev/ir c $MAJOR 0
+		break;
+	fi
+	MAJOR=`expr $MAJOR - 1`
+	if [ $MAJOR == 1 ]; then
+		break;
+	fi
 done
 ln -s /dev/ir /dev/irda
 
@@ -140,85 +143,191 @@ ln -s /dev/ir /dev/irda
 ####################################
 MAJOR=254
 while [ -f /lib/modules/wd_led_rst.ko ]; do
-    insmod /lib/modules/wd_led_rst.ko major_num=$MAJOR;
-    if [ $? == 0 ]; then
-    mknod /dev/led_rst c $MAJOR 0
-        break;
-    fi
-    MAJOR=`expr $MAJOR - 1`
-    if [ $MAJOR == 1 ]; then
-        break;
-    fi
+	insmod /lib/modules/wd_led_rst.ko major_num=$MAJOR;
+	if [ $? == 0 ]; then
+		mknod /dev/led_rst c $MAJOR 0
+		break;
+	fi
+	MAJOR=`expr $MAJOR - 1`
+	if [ $MAJOR == 1 ]; then
+		break;
+	fi
 done
 
 ######################################
 # LOAD PROCESS STDOUT STDIN PIPELINE #
 ######################################
-[ -f /lib/modules/proc_pipe.ko ] && insmod /lib/modules/proc_pipe.ko
+if [ -f /lib/modules/proc_pipe.ko ]; then
+	insmod /lib/modules/proc_pipe.ko
+fi
 
-#####################
-# POPULATE IR TABLE #
-#####################
-[ -f /ir_table ] && cat /ir_table > /proc/tangoxfreq/ir_table
+MAJOR=254
+while [ -f /lib/modules/lmp555_gpio.ko ]; do
+	insmod /lib/modules/lmp555_gpio.ko major_num=$MAJOR;
+	if [ $? == 0 ]; then
+		mknod /dev/led_rst c $MAJOR 0;
+		break;
+	fi
+	MAJOR=`expr $MAJOR - 1`
+	if [ $MAJOR == 1 ]; then
+		break;
+	fi
+done
 
 ##############################
 # MISC KERNEL MODULE LOADING #
 ##############################
 # Paragon NTFS driver
-[ -f /lib/modules/ufsd.ko ] && insmod /lib/modules/ufsd.ko
+if [ -f /lib/modules/ufsd.ko ]; then
+	insmod /lib/modules/ufsd.ko
+fi
+
+if [ -f /lib/modules/tntfs.ko ]; then
+	insmod /lib/modules/tntfs.ko
+fi
+
 # Frequency scaling driver
-[ -f /lib/modules/fctrl.ko ] && insmod /lib/modules/fctrl.ko
-# llad kernel module for standalone configuration.... WHAT?
-[ -f /lib/modules/llad.ko ] && insmod -f /lib/modules/llad.ko
+if [ -f /lib/modules/fctrl.ko ]; then
+	insmod /lib/modules/fctrl.ko
+fi
+
+#####################
+# POPULATE IR TABLE #
+#####################
+if [ -f /ir_table ]; then
+	cat /ir_table > /proc/tangoxfreq/ir_table 
+fi
+
+if [ -f /lib/modules/i2c_hal.ko ]; then
+	insmod /lib/modules/i2c_hal.ko
+fi
+
+if [ -f /lib/modules/thermal_g751.ko ]; then
+	insmod /lib/modules/thermal_g751.ko
+fi
+
+MAJOR=254
+while [ -f /lib/modules/wdtv_rv_microp.ko ]; do
+	insmod /lib/modules/wdtv_rv_microp.ko major_num=$MAJOR;
+	if [ $? == 0 ]; then
+		if [ -f /bin/temp_ctrl.sh ]; then
+			cp /bin/temp_ctrl.sh /tmp;
+			chmod 755 /tmp/temp_ctrl.sh;
+			while [ 1 ]; do sleep 300; /tmp/temp_ctrl.sh; done &
+		fi
+		mknod /dev/led_rst c $MAJOR 0
+		sleep 1;
+		#set RTC time to linux.
+		/usr/sbin/rtc -R
+		break;
+	fi
+	MAJOR=`expr $MAJOR - 1`
+	if [ $MAJOR == 1 ]; then
+		break;
+	fi
+done
 
 ####################
 # LOAD CIFS MODULE #
 ####################
 modprobe cifs CIFSMaxBufSize=64512
 
-##########################
-# SETUP USB MOUNT POINTS #
-##########################
 mkdir -p /tmp/media
 mkdir -p /tmp/media/usb
 
-###################
-# SETUP HOST FILE #
-###################
-if [ ! -f "/conf/hosts" ]; then
-    echo "127.0.0.1 localhost" >> /conf/hosts
-    echo "127.0.0.1 `hostname`" >> /conf/hosts
-    # Block offical updates
-    echo "127.0.0.1 support.wdc.com" >> /conf/hosts
-fi
-ln -s /conf/hosts /tmp/hosts
-
-##################################
-# SETUP LOCAL LOOPBACK INTERFACE #
-##################################
 ifconfig lo 127.0.0.1
 
-#################################################
-# SYMLINK LOGIN CREDENTIALS TO CONFIG PARTITION #
-#################################################
-[ ! -f "/conf/passwd.conf" ] && cp /etc/passwd.conf /conf/
-ln -s /conf/passwd.conf /tmp/passwd.conf
-[ ! -f "/conf/shadow.conf" ] && cp /etc/shadow.conf /conf/
-ln -s /conf/shadow.conf /tmp/shadow.conf
+# llad kernel module for standalone configuration.... WHAT?
+if [ -f /lib/modules/llad.ko ]; then
+insmod -f /lib/modules/llad.ko
+fi
 
-##################
-# ENABLE SYSLOGD #
-##################
-syslogd -O /tmp/messages
+if [ -f /etc/directfbrc ]; then
+cp /etc/directfbrc /tmp/directfbrc
+fi
+if [ -f /etc/sigmadfbrc ]; then
+cp /etc/sigmadfbrc /tmp/sigmadfbrc
+fi
+if [ -f /usr/sbin/directfbrc_builder ]; then
+/usr/sbin/directfbrc_builder
+fi
+
+cp /etc/passwd.conf /tmp -f
+cp /etc/shadow.conf /tmp -f
+
+if [ x$1 == "xf1f1" ]; then
+	echo "enter f1 test ..."
+	/bin/sh
+fi
+
+if [ x$1 == "xsisi" ]; then
+	echo "enter si test ..."
+	mount /dev/sda1 /tmp/media/usb
+	if [ $? != 0 ]; then
+		echo "Mounting /dev/sda1 fail, try to mount /dev/sda to /tmp/media/usb"
+		mount /dev/sda /tmp/media/usb
+		if [ $? != 0 ]; then
+			echo "Mounting /dev/sda still fail, abort!!!"
+		fi
+	fi
+	if [ ! -f /tmp/media/usb/runsit.sh ]; then
+		echo "/tmp/media/usb/runsit.sh is not exist..."
+		umount /tmp/media/usb
+		mount /dev/sdb1 /tmp/media/usb
+		if [ $? != 0 ]; then
+			echo "Mounting /dev/sdb1 fail, try to mount /dev/sdb to /tmp/media/usb"
+			mount /dev/sdb /tmp/media/usb
+			if [ $? != 0 ]; then
+				echo "Mounting /dev/sdb still fail, abort!!!"
+			fi
+		fi
+	fi
+	/tmp/media/usb/runsit.sh
+	/bin/sh
+fi
 
 ######################
 # LOAD CACHE SERVICE #
 ######################
 /bin/memory_cache_server &
 
-#while [ 1 ]; do
-#    /bin/sh;
-#done
+if [ -f /usr/local/sshd/sbin/sshd ]; then
+	mkdir -p /tmp/empty ; 
+	/usr/local/sshd/sbin/sshd;
+fi
+
+if [ -f $SYSCONF_STATIC_CONFIG_MOUNT_POINT/config ]; then
+	. $SYSCONF_STATIC_CONFIG_MOUNT_POINT/config
+	if [ x${CONF_EXT} = xy ]; then
+		touch /tmp/sata_ext;
+	fi
+	if [ x${CONF_XFS} = xy ]; then
+		touch /tmp/sata_xfs;
+	fi
+	if [ x${CONF_MO} = xy ]; then
+		touch /tmp/conf_mo;
+	fi
+fi
+
+#
+# Try to enable swap using internal SATA
+#
+LIST=`cd /sys/block; ls -d sd*`
+FOUND=0;
+for DEV in $LIST; do
+	ls -ld /sys/block/${DEV}/device | grep -q SATA;
+	if [ $? == 0 ]; then
+		FOUND=1;
+		break;
+	fi
+done
+if [ $FOUND == 1 ]; then
+	SWAPDEV=`fdisk -l /dev/${DEV} | grep swap`;
+	for X in $SWAPDEV; do
+		swapon ${X};
+		break;
+	done
+fi
 
 ####################
 # LOAD CUSTOM APPS #
@@ -246,6 +355,16 @@ else
     /etc/init.d/rcS $1 $2 $3&
 fi
 
+#/bin/run_twonky_server &
+
+if [ -d /webserver ]; then
+	/bin/webgui_db_checker
+	if [ ! -f /tmp/conf/database.db ]; then 
+		cp /conf_src/database.db /tmp/conf/ ; 
+	fi
+	mount -t tmpfs tmpfs /webserver/logs
+fi
+
 logger -s -t $0 "OpenWDTV Initialised!"
 
 #################################
@@ -254,3 +373,4 @@ logger -s -t $0 "OpenWDTV Initialised!"
 while [ 1 ]; do
     /bin/sh ;
 done
+
