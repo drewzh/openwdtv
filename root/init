@@ -26,6 +26,18 @@ mkdir /dev/pts
 mount -t devpts devpts /dev/pts
 mdev -s
 mount -t tmpfs none /tmp
+
+###################
+# SETUP HOST FILE #
+###################
+if [ ! -f "/conf/hosts" ]; then
+    echo "127.0.0.1 localhost" >> /conf/hosts
+    echo "127.0.0.1 `hostname`" >> /conf/hosts
+    # Block offical updates
+    echo "127.0.0.1 support.wdc.com" >> /conf/hosts
+fi
+ln -s /conf/hosts /tmp/hosts
+
 /bin/hostname -F /etc/hostname
 
 if [ -f /bin/console_sniffer ]; then
